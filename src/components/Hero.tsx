@@ -61,11 +61,13 @@ const Hero = () => {
             </Button>
             <Button 
               variant="outline" 
-              size="lg"
-              className="border-2 border-white bg-white/10 backdrop-blur-sm text-earth font-semibold px-8 py-4 rounded-full hover:bg-white/20 transition-all duration-300"
-            >
-              Poznaj moją ofertę
-            </Button>
+  size="lg"
+  className="border-2 border-white bg-white/10 backdrop-blur-sm text-earth font-semibold px-8 py-4 rounded-full hover:bg-white/20 transition-all duration-300"
+  onClick={scrollToServices}
+>
+  Poznaj moją ofertę
+</Button>
+
           </div>
 
           {/* Subtitle */}
