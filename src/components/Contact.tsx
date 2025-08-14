@@ -12,7 +12,9 @@ import {
   Send,
   Calendar,
   MessageSquare,
-  Heart
+  Heart,
+  Facebook,
+  Linkedin
 } from "lucide-react";
 
 const Contact = () => {
@@ -278,6 +280,38 @@ const Contact = () => {
                     <Heart className="w-4 h-4 mr-2" />
                     Rozpocznij rozmowę
                   </Button>
+                </CardContent>
+              </Card>
+
+              {/* Social Media */}
+              <Card className="shadow-card border-0 bg-white/90">
+                <CardHeader>
+                  <CardTitle className="flex items-center text-earth">
+                    <Heart className="w-6 h-6 text-sage mr-3" />
+                    Znajdź mnie także
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex gap-4 justify-center">
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="flex items-center gap-2 border-sage/20 hover:border-sage hover:bg-sage/5 text-sage hover:text-sage"
+                      onClick={() => window.open('https://facebook.com', '_blank')}
+                    >
+                      <Facebook className="w-5 h-5" />
+                      Facebook
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="flex items-center gap-2 border-sage/20 hover:border-sage hover:bg-sage/5 text-sage hover:text-sage"
+                      onClick={() => window.open('https://linkedin.com', '_blank')}
+                    >
+                      <Linkedin className="w-5 h-5" />
+                      LinkedIn
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
 
