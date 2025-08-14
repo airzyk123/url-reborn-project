@@ -12,6 +12,13 @@ import {
 } from "lucide-react";
 
 const Services = () => {
+  const scrollToContact = () => {
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const services = [
     {
       icon: User,
@@ -150,6 +157,7 @@ const Services = () => {
                     <Button 
                       variant="outline" 
                       className="w-full group/btn border-sage/30 text-sage hover:bg-sage hover:text-white transition-all duration-300"
+                      onClick={scrollToContact}
                     >
                       Dowiedz się więcej
                       <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
