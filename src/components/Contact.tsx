@@ -26,6 +26,17 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
+  const scrollToForm = () => {
+    const formElement = document.querySelector('#contact form');
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      const nameInput = document.getElementById('name') as HTMLInputElement;
+      if (nameInput) {
+        setTimeout(() => nameInput.focus(), 500);
+      }
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -262,6 +273,7 @@ const Contact = () => {
                   </p>
                   <Button 
                     className="bg-gradient-accent text-white font-medium px-8 py-3 rounded-full shadow-soft hover:shadow-card transition-all duration-300 hover:scale-105"
+                    onClick={scrollToForm}
                   >
                     <Heart className="w-4 h-4 mr-2" />
                     Rozpocznij rozmowę
