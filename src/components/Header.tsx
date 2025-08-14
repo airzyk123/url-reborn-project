@@ -15,6 +15,15 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToContact = () => scrollToSection('contact');
+
   const navItems = [
     { label: "O mnie", href: "#about" },
     { label: "Oferta", href: "#services" },
@@ -54,6 +63,7 @@ const Header = () => {
             <Button 
               variant="default" 
               className="bg-gradient-accent text-white font-medium px-6 py-2 rounded-full shadow-soft hover:shadow-card transition-all duration-300 hover:scale-105"
+              onClick={scrollToContact}
             >
               Umów wizytę
             </Button>
@@ -92,6 +102,7 @@ const Header = () => {
                 <Button 
                   variant="default" 
                   className="w-full bg-gradient-accent text-white font-medium rounded-full"
+                  onClick={scrollToContact}
                 >
                   Umów wizytę
                 </Button>

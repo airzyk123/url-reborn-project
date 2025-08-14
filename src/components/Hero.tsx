@@ -3,6 +3,16 @@ import { ArrowRight, Heart, Users, Star } from "lucide-react";
 import heroImage from "@/assets/hero-therapy.jpg";
 
 const Hero = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToContact = () => scrollToSection('contact');
+  const scrollToServices = () => scrollToSection('services');
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -55,6 +65,7 @@ const Hero = () => {
             <Button 
               size="lg"
               className="bg-gradient-accent text-white font-semibold px-8 py-4 rounded-full shadow-hero hover:shadow-xl transition-all duration-300 hover:scale-105 group"
+              onClick={scrollToContact}
             >
               Umów pierwszą rozmowę
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -63,6 +74,7 @@ const Hero = () => {
               variant="outline" 
               size="lg"
               className="border-2 border-white bg-white/10 backdrop-blur-sm text-earth font-semibold px-8 py-4 rounded-full hover:bg-white/20 transition-all duration-300"
+              onClick={scrollToServices}
             >
               Poznaj moją ofertę
             </Button>
