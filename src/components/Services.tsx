@@ -8,7 +8,8 @@ import {
   Heart,
   ArrowRight,
   Clock,
-  MapPin
+  MapPin,
+  Target
 } from "lucide-react";
 
 const Services = () => {
@@ -75,6 +76,20 @@ const Services = () => {
       ],
       price: "Na zapytanie",
       gradient: "from-sage/20 to-accent/15"
+    },
+    {
+      icon: Target,
+      title: "Coaching",
+      subtitle: "Osiąganie celów i rozwój osobisty",
+      description: "Profesjonalny coaching osobisty i zawodowy pomagający w określeniu celów, przezwyciężaniu barier i rozwijaniu potencjału. Wsparcie w budowaniu pewności siebie i realizacji marzeń.",
+      features: [
+        "Określanie celów życiowych",
+        "Przezwyciężanie barier",
+        "Rozwój pewności siebie",
+        "Planowanie działań"
+      ],
+      price: "130 zł",
+      gradient: "from-accent/25 to-sage-light/15"
     },
     {
       icon: Heart,
