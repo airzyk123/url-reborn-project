@@ -5,7 +5,7 @@ import profilePlaceholder from "@/assets/profile-placeholder.jpg";
 
 const About = () => {
   const qualifications = [
-    "Mgr psycholog",
+    "Magister psychologii",
     "Psychopedagog",
     "Psychoterapeuta humanistyczno-doświadczeniowa",
     "Trenerka Family-lab Polska",
