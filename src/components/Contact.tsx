@@ -269,8 +269,8 @@ const Contact = () => {
                   <h3 className="text-xl font-semibold text-earth mb-4">
                     Umów pierwszą rozmowę
                   </h3>
-                  <p className="text-foreground/80 mb-6">
-                    Pierwszy kontakt to ważny krok. Nie musisz się na nic zobowiązywać - 
+                   <p className="text-foreground/80 mb-6">
+                    Pierwszy kontakt to ważny krok. W gabinecie "Lepsze relacje" nie musisz się na nic zobowiązywać - 
                     porozmawiajmy o tym, jak mogę Ci pomóc.
                   </p>
                   <Button 

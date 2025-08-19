@@ -82,8 +82,8 @@ const Hero = () => {
 
           {/* Subtitle */}
           <p className="mt-12 text-base sm:text-lg text-earth/70 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.6s" }}>
-            <strong>dr Olga Filaszkiewicz</strong> - psychoterapeuta, trener komunikacji, 
-            certyfikowana trenerka Family-lab Polska
+            <strong>dr Olga Filaszkiewicz</strong> - psychoterapeuta, trener komunikacji<br/>
+            <span className="text-sage font-medium">Gabinet "Lepsze relacje"</span> • Warszawa, Mokotów
           </p>
         </div>
       </div>

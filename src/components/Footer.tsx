@@ -10,14 +10,14 @@ const Footer = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Brand */}
             <div className="lg:col-span-2">
-              <h3 className="text-2xl font-serif font-bold mb-4">Lepsze Relacje</h3>
+              <h3 className="text-2xl font-serif font-bold mb-4">Gabinet "Lepsze Relacje"</h3>
               <p className="text-white/80 mb-6 leading-relaxed">
                 Pomagam nawiązywać prawdziwy kontakt z samym sobą i z drugim człowiekiem. 
                 Uczę jak gadać, by się dogadać: w rodzinie, w pracy, po prostu w życiu.
               </p>
               <div className="flex items-center text-white/60">
                 <Heart className="w-5 h-5 mr-2 text-sage-light" />
-                <span>dr Olga Filaszkiewicz</span>
+                <span>dr Olga Filaszkiewicz - psychoterapeuta</span>
               </div>
             </div>
 
@@ -114,7 +114,7 @@ const Footer = () => {
               </nav>
               
               <div className="text-white/60 text-sm">
-                © {currentYear} Lepsze Relacje. Wszystkie prawa zastrzeżone.
+                © {currentYear} Gabinet "Lepsze Relacje" - dr Olga Filaszkiewicz. Wszystkie prawa zastrzeżone.
               </div>
             </div>
           </div>
