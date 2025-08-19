@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Brand */}
             <div className="lg:col-span-2">
-              <h3 className="text-2xl font-serif font-bold mb-4">Gabinet "Lepsze Relacje"</h3>
+              <h3 className="text-2xl font-serif font-bold mb-4">Pracownia "Lepsze Relacje"</h3>
               <p className="text-white/80 mb-6 leading-relaxed">
                 Pomagam nawiązywać prawdziwy kontakt z samym sobą i z drugim człowiekiem. 
                 Uczę jak gadać, by się dogadać: w rodzinie, w pracy, po prostu w życiu.
@@ -60,24 +60,24 @@ const Footer = () => {
                 <div className="flex items-center">
                   <Mail className="w-4 h-4 mr-3 text-sage-light flex-shrink-0" />
                   <a 
-                    href="mailto:olga@lepszerelacje.pl"
+                    href="mailto:info@lepszerelacje.pl"
                     className="hover:text-sage-light transition-colors"
                   >
-                    olga@lepszerelacje.pl
+                    info@lepszerelacje.pl
                   </a>
                 </div>
                 <div className="flex items-center">
                   <Phone className="w-4 h-4 mr-3 text-sage-light flex-shrink-0" />
                   <a 
-                    href="tel:+48123456789"
+                    href="tel:+48505113807"
                     className="hover:text-sage-light transition-colors"
                   >
-                    +48 123 456 789
+                    505 113 807
                   </a>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-4 h-4 mr-3 text-sage-light flex-shrink-0" />
-                  <span>Warszawa, Mokotów</span>
+                  <span>ul. Władysława IV 40/17, Plac Unii, II piętro, Gdynia</span>
                 </div>
               </div>
             </div>
@@ -114,7 +114,7 @@ const Footer = () => {
               </nav>
               
               <div className="text-white/60 text-sm">
-                © {currentYear} Gabinet "Lepsze Relacje" - dr Olga Filaszkiewicz. Wszystkie prawa zastrzeżone.
+                © {currentYear} Pracownia "Lepsze Relacje" - dr Olga Filaszkiewicz. Wszystkie prawa zastrzeżone.
               </div>
             </div>
           </div>

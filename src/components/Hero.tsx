@@ -46,18 +46,20 @@ const Hero = () => {
 
           {/* Main Heading */}
           <div className="mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            <p className="text-lg sm:text-xl text-earth/80 font-medium mb-4">
-              Bo co jest w życiu ważniejszego, niż dbanie o
-            </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-serif font-bold text-earth mb-4">
-              LEPSZE RELACJE
-            </h1>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-earth/90 mb-6">
-              z sobą samym i ze światem
-            </h2>
-            <p className="text-lg sm:text-xl text-earth/80 font-medium">
-              które dają poczucie, że gramy w jednej drużynie?
-            </p>
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-hero">
+              <p className="text-lg sm:text-xl text-earth font-medium mb-4">
+                Bo co jest w życiu ważniejszego, niż dbanie o
+              </p>
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-serif font-bold text-earth mb-4">
+                LEPSZE RELACJE
+              </h1>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-earth mb-6">
+                z sobą samym i ze światem
+              </h2>
+              <p className="text-lg sm:text-xl text-earth font-medium">
+                które dają poczucie, że gramy w jednej drużynie?
+              </p>
+            </div>
           </div>
 
           {/* CTA Buttons */}
@@ -81,9 +83,9 @@ const Hero = () => {
           </div>
 
           {/* Subtitle */}
-          <p className="mt-12 text-base sm:text-lg text-earth/70 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.6s" }}>
-            <strong>dr Olga Filaszkiewicz</strong> - psychoterapeuta, trener komunikacji<br/>
-            <span className="text-sage font-medium">Gabinet "Lepsze relacje"</span> • Warszawa, Mokotów
+          <p className="mt-12 text-base sm:text-lg text-white/90 max-w-2xl mx-auto animate-fade-in bg-black/20 backdrop-blur-sm rounded-lg p-4" style={{ animationDelay: "0.6s" }}>
+            <strong className="text-white">dr Olga Filaszkiewicz</strong> - psychoterapeuta, trener komunikacji<br/>
+            <span className="text-sage-light font-medium">Pracownia "Lepsze relacje"</span> • Gdynia, Plac Unii
           </p>
         </div>
       </div>

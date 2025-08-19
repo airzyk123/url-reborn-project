@@ -69,19 +69,19 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      value: "olga@lepszerelacje.pl",
-      link: "mailto:olga@lepszerelacje.pl"
+      value: "info@lepszerelacje.pl",
+      link: "mailto:info@lepszerelacje.pl"
     },
     {
       icon: Phone,
       title: "Telefon",
-      value: "+48 123 456 789",
-      link: "tel:+48123456789"
+      value: "505 113 807",
+      link: "tel:+48505113807"
     },
     {
       icon: MapPin,
       title: "Lokalizacja",
-      value: "Warszawa, Mokotów",
+      value: "ul. Władysława IV 40/17, Plac Unii, II piętro, Gdynia",
       link: "#"
     },
     {
@@ -270,7 +270,7 @@ const Contact = () => {
                     Umów pierwszą rozmowę
                   </h3>
                    <p className="text-foreground/80 mb-6">
-                    Pierwszy kontakt to ważny krok. W gabinecie "Lepsze relacje" nie musisz się na nic zobowiązywać - 
+                    Pierwszy kontakt to ważny krok. W pracowni "Lepsze relacje" nie musisz się na nic zobowiązywać - 
                     porozmawiajmy o tym, jak mogę Ci pomóc.
                   </p>
                   <Button 
