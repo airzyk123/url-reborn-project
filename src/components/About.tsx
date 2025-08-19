@@ -5,9 +5,9 @@ import profilePlaceholder from "@/assets/profile-placeholder.jpg";
 
 const About = () => {
   const qualifications = [
+    "Psychoterapeuta humanistyczno-doświadczeniowa",
     "Magister psychologii",
     "Psychopedagog",
-    "Psychoterapeuta humanistyczno-doświadczeniowa",
     "Trenerka Family-lab Polska",
     "Trenerka komunikacji opartej na empatii (NVC)",
     "Doktor nauk społecznych"
@@ -17,7 +17,7 @@ const About = () => {
     "Mama, żona, córka",
     "Pańcia dwóch mopsów",
     "Nauczyciel akademicki",
-    "A przede wszystkim sobą :)"
+    "A przede wszystkim jestem sobą :)"
   ];
 
   return (

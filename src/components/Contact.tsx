@@ -87,7 +87,7 @@ const Contact = () => {
     {
       icon: Clock,
       title: "Godziny przyjęć",
-      value: "Pn-Pt: 9:00-18:00",
+      value: "Pn-Pt: 10:00-20:00, Sob: do uzgodnienia",
       link: "#"
     }
   ];
