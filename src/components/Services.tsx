@@ -32,7 +32,7 @@ const Services = () => {
         "Bezpieczna przestrzeń",
         "Profesjonalne wsparcie"
       ],
-      price: "150 zł",
+      price: "200 zł",
       gradient: "from-sage-light/20 to-sage/10"
     },
     {
@@ -46,7 +46,7 @@ const Services = () => {
         "Komunikacja z dziećmi",
         "Rozwiązywanie konfliktów"
       ],
-      price: "120 zł",
+      price: "200 zł",
       gradient: "from-beige/30 to-sage-light/20"
     },
     {
@@ -60,7 +60,7 @@ const Services = () => {
         "Wymiana doświadczeń",
         "Rozwój osobisty"
       ],
-      price: "80 zł",
+      price: "200 zł",
       gradient: "from-accent/20 to-beige/20"
     },
     {
@@ -88,7 +88,7 @@ const Services = () => {
         "Rozwój pewności siebie",
         "Planowanie działań"
       ],
-      price: "130 zł",
+      price: "200 zł",
       gradient: "from-accent/25 to-sage-light/15"
     },
     {
