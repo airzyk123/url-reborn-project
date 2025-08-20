@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import { 
   Mail, 
   Phone, 
@@ -44,20 +45,13 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('https://ihqxrsaadrcchugqybbz.supabase.co/functions/v1/send-contact-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImloeHhyc2FhZHJjY2h1Z3F5YmJ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjQwNTk0NzQsImV4cCI6MjAzOTYzNTQ3NH0.xCn2A-ZBG9ZpBhQ8Uuy6UmwD4KkCJ0Qv-mKIAmLSAPA'
-        },
-        body: JSON.stringify(formData),
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData
       });
 
-      if (!response.ok) {
-        throw new Error('Błąd wysyłania wiadomości');
+      if (error) {
+        throw error;
       }
-
-      const result = await response.json();
       
       toast({
         title: "Wiadomość wysłana!",
