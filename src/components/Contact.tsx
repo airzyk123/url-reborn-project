@@ -44,10 +44,11 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch('/functions/v1/send-contact-email', {
+      const response = await fetch('https://ihqxrsaadrcchugqybbz.supabase.co/functions/v1/send-contact-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImloeHhyc2FhZHJjY2h1Z3F5YmJ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjQwNTk0NzQsImV4cCI6MjAzOTYzNTQ3NH0.xCn2A-ZBG9ZpBhQ8Uuy6UmwD4KkCJ0Qv-mKIAmLSAPA'
         },
         body: JSON.stringify(formData),
       });
