@@ -43,22 +43,43 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "Wiadomość wysłana!",
-      description: "Dziękuję za kontakt. Odpowiem w ciągu 24 godzin.",
-    });
-    
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-      service: ""
-    });
-    setIsSubmitting(false);
+    try {
+      const response = await fetch('/api/send-contact-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Błąd wysyłania wiadomości');
+      }
+
+      const result = await response.json();
+      
+      toast({
+        title: "Wiadomość wysłana!",
+        description: "Dziękuję za kontakt. Odpowiem w ciągu 24 godzin.",
+      });
+      
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+        service: ""
+      });
+    } catch (error) {
+      console.error('Błąd wysyłania:', error);
+      toast({
+        title: "Błąd wysyłania",
+        description: "Przepraszam, wystąpił błąd. Spróbuj ponownie lub skontaktuj się bezpośrednio.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (field: string, value: string) => {
