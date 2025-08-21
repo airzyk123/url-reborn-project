@@ -85,8 +85,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      value: "info@lepszerelacje.pl",
-      link: "mailto:info@lepszerelacje.pl"
+      value: "info@olgafilaszkiewicz.pl",
+      link: "mailto:info@olgafilaszkiewicz.pl"
     },
     {
       icon: Phone,

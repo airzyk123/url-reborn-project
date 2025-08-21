@@ -55,7 +55,7 @@ serve(async (req) => {
       },
       body: JSON.stringify({
         from: 'Formularz kontaktowy <noreply@lepszerelacje.pl>',
-        to: ['info@lepszerelacje.pl'],
+        to: ['info@olgafilaszkiewicz.pl'],
         reply_to: email,
         subject: `Nowa wiadomość od ${name}`,
         html: emailHtml,
