@@ -28,7 +28,9 @@ serve(async (req) => {
 
     // Get Resend API key
     const resendApiKey = Deno.env.get('RESEND_API_KEY')
+    console.log('RESEND_API_KEY exists:', !!resendApiKey)
     if (!resendApiKey) {
+      console.error('Missing RESEND_API_KEY environment variable')
       throw new Error('Brak klucza API Resend')
     }
 
@@ -54,7 +56,7 @@ serve(async (req) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Formularz kontaktowy <noreply@lepszerelacje.pl>',
+        from: 'Formularz kontaktowy <noreply@olgafilaszkiewicz.pl>',
         to: ['info@olgafilaszkiewicz.pl'],
         reply_to: email,
         subject: `Nowa wiadomość od ${name}`,
@@ -64,8 +66,9 @@ serve(async (req) => {
 
     if (!emailResponse.ok) {
       const error = await emailResponse.text()
-      console.error('Błąd Resend:', error)
-      throw new Error('Nie udało się wysłać emaila')
+      console.error('Błąd Resend Response Status:', emailResponse.status)
+      console.error('Błąd Resend Response:', error)
+      throw new Error(`Resend API Error: ${emailResponse.status} - ${error}`)
     }
 
     const result = await emailResponse.json()
@@ -80,9 +83,13 @@ serve(async (req) => {
     )
 
   } catch (error) {
-    console.error('Błąd:', error)
+    console.error('Błąd funkcji wysyłania emaila:', error)
+    console.error('Error details:', error.message)
     return new Response(
-      JSON.stringify({ error: 'Wystąpił błąd podczas wysyłania wiadomości' }),
+      JSON.stringify({ 
+        error: 'Wystąpił błąd podczas wysyłania wiadomości',
+        details: error.message 
+      }),
       {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
         status: 500,
