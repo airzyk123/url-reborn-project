@@ -30,15 +30,15 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Service Tags */}
           <div className="flex flex-wrap justify-center gap-4 mb-8 animate-fade-in">
-            <span className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-sm text-sage font-medium rounded-full shadow-soft">
+            <span className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30">
               <Heart className="w-4 h-4 mr-2" />
               Psychoterapia
             </span>
-            <span className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-sm text-sage font-medium rounded-full shadow-soft">
+            <span className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30">
               <Users className="w-4 h-4 mr-2" />
               Konsultacje rodzicielskie
             </span>
-            <span className="inline-flex items-center px-4 py-2 bg-white/90 backdrop-blur-sm text-sage font-medium rounded-full shadow-soft">
+            <span className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30">
               <Star className="w-4 h-4 mr-2" />
               Warsztaty
             </span>
@@ -46,17 +46,17 @@ const Hero = () => {
 
           {/* Main Heading */}
           <div className="mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-hero">
-              <p className="text-lg sm:text-xl text-earth font-medium mb-4">
+            <div className="bg-black/30 backdrop-blur-md rounded-2xl p-8 shadow-hero border border-white/20">
+              <p className="text-lg sm:text-xl text-white font-medium mb-4 drop-shadow-lg">
                 Bo co jest w życiu ważniejszego, niż dbanie o
               </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-serif font-bold text-earth mb-4">
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-serif font-bold text-white mb-4 drop-shadow-lg">
                 LEPSZE RELACJE
               </h1>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-earth mb-6">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-white mb-6 drop-shadow-lg">
                 z sobą samym i ze światem
               </h2>
-              <p className="text-lg sm:text-xl text-earth font-medium">
+              <p className="text-lg sm:text-xl text-white font-medium drop-shadow-lg">
                 które dają poczucie, że gramy w jednej drużynie?
               </p>
             </div>
@@ -75,7 +75,7 @@ const Hero = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-2 border-white bg-white/10 backdrop-blur-sm text-earth font-semibold px-8 py-4 rounded-full hover:bg-white/20 transition-all duration-300"
+              className="border-2 border-white/50 bg-black/20 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-full hover:bg-black/30 transition-all duration-300"
               onClick={scrollToServices}
             >
               Poznaj moją ofertę
