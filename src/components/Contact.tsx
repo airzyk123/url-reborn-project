@@ -313,7 +313,7 @@ const Contact = () => {
                       variant="outline"
                       size="lg"
                       className="flex items-center gap-2 border-sage/20 hover:border-sage hover:bg-sage/5 text-sage hover:text-sage"
-                      onClick={() => window.open('https://facebook.com', '_blank')}
+                      onClick={() => window.open('https://www.facebook.com/lepszerelacje', '_blank')}
                     >
                       <Facebook className="w-5 h-5" />
                       Facebook
@@ -322,7 +322,7 @@ const Contact = () => {
                       variant="outline"
                       size="lg"
                       className="flex items-center gap-2 border-sage/20 hover:border-sage hover:bg-sage/5 text-sage hover:text-sage"
-                      onClick={() => window.open('https://linkedin.com', '_blank')}
+                      onClick={() => window.open('https://pl.linkedin.com/in/olgafilaszkiewicz', '_blank')}
                     >
                       <Linkedin className="w-5 h-5" />
                       LinkedIn
