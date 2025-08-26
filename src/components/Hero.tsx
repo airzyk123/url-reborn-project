@@ -85,7 +85,7 @@ const Hero = () => {
           {/* Subtitle */}
           <p className="mt-12 text-base sm:text-lg text-white max-w-2xl mx-auto animate-fade-in bg-black/40 backdrop-blur-md rounded-lg p-6 border border-white/20" style={{ animationDelay: "0.6s" }}>
             <strong className="text-white drop-shadow-lg">dr Olga Filaszkiewicz</strong> - psychoterapeuta, trener komunikacji<br/>
-            <span className="text-sage-light font-medium drop-shadow-lg">Pracownia "Lepsze relacje"</span> • Gdynia, Plac Unii
+            <span className="text-sage-light font-medium drop-shadow-lg">Pracownia "Lepsze relacje"</span> • ul. Władysława IV 40/17, Plac Unii, II piętro, Gdynia
           </p>
         </div>
       </div>
