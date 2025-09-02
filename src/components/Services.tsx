@@ -25,7 +25,7 @@ const Services = () => {
       icon: User,
       title: "Psychoterapia",
       subtitle: "Spotkania indywidualne, psychoterapeutyczne",
-      description: "Profesjonalne wsparcie psychoterapeutyczne w nurcie humanistyczno-doświadczeniowym. Pomoc w radzeniu sobie z trudnościami emocjonalnymi, kryzysami życiowymi i problemami relacyjnymi.",
+      description: "Przeznaczona dla osób dorosłych zmagających się z trudnymi emocjami, lękami, stresem lub przechodzących trudny okres w życiu. W bezpiecznej przestrzeni pomogę Ci lepiej zrozumieć siebie i odnaleźć własne zasoby. To inwestycja w Twoje dobre samopoczucie i rozwój osobisty.",
       features: [
         "Sesje indywidualne 50 min",
         "Podejście humanistyczne",
@@ -39,7 +39,7 @@ const Services = () => {
       icon: Users,
       title: "Konsultacje rodzicielskie",
       subtitle: "Wsparcie dla rodziców i opiekunów",
-      description: "Pomoc w budowaniu lepszych relacji z dziećmi, rozwiązywaniu konfliktów rodzinnych i rozwoju umiejętności komunikacyjnych w oparciu o metodę Family-lab.",
+      description: "Dedykowane rodzicom, którzy chcą budować lepsze relacje z dziećmi i skuteczniej radzić sobie z wyzwaniami wychowawczymi. Pomogę Ci rozwiązywać konflikty rodzinne i rozwijać umiejętności komunikacyjne w oparciu o metodę Family-lab. Wspólnie znajdziemy sposób na harmonijne życie rodzinne.",
       features: [
         "Wsparcie w rodzicielstwie",
         "Metody Family-lab",
@@ -53,7 +53,7 @@ const Services = () => {
       icon: MessageCircle,
       title: "Grupy mocy, grupy wsparcia",
       subtitle: "Spotkania w grupach rozwojowo-wsparciowych",
-      description: "Regularne spotkania grupowe dla rodziców i osób chcących rozwijać swoje umiejętności komunikacyjne oraz otrzymać wsparcie w trudnych sytuacjach życiowych.",
+      description: "Stworzone dla osób szukających wsparcia społecznego i chcących rozwijać się w towarzystwie innych. W grupie znajdziesz zrozumienie, wymienisz doświadczenia i otrzymasz cenne perspektywy. To przestrzeń wzajemnego wsparcia, gdzie nikt nie jest sam ze swoimi wyzwaniami.",
       features: [
         "Spotkania grupowe",
         "Wzajemne wsparcie",
@@ -67,7 +67,7 @@ const Services = () => {
       icon: BookOpen,
       title: "Warsztaty i wykłady",
       subtitle: "O komunikacji i budowaniu relacji",
-      description: "Warsztaty i wykłady dla firm, szkół i organizacji na temat komunikacji bez przemocy, budowania zespołu i efektywnej współpracy w życiu zawodowym.",
+      description: "Przeznaczone dla firm, szkół i organizacji, które chcą poprawić komunikację i współpracę w zespole. Uczę skutecznej komunikacji bez przemocy i budowania relacji opartych na wzajemnym szacunku. Każdy warsztat dostosowuję do specyficznych potrzeb Twojej organizacji.",
       features: [
         "Dla firm i organizacji",
         "Komunikacja NVC",
@@ -81,7 +81,7 @@ const Services = () => {
       icon: Target,
       title: "Coaching",
       subtitle: "Osiąganie celów i rozwój osobisty",
-      description: "Profesjonalny coaching osobisty i zawodowy pomagający w określeniu celów, przezwyciężaniu barier i rozwijaniu potencjału. Wsparcie w budowaniu pewności siebie i realizacji marzeń.",
+      description: "Skierowany do osób, które chcą osiągnąć swoje cele i rozwinąć swój potencjał. Pomogę Ci określić priorytety, przezwyciężyć bariery i wypracować plan działania. W procesie coachingu odkryjesz swoje mocne strony i nauczysz się skutecznie realizować swoje marzenia.",
       features: [
         "Określanie celów życiowych",
         "Przezwyciężanie barier",
@@ -95,7 +95,7 @@ const Services = () => {
       icon: Heart,
       title: "Seminaria Family-lab",
       subtitle: "Na licencji organizacji założonej przez Jespera Juula",
-      description: "Autorskie seminaria Family-lab Polska oparte na filozofii Jespera Juula, skupiające się na budowaniu autentycznych relacji i wzajemnego szacunku w rodzinie.",
+      description: "Przeznaczone dla rodziców i opiekunów pragnących budować autentyczne, pełne szacunku relacje z dziećmi. Oparte na filozofii Jespera Juula, seminaria uczą jak być prawdziwym liderem w rodzinie. Znajdziesz tu narzędzia do tworzenia harmonijnych relacji rodzinnych opartych na wzajemnym zrozumieniu.",
       features: [
         "Metoda Jesper Juul",
         "Certyfikowane seminaria",
