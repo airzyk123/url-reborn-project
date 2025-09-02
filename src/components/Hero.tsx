@@ -47,17 +47,11 @@ const Hero = () => {
           {/* Main Heading */}
           <div className="mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>
             <div className="bg-black/30 backdrop-blur-md rounded-2xl p-8 shadow-hero border border-white/20">
-              <p className="text-lg sm:text-xl text-white font-medium mb-4 drop-shadow-lg">
-                Bo co jest w życiu ważniejszego, niż dbanie o
-              </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-serif font-bold text-white mb-4 drop-shadow-lg">
-                LEPSZE RELACJE
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 drop-shadow-lg">
+                Twoje emocje zasługują na profesjonalną opiekę
               </h1>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-white mb-6 drop-shadow-lg">
-                z sobą samym i ze światem
-              </h2>
               <p className="text-lg sm:text-xl text-white font-medium drop-shadow-lg">
-                które dają poczucie, że gramy w jednej drużynie?
+                Każdy potrzebuje czasem wsparcia. Oferuję bezpieczną przestrzeń, gdzie możesz być sobą i pracować nad lepszymi relacjami z sobą i bliskimi.
               </p>
             </div>
           </div>
