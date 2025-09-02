@@ -5,12 +5,14 @@ import profilePlaceholder from "@/assets/profile-placeholder.jpg";
 
 const About = () => {
   const qualifications = [
+    "Doktor nauk społecznych",
+    "Magister psychologii - Uniwersytet Warszawski",
+    "Magister pedagogiki - Uniwersytet Warszawski", 
     "Psychoterapeuta humanistyczno-doświadczeniowa",
-    "Magister psychologii",
-    "Psychopedagog",
+    "Certyfikowana terapeutka systemowa",
     "Trenerka Family-lab Polska",
     "Trenerka komunikacji opartej na empatii (NVC)",
-    "Doktor nauk społecznych"
+    "Psychopedagog"
   ];
 
   const personalInfo = [
@@ -49,14 +51,23 @@ const About = () => {
               <Card className="shadow-card border-0 bg-white/80 backdrop-blur-sm">
                 <CardContent className="p-6">
                   <p className="text-lg leading-relaxed text-foreground">
-                    Nazywam się <strong>Olga Filaszkiewicz</strong>, pomagam nawiązywać 
-                    prawdziwy <strong>kontakt z samym sobą i z drugim człowiekiem</strong>. 
-                    Uczę jak gadać, by się dogadać: w rodzinie, w pracy, po prostu w życiu.
+                    Jestem <strong>dr Olgą Filaszkiewicz</strong> - doktorem nauk społecznych, 
+                    psychoterapeutką i trenerką komunikacji z wieloletnim doświadczeniem 
+                    w pracy z ludźmi. Moja praktyka opiera się na <strong>empatii, etyce zawodowej</strong> 
+                    i budowaniu <strong>bezpiecznej relacji terapeutycznej</strong>.
                   </p>
                   <p className="text-lg leading-relaxed text-foreground mt-4">
-                    Wspieram też rodziców i nauczycieli w budowaniu 
-                    <strong> autentycznej, świadomej, pełnej wzajemnego szacunku, 
-                    a także przywództwa w relacji</strong> z dziećmi.
+                    Ukończyłam studia z <strong>psychologii i pedagogiki na Uniwersytecie Warszawskim</strong>, 
+                    a także zdobyłam certyfikaty z <strong>terapii systemowej</strong>. W swojej pracy 
+                    koncentruję się na wspieraniu osób w odkrywaniu własnych zasobów 
+                    i budowaniu <strong>autentycznych, harmonijnych relacji</strong> - zarówno ze sobą, 
+                    jak i z bliskimi.
+                  </p>
+                  <p className="text-lg leading-relaxed text-foreground mt-4">
+                    Specjalizuję się w <strong>psychoterapii indywidualnej, konsultacjach rodzicielskich</strong> 
+                    oraz prowadzeniu warsztatów komunikacyjnych. Każdemu klientowi oferuję 
+                    profesjonalne wsparcie w <strong>bezpiecznej, wolnej od osądu przestrzeni</strong>, 
+                    gdzie może odnaleźć drogę do wewnętrznego spokoju i lepszych relacji.
                   </p>
                 </CardContent>
               </Card>
@@ -81,8 +92,10 @@ const About = () => {
                   </div>
                   <div className="mt-6 pt-6 border-t border-border">
                     <p className="text-sm text-muted-foreground">
-                      Ukończyłam m.in. dwuletnią Szkołę Trenerów Empatii w Warszawie, 
-                      szkolenia z prowadzenia grup wsparcia oraz coaching oparty na potrzebach.
+                      Moją wiedzę pogłębiałam poprzez udział w dwuletniej Szkole Trenerów Empatii w Warszawie, 
+                      specjalistycznych szkoleniach z terapii systemowej, prowadzenia grup wsparcia 
+                      oraz coachingu opartego na potrzebach. Regularnie uczestniczę w superwizjach 
+                      i szkoleniach doskonalących, co gwarantuje najwyższy standard mojej pracy.
                     </p>
                   </div>
                 </CardContent>
