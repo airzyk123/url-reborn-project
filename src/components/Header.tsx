@@ -30,6 +30,7 @@ const Header = () => {
     { label: "Blog", href: "/blog" },
     { label: "Wartości", href: "#values" },
     { label: "Kontakt", href: "#contact" },
+    { label: "Admin", href: "/auth" },
   ];
 
   return (

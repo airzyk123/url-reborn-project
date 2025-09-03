@@ -1,101 +1,207 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Calendar, Clock, User, Plus, Edit3, Trash2 } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { ArrowLeft, Calendar, Clock, User, Plus, Edit3, Trash2, LogIn } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useAuth } from "@/hooks/useAuth";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 interface BlogPost {
-  id: number;
+  id: string;
   title: string;
   excerpt: string;
   content: string;
-  author: string;
-  date: string;
-  readTime: string;
+  author_id: string;
+  created_at: string;
+  updated_at: string;
+  read_time: string;
   tags: string[];
-  gradient: string;
+  published: boolean;
+  profiles?: {
+    display_name: string;
+  };
 }
 
 const Blog = () => {
   const navigate = useNavigate();
+  const { user, isAdmin, isLoading } = useAuth();
+  const { toast } = useToast();
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
   const [isEditing, setIsEditing] = useState(false);
   const [editingPost, setEditingPost] = useState<BlogPost | null>(null);
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([
-    {
-      id: 1,
-      title: "Jak budować zdrowe relacje w rodzinie",
-      excerpt: "Odkryj kluczowe zasady tworzenia harmonijnych relacji rodzinnych opartych na wzajemnym szacunku i zrozumieniu.",
-      content: "Zdrowe relacje rodzinne to fundament szczęśliwego życia. W tym artykule przedstawię praktyczne sposoby budowania więzi opartych na komunikacji bez przemocy...",
-      author: "dr Olga Filaszkiewicz",
-      date: "2024-03-15",
-      readTime: "5 min",
-      tags: ["rodzina", "komunikacja", "relacje"],
-      gradient: "from-sage-light/20 to-sage/10"
-    },
-    {
-      id: 2,
-      title: "Metoda Family-lab w praktyce",
-      excerpt: "Praktyczne zastosowanie filozofii Jespera Juula w codziennym wychowywaniu dzieci.",
-      content: "Family-lab to podejście, które stawia na autentyczność i wzajemny szacunek w relacjach rodzinnych. Jesper Juul pokazał nam, jak ważne jest...",
-      author: "dr Olga Filaszkiewicz",
-      date: "2024-03-10",
-      readTime: "7 min",
-      tags: ["family-lab", "wychowanie", "jesper juul"],
-      gradient: "from-beige/30 to-sage-light/20"
-    },
-    {
-      id: 3,
-      title: "Komunikacja bez przemocy - podstawy NVC",
-      excerpt: "Poznaj fundamentalne zasady porozumienia bez przemocy i ich wpływ na jakość relacji.",
-      content: "Komunikacja bez przemocy (NVC) to metoda opracowana przez Marshalla Rosenberga, która pomaga w budowaniu autentycznych połączeń...",
-      author: "dr Olga Filaszkiewicz",
-      date: "2024-03-05",
-      readTime: "6 min",
-      tags: ["NVC", "komunikacja", "empatia"],
-      gradient: "from-accent/20 to-beige/20"
+  useEffect(() => {
+    fetchBlogPosts();
+  }, []);
+
+  const fetchBlogPosts = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('blog_posts')
+        .select(`
+          *,
+          profiles!blog_posts_author_id_fkey (
+            display_name
+          )
+        `)
+        .eq('published', true)
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        console.error('Error fetching blog posts:', error);
+        toast({
+          title: "Błąd",
+          description: "Nie udało się pobrać artykułów",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      setBlogPosts(data || []);
+    } catch (error) {
+      console.error('Error:', error);
+    } finally {
+      setLoading(false);
     }
-  ]);
+  };
 
   const handleAddPost = () => {
-    const newPost: BlogPost = {
-      id: blogPosts.length + 1,
+    if (!isAdmin) {
+      toast({
+        title: "Brak uprawnień",
+        description: "Tylko administratorzy mogą dodawać artykuły",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    const newPost: Partial<BlogPost> = {
       title: "Nowy artykuł",
       excerpt: "Krótki opis artykułu...",
       content: "Treść artykułu...",
-      author: "dr Olga Filaszkiewicz",
-      date: new Date().toISOString().split('T')[0],
-      readTime: "5 min",
+      read_time: "5 min",
       tags: ["nowy"],
-      gradient: "from-sage/20 to-accent/15"
+      published: true
     };
-    setBlogPosts([newPost, ...blogPosts]);
-    setEditingPost(newPost);
+    
+    setEditingPost(newPost as BlogPost);
     setIsEditing(true);
   };
 
   const handleEditPost = (post: BlogPost) => {
+    if (!isAdmin) {
+      toast({
+        title: "Brak uprawnień",
+        description: "Tylko administratorzy mogą edytować artykuły",
+        variant: "destructive"
+      });
+      return;
+    }
     setEditingPost(post);
     setIsEditing(true);
   };
 
-  const handleSavePost = () => {
-    if (editingPost) {
-      setBlogPosts(blogPosts.map(post => 
-        post.id === editingPost.id ? editingPost : post
-      ));
+  const handleSavePost = async () => {
+    if (!editingPost || !user) return;
+
+    try {
+      if (editingPost.id) {
+        // Update existing post
+        const { error } = await supabase
+          .from('blog_posts')
+          .update({
+            title: editingPost.title,
+            excerpt: editingPost.excerpt,
+            content: editingPost.content,
+            read_time: editingPost.read_time,
+            tags: editingPost.tags,
+            published: editingPost.published
+          })
+          .eq('id', editingPost.id);
+
+        if (error) throw error;
+
+        toast({
+          title: "Sukces",
+          description: "Artykuł został zaktualizowany"
+        });
+      } else {
+        // Create new post
+        const { error } = await supabase
+          .from('blog_posts')
+          .insert({
+            title: editingPost.title,
+            excerpt: editingPost.excerpt,
+            content: editingPost.content,
+            author_id: user.id,
+            read_time: editingPost.read_time,
+            tags: editingPost.tags,
+            published: editingPost.published
+          });
+
+        if (error) throw error;
+
+        toast({
+          title: "Sukces",
+          description: "Nowy artykuł został dodany"
+        });
+      }
+
+      await fetchBlogPosts();
       setIsEditing(false);
       setEditingPost(null);
+    } catch (error) {
+      console.error('Error saving post:', error);
+      toast({
+        title: "Błąd",
+        description: "Nie udało się zapisać artykułu",
+        variant: "destructive"
+      });
     }
   };
 
-  const handleDeletePost = (id: number) => {
-    if (confirm("Czy na pewno chcesz usunąć ten artykuł?")) {
-      setBlogPosts(blogPosts.filter(post => post.id !== id));
+  const handleDeletePost = async (id: string) => {
+    if (!isAdmin) {
+      toast({
+        title: "Brak uprawnień",
+        description: "Tylko administratorzy mogą usuwać artykuły",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (!confirm("Czy na pewno chcesz usunąć ten artykuł?")) return;
+
+    try {
+      const { error } = await supabase
+        .from('blog_posts')
+        .delete()
+        .eq('id', id);
+
+      if (error) throw error;
+
+      toast({
+        title: "Sukces",
+        description: "Artykuł został usunięty"
+      });
+
+      await fetchBlogPosts();
+    } catch (error) {
+      console.error('Error deleting post:', error);
+      toast({
+        title: "Błąd",
+        description: "Nie udało się usunąć artykułu",
+        variant: "destructive"
+      });
     }
   };
 
@@ -172,8 +278,8 @@ const Blog = () => {
                         </label>
                         <input
                           type="text"
-                          value={editingPost.readTime}
-                          onChange={(e) => setEditingPost({...editingPost, readTime: e.target.value})}
+                          value={editingPost.read_time}
+                          onChange={(e) => setEditingPost({...editingPost, read_time: e.target.value})}
                           className="w-full p-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-sage"
                         />
                       </div>
@@ -237,15 +343,15 @@ const Blog = () => {
                   <div className="flex flex-wrap items-center gap-4 text-muted-foreground mb-6">
                     <div className="flex items-center">
                       <User className="w-4 h-4 mr-2" />
-                      {selectedPost.author}
+                      {selectedPost.profiles?.display_name || 'Autor nieznany'}
                     </div>
                     <div className="flex items-center">
                       <Calendar className="w-4 h-4 mr-2" />
-                      {new Date(selectedPost.date).toLocaleDateString('pl-PL')}
+                      {new Date(selectedPost.created_at).toLocaleDateString('pl-PL')}
                     </div>
                     <div className="flex items-center">
                       <Clock className="w-4 h-4 mr-2" />
-                      {selectedPost.readTime}
+                      {selectedPost.read_time}
                     </div>
                   </div>
 
@@ -295,19 +401,32 @@ const Blog = () => {
             </div>
 
             {/* Add Post Button */}
-            <div className="flex justify-end mb-8">
-              <Button onClick={handleAddPost} className="bg-sage text-white">
-                <Plus className="w-4 h-4 mr-2" />
-                Dodaj artykuł
-              </Button>
-            </div>
+            {isAdmin && (
+              <div className="flex justify-end mb-8">
+                <Button onClick={handleAddPost} className="bg-sage text-white">
+                  <Plus className="w-4 h-4 mr-2" />
+                  Dodaj artykuł
+                </Button>
+              </div>
+            )}
+
+            {!isAdmin && !isLoading && (
+              <div className="text-center mb-8">
+                <Button onClick={() => navigate('/auth')} variant="outline">
+                  <LogIn className="w-4 h-4 mr-2" />
+                  Zaloguj się jako admin
+                </Button>
+              </div>
+            )}
 
             {/* Blog Posts Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {blogPosts.map((post) => (
+              {blogPosts.map((post) => {
+                const gradient = "from-sage-light/20 to-sage/10"; // Default gradient for all posts
+                return (
                 <Card 
                   key={post.id}
-                  className={`group shadow-card border-0 bg-gradient-to-br ${post.gradient} hover:shadow-hero transition-all duration-500 hover:scale-105 overflow-hidden relative cursor-pointer`}
+                  className={`group shadow-card border-0 bg-gradient-to-br ${gradient} hover:shadow-hero transition-all duration-500 hover:scale-105 overflow-hidden relative cursor-pointer`}
                   onClick={() => setSelectedPost(post)}
                 >
                   {/* Background decoration */}
@@ -320,40 +439,42 @@ const Blog = () => {
                           {post.title}
                         </h3>
                       </div>
-                      <div className="flex gap-2 ml-2">
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          className="w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleEditPost(post);
-                          }}
-                        >
-                          <Edit3 className="w-4 h-4" />
-                        </Button>
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          className="w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity text-destructive"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleDeletePost(post.id);
-                          }}
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </Button>
-                      </div>
+                      {isAdmin && (
+                        <div className="flex gap-2 ml-2">
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleEditPost(post);
+                            }}
+                          >
+                            <Edit3 className="w-4 h-4" />
+                          </Button>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity text-destructive"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleDeletePost(post.id);
+                            }}
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </Button>
+                        </div>
+                      )}
                     </div>
                     
                     <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
                       <div className="flex items-center">
                         <Calendar className="w-4 h-4 mr-1" />
-                        {new Date(post.date).toLocaleDateString('pl-PL')}
+                        {new Date(post.created_at).toLocaleDateString('pl-PL')}
                       </div>
                       <div className="flex items-center">
                         <Clock className="w-4 h-4 mr-1" />
-                        {post.readTime}
+                        {post.read_time}
                       </div>
                     </div>
                   </CardHeader>
@@ -371,23 +492,34 @@ const Blog = () => {
                       ))}
                     </div>
 
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-sm text-muted-foregrounds">
                       Kliknij, aby przeczytać więcej...
                     </div>
                   </CardContent>
                 </Card>
-              ))}
+                );
+              })}
             </div>
 
-            {blogPosts.length === 0 && (
+            {blogPosts.length === 0 && !loading && (
               <div className="text-center py-16">
                 <p className="text-lg text-muted-foreground">
                   Brak artykułów do wyświetlenia
                 </p>
-                <Button onClick={handleAddPost} className="mt-4 bg-sage text-white">
-                  <Plus className="w-4 h-4 mr-2" />
-                  Dodaj pierwszy artykuł
-                </Button>
+                {isAdmin && (
+                  <Button onClick={handleAddPost} className="mt-4 bg-sage text-white">
+                    <Plus className="w-4 h-4 mr-2" />
+                    Dodaj pierwszy artykuł
+                  </Button>
+                )}
+              </div>
+            )}
+
+            {loading && (
+              <div className="text-center py-16">
+                <p className="text-lg text-muted-foreground">
+                  Ładowanie artykułów...
+                </p>
               </div>
             )}
           </div>
