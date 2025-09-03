@@ -27,6 +27,7 @@ const Header = () => {
   const navItems = [
     { label: "O mnie", href: "#about" },
     { label: "Oferta", href: "#services" },
+    { label: "Blog", href: "/blog" },
     { label: "Wartości", href: "#values" },
     { label: "Kontakt", href: "#contact" },
   ];

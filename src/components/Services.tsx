@@ -25,20 +25,6 @@ const Services = () => {
 
   const services = [
     {
-      icon: User,
-      title: "Psychoterapia",
-      subtitle: "Spotkania indywidualne, psychoterapeutyczne",
-      description: "Przeznaczona dla osób dorosłych zmagających się z trudnymi emocjami, lękami, stresem lub przechodzących trudny okres w życiu. W bezpiecznej przestrzeni pomogę Ci lepiej zrozumieć siebie i odnaleźć własne zasoby. To inwestycja w Twoje dobre samopoczucie i rozwój osobisty.",
-      features: [
-        "Sesje indywidualne 50 min",
-        "Podejście humanistyczne",
-        "Bezpieczna przestrzeń",
-        "Profesjonalne wsparcie"
-      ],
-      price: "200 zł",
-      gradient: "from-sage-light/20 to-sage/10"
-    },
-    {
       icon: Users,
       title: "Konsultacje rodzicielskie",
       subtitle: "Wsparcie dla rodziców i opiekunów",
