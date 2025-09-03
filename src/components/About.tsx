@@ -40,7 +40,7 @@ const About = () => {
               <div className="relative">
                 <div className="relative w-80 h-80 mx-auto lg:w-96 lg:h-96">
                   <img
-                    src="/lovable-uploads/10009587-f073-45a1-b580-e31eda407dc2.png"
+                    src="/lovable-uploads/d66d36d9-61ad-44ad-8bcd-5c976590fe9d.png"
                     alt="dr Olga Filaszkiewicz"
                     className="w-full h-full object-cover rounded-3xl shadow-hero"
                   />
