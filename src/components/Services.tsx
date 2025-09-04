@@ -23,87 +23,87 @@ const Services = () => {
   const services = [
     {
       icon: User,
-      title: "Psychoterapia",
-      subtitle: "Spotkania indywidualne, psychoterapeutyczne",
-      description: "Przeznaczona dla osób dorosłych zmagających się z trudnymi emocjami, lękami, stresem lub przechodzących trudny okres w życiu. W bezpiecznej przestrzeni pomogę Ci lepiej zrozumieć siebie i odnaleźć własne zasoby. To inwestycja w Twoje dobre samopoczucie i rozwój osobisty.",
+      title: "Psychoterapia indywidualna",
+      subtitle: "Terapia humanistyczno-doświadczeniowa",
+      description: "Profesjonalna psychoterapia dla osób dorosłych zmagających się z trudnymi emocjami, lękami, stresem czy kryzysami życiowymi. Jako certyfikowana psychoterapeutka humanistyczna oferuję bezpieczną przestrzeń dla głębokiej pracy nad sobą. Wykorzystuję sprawdzone metody terapii doświadczeniowej i systemowej.",
       features: [
         "Sesje indywidualne 50 min",
-        "Podejście humanistyczne",
-        "Bezpieczna przestrzeń",
-        "Profesjonalne wsparcie"
+        "Podejście humanistyczno-doświadczeniowe",
+        "Certyfikowana psychoterapeutka",
+        "Wieloletnie doświadczenie kliniczne"
       ],
       price: "200 zł",
       gradient: "from-sage-light/20 to-sage/10"
     },
     {
+      icon: Heart,
+      title: "Terapia systemowa",
+      subtitle: "Praca z relacjami i systemami rodzinnymi",
+      description: "Specjalizuję się w terapii systemowej, która pomaga zrozumieć i zmienić wzorce relacyjne. Jako certyfikowana terapeutka systemowa pomagam jednostkom i parom w budowaniu zdrowszych relacji, rozwiązywaniu konfliktów i tworzeniu wspierających systemów rodzinnych.",
+      features: [
+        "Certyfikat w terapii systemowej",
+        "Praca z parami i rodziną",
+        "Analiza wzorców relacyjnych",
+        "Długoterminowe rezultaty"
+      ],
+      price: "200 zł",
+      gradient: "from-sage-dark/15 to-beige-cream/25"
+    },
+    {
       icon: Users,
       title: "Konsultacje rodzicielskie",
-      subtitle: "Wsparcie dla rodziców i opiekunów",
-      description: "Dedykowane rodzicom, którzy chcą budować lepsze relacje z dziećmi i skuteczniej radzić sobie z wyzwaniami wychowawczymi. Pomogę Ci rozwiązywać konflikty rodzinne i rozwijać umiejętności komunikacyjne w oparciu o metodę Family-lab. Wspólnie znajdziemy sposób na harmonijne życie rodzinne.",
+      subtitle: "Profesjonalne wsparcie w rodzicielstwie",
+      description: "Jako certyfikowana trenerka Family-lab oferuję profesjonalne konsultacje rodzicielskie oparte na filozofii Jespera Juula. Pomogę Ci w budowaniu autentycznych relacji z dziećmi, rozwiązywaniu konfliktów rodzinnych i rozwijaniu umiejętności komunikacyjnych opartych na wzajemnym szacunku.",
       features: [
-        "Wsparcie w rodzicielstwie",
-        "Metody Family-lab",
-        "Komunikacja z dziećmi",
-        "Rozwiązywanie konfliktów"
+        "Certyfikat Family-lab Polska",
+        "Metoda Jespera Juula",
+        "Komunikacja bez przemocy (NVC)",
+        "Praktyczne narzędzia wychowawcze"
       ],
       price: "200 zł",
       gradient: "from-beige/30 to-sage-light/20"
     },
     {
       icon: MessageCircle,
-      title: "Grupy mocy, grupy wsparcia",
-      subtitle: "Spotkania w grupach rozwojowo-wsparciowych",
-      description: "Stworzone dla osób szukających wsparcia społecznego i chcących rozwijać się w towarzystwie innych. W grupie znajdziesz zrozumienie, wymienisz doświadczenia i otrzymasz cenne perspektywy. To przestrzeń wzajemnego wsparcia, gdzie nikt nie jest sam ze swoimi wyzwaniami.",
+      title: "Grupy terapeutyczne",
+      subtitle: "Wsparcie w grupie pod kierunkiem terapeuty",
+      description: "Prowadzę grupy terapeutyczne i wsparcia dla osób chcących pracować nad sobą w towarzystwie innych. Jako doświadczony psychoterapeuta zapewniam bezpieczną przestrzeń grupową, gdzie można dzielić się doświadczeniami, otrzymywać wsparcie i rozwijać umiejętności interpersonalne.",
       features: [
-        "Spotkania grupowe",
-        "Wzajemne wsparcie",
-        "Wymiana doświadczeń",
-        "Rozwój osobisty"
+        "Grupy pod kierunkiem psychoterapeuty",
+        "Bezpieczna przestrzeń grupowa",
+        "Rozwój umiejętności społecznych",
+        "Wzajemne wsparcie uczestników"
       ],
-      price: "200 zł",
+      price: "150 zł",
       gradient: "from-accent/20 to-beige/20"
+    },
+    {
+      icon: Target,
+      title: "Coaching psychologiczny",
+      subtitle: "Osiąganie celów z wsparciem psychologa",
+      description: "Jako doktor nauk społecznych i psycholog oferuję coaching oparty na rzetelnej wiedzy psychologicznej. Pomogę Ci określić cele życiowe, przezwyciężyć bariery psychologiczne i wypracować skuteczne strategie działania. Łączę coaching z elementami psychoterapii.",
+      features: [
+        "Coaching oparty na psychologii",
+        "Doktor nauk społecznych",
+        "Praca z barierami psychologicznymi",
+        "Holistyczne podejście"
+      ],
+      price: "250 zł",
+      gradient: "from-accent/25 to-sage-light/15"
     },
     {
       icon: BookOpen,
       title: "Warsztaty i wykłady",
-      subtitle: "O komunikacji i budowaniu relacji",
-      description: "Przeznaczone dla firm, szkół i organizacji, które chcą poprawić komunikację i współpracę w zespole. Uczę skutecznej komunikacji bez przemocy i budowania relacji opartych na wzajemnym szacunku. Każdy warsztat dostosowuję do specyficznych potrzeb Twojej organizacji.",
+      subtitle: "Edukacja psychologiczna dla organizacji",
+      description: "Jako nauczyciel akademicki i doktor nauk społecznych prowadzę warsztaty i wykłady dla firm, szkół i organizacji. Specjalizuję się w komunikacji bez przemocy (NVC), budowaniu zespołów i rozwoju kompetencji emocjonalnych. Każde szkolenie dostosowuję do potrzeb organizacji.",
       features: [
-        "Dla firm i organizacji",
-        "Komunikacja NVC",
-        "Budowanie zespołu",
-        "Indywidualne podejście"
+        "Doświadczenie akademickie",
+        "Komunikacja bez przemocy (NVC)",
+        "Szkolenia dla organizacji",
+        "Certyfikowane programy"
       ],
       price: "Na zapytanie",
       gradient: "from-sage/20 to-accent/15"
-    },
-    {
-      icon: Target,
-      title: "Coaching",
-      subtitle: "Osiąganie celów i rozwój osobisty",
-      description: "Skierowany do osób, które chcą osiągnąć swoje cele i rozwinąć swój potencjał. Pomogę Ci określić priorytety, przezwyciężyć bariery i wypracować plan działania. W procesie coachingu odkryjesz swoje mocne strony i nauczysz się skutecznie realizować swoje marzenia.",
-      features: [
-        "Określanie celów życiowych",
-        "Przezwyciężanie barier",
-        "Rozwój pewności siebie",
-        "Planowanie działań"
-      ],
-      price: "200 zł",
-      gradient: "from-accent/25 to-sage-light/15"
-    },
-    {
-      icon: Heart,
-      title: "Seminaria Family-lab",
-      subtitle: "Na licencji organizacji założonej przez Jespera Juula",
-      description: "Przeznaczone dla rodziców i opiekunów pragnących budować autentyczne, pełne szacunku relacje z dziećmi. Oparte na filozofii Jespera Juula, seminaria uczą jak być prawdziwym liderem w rodzinie. Znajdziesz tu narzędzia do tworzenia harmonijnych relacji rodzinnych opartych na wzajemnym zrozumieniu.",
-      features: [
-        "Metoda Jesper Juul",
-        "Certyfikowane seminaria",
-        "Filozofia Family-lab",
-        "Autentyczne relacje"
-      ],
-      price: "200 zł",
-      gradient: "from-sage-dark/15 to-beige-cream/25"
     }
   ];
 
@@ -114,12 +114,12 @@ const Services = () => {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-serif font-bold text-earth mb-6">
-              Co proponuję
+              Oferta terapeutyczna
             </h2>
             <div className="w-24 h-1 bg-gradient-accent mx-auto mb-8"></div>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Szeroka oferta wsparcia psychoterapeutycznego i rozwojowego dostosowana 
-              do indywidualnych potrzeb
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Profesjonalne wsparcie psychoterapeutyczne oparte na wieloletnim doświadczeniu klinicznym, 
+              certyfikowanych metodach terapeutycznych i rzetelnej wiedzy naukowej
             </p>
           </div>
 

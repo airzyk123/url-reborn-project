@@ -39,11 +39,11 @@ const About = () => {
             <div className="space-y-8">
               <div className="relative">
                 <div className="relative w-80 h-80 mx-auto lg:w-96 lg:h-96">
-                  <img
-                    src="/lovable-uploads/d66d36d9-61ad-44ad-8bcd-5c976590fe9d.png"
-                    alt="dr Olga Filaszkiewicz"
-                    className="w-full h-full object-cover rounded-3xl shadow-hero"
-                  />
+                   <img
+                     src="/lovable-uploads/c07a34d9-9019-4c99-b2e2-3bb51a6ea9e8.png"
+                     alt="dr Olga Filaszkiewicz - psychoterapeuta, doktor nauk społecznych"
+                     className="w-full h-full object-cover rounded-3xl shadow-hero"
+                   />
                   <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-sage/20 to-transparent"></div>
                 </div>
               </div>

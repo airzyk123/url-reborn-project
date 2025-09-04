@@ -45,15 +45,17 @@ const Hero = () => {
           </div>
 
           {/* Main Heading */}
-          <div className="mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            <div className="bg-black/30 backdrop-blur-md rounded-2xl p-8 shadow-hero border border-white/20">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 drop-shadow-lg">
-                Twoje emocje zasługują na profesjonalną opiekę
-              </h1>
-              <p className="text-lg sm:text-xl text-white font-medium drop-shadow-lg">
-                Każdy potrzebuje czasem wsparcia. Oferuję bezpieczną przestrzeń, gdzie możesz być sobą i pracować nad lepszymi relacjami z sobą i bliskimi.
-              </p>
+          <div className="mb-8 animate-fade-in text-center" style={{ animationDelay: "0.2s" }}>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 drop-shadow-2xl leading-tight">
+              dr Olga Filaszkiewicz
+            </h1>
+            <div className="text-xl sm:text-2xl lg:text-3xl text-white/90 font-medium mb-4 drop-shadow-lg">
+              Psychoterapeuta • Doktor nauk społecznych
             </div>
+            <p className="text-lg sm:text-xl text-white/95 font-medium drop-shadow-lg max-w-3xl mx-auto leading-relaxed">
+              Wieloletnie doświadczenie w psychoterapii humanistycznej i terapii systemowej. 
+              Profesjonalne wsparcie w bezpiecznej, empatycznej przestrzeni.
+            </p>
           </div>
 
           {/* CTA Buttons */}
@@ -76,11 +78,18 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Subtitle */}
-          <p className="mt-12 text-base sm:text-lg text-white max-w-2xl mx-auto animate-fade-in bg-black/40 backdrop-blur-md rounded-lg p-6 border border-white/20" style={{ animationDelay: "0.6s" }}>
-            <strong className="text-white drop-shadow-lg">dr Olga Filaszkiewicz</strong> - psychoterapeuta, trener komunikacji<br/>
-            <span className="text-sage-light font-medium drop-shadow-lg">Pracownia "Lepsze relacje"</span> • ul. Władysława IV 40/17, Plac Unii, II piętro, Gdynia
-          </p>
+          {/* Location Info */}
+          <div className="mt-12 text-center animate-fade-in" style={{ animationDelay: "0.6s" }}>
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 max-w-2xl mx-auto border border-white/20">
+              <p className="text-white/95 font-medium text-lg mb-2">
+                Gabinet Psychoterapeutyczny
+              </p>
+              <p className="text-white/80 text-base">
+                ul. Władysława IV 40/17, Plac Unii, II piętro<br/>
+                81-395 Gdynia
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
