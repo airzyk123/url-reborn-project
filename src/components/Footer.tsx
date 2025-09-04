@@ -10,14 +10,15 @@ const Footer = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Brand */}
             <div className="lg:col-span-2">
-              <h3 className="text-2xl font-serif font-bold mb-4">Pracownia "Lepsze Relacje"</h3>
+              <h3 className="text-2xl font-serif font-bold mb-4">Gabinet Psychoterapeutyczny</h3>
               <p className="text-white/80 mb-6 leading-relaxed">
-                Pomagam nawiązywać prawdziwy kontakt z samym sobą i z drugim człowiekiem. 
-                Uczę jak gadać, by się dogadać: w rodzinie, w pracy, po prostu w życiu.
+                Profesjonalne wsparcie psychologiczne i psychoterapeutyczne oparte na metodach 
+                humanistycznych i systemowych. Wieloletnie doświadczenie w pracy z osobami, 
+                parami i rodzinami.
               </p>
               <div className="flex items-center text-white/60">
                 <Heart className="w-5 h-5 mr-2 text-sage-light" />
-                <span>dr Olga Filaszkiewicz - psychoterapeuta</span>
+                <span>dr Olga Filaszkiewicz • Psycholog • Psychoterapeuta</span>
               </div>
             </div>
 
@@ -114,7 +115,7 @@ const Footer = () => {
               </nav>
               
               <div className="text-white/60 text-sm">
-                © {currentYear} Pracownia "Lepsze Relacje" - dr Olga Filaszkiewicz. Wszystkie prawa zastrzeżone.
+                © {currentYear} Gabinet Psychoterapeutyczny - dr Olga Filaszkiewicz. Wszystkie prawa zastrzeżone.
               </div>
             </div>
           </div>
@@ -122,8 +123,8 @@ const Footer = () => {
           {/* Certifications */}
           <div className="border-t border-white/20 mt-8 pt-8 text-center">
             <p className="text-white/60 text-sm mb-4">
-              Certyfikowana trenerka Family-lab Polska • Trenerka komunikacji NVC • 
-              Psychoterapeuta w szkole "intra"
+              Doktor nauk społecznych • Certyfikowana psychoterapeuta • 
+              Członek Polskiego Towarzystwa Psychologicznego • Superwizor w szkole "intra"
             </p>
             <p className="text-white/50 text-xs">
               Wszelkie informacje podane na stronie są objęte tajemnicą zawodową 

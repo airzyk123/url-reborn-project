@@ -1,38 +1,50 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, Shield, Users, Lightbulb, Compass, Star } from "lucide-react";
 import connectionsIllustration from "@/assets/connections-illustration.jpg";
+import empathyIllustration from "@/assets/empathy-illustration.jpg";
+import safetyIllustration from "@/assets/safety-illustration.jpg";
+import authenticRelationsIllustration from "@/assets/authentic-relations-illustration.jpg";
+import growthIllustration from "@/assets/growth-illustration.jpg";
+import holisticIllustration from "@/assets/holistic-illustration.jpg";
+import qualityIllustration from "@/assets/quality-illustration.jpg";
 
 const Values = () => {
   const values = [
     {
       icon: Heart,
       title: "Empatia i zrozumienie",
-      description: "Każda osoba zasługuje na bycie wysłuchaną i zrozumianą bez oceniania. Tworzę przestrzeń pełną ciepła i akceptacji."
+      description: "Stosując podejście humanistyczne, tworzę atmosferę pełnej akceptacji, gdzie każdy klient może doświadczyć bezwarunkowego pozytywnego traktowania zgodnie z najwyższymi standardami etycznymi.",
+      image: empathyIllustration
     },
     {
       icon: Shield,
       title: "Bezpieczeństwo i zaufanie",
-      description: "Gabinet to miejsce, gdzie możesz być sobą. Gwarantuję pełną poufność i profesjonalne podejście do każdej sytuacji."
+      description: "Jako psycholog z wieloletnim doświadczeniem klinicznym, zapewniam bezpieczną przestrzeń terapeutyczną opartą na zasadach poufności i profesjonalnej etyki zawodowej.",
+      image: safetyIllustration
     },
     {
       icon: Users,
-      title: "Autentyczne relacje",
-      description: "Wierzę w siłę prawdziwych połączeń między ludźmi. Uczę, jak budować relacje oparte na wzajemnym szacunku i zrozumieniu."
+      title: "Autentyczne relacje terapeutyczne",
+      description: "W oparciu o terapię systemową i humanistyczną, buduję autentyczne relacje terapeutyczne, które są fundamentem skutecznej zmiany i osobistego wzrostu.",
+      image: authenticRelationsIllustration
     },
     {
       icon: Lightbulb,
-      title: "Rozwój i świadomość",
-      description: "Każdy człowiek ma w sobie potencjał do wzrostu. Pomagam odkryć własne zasoby i rozwijać umiejętności życiowe."
+      title: "Rozwój i uświadomienie",
+      description: "Wykorzystując metody terapii gestalt i podejście systemowe, wspiera odkrywanie własnych zasobów i rozwijanie kompetencji emocjonalnych oraz społecznych.",
+      image: growthIllustration
     },
     {
       icon: Compass,
-      title: "Holistyczne podejście",
-      description: "Patrzę na człowieka całościowo - uwzględniam emocje, myśli, ciało i relacje w procesie terapeutycznym."
+      title: "Podejście integracyjne",
+      description: "Łącząc wiedzę z psychologii klinicznej, terapii rodzin i par oraz neuropsychologii, oferuję kompleksowe wsparcie uwzględniające wszystkie aspekty funkcjonowania człowieka.",
+      image: holisticIllustration
     },
     {
       icon: Star,
-      title: "Jakość i profesjonalizm",
-      description: "Stale podnoszę swoje kwalifikacje i uczestniczę w superwizjach, aby zapewnić najwyższą jakość pomocy."
+      title: "Najwyższe standardy jakości",
+      description: "Jako doktor nauk społecznych, regularnie uczestniczę w superwizjach, szkoleniach i konferencjach naukowych, aby zapewnić najwyższą jakość świadczonych usług psychologicznych.",
+      image: qualityIllustration
     }
   ];
 
@@ -71,20 +83,31 @@ const Values = () => {
                 return (
                   <Card 
                     key={index}
-                    className="shadow-card border-0 bg-white/90 hover:bg-white transition-all duration-300 group hover:shadow-hero"
+                    className="shadow-card border-0 bg-white/90 hover:bg-white transition-all duration-300 group hover:shadow-hero overflow-hidden"
                   >
-                    <CardContent className="p-6">
-                      <div className="flex items-start">
-                        <div className="w-12 h-12 bg-sage/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0 group-hover:bg-sage/20 transition-colors duration-300">
-                          <IconComponent className="w-6 h-6 text-sage" />
+                    <CardContent className="p-0">
+                      <div className="flex">
+                        <div className="w-24 h-24 flex-shrink-0 overflow-hidden">
+                          <img
+                            src={value.image}
+                            alt={`Ilustracja przedstawiająca ${value.title.toLowerCase()}`}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
                         </div>
-                        <div>
-                          <h3 className="text-lg font-semibold text-earth mb-2">
-                            {value.title}
-                          </h3>
-                          <p className="text-foreground/80 leading-relaxed">
-                            {value.description}
-                          </p>
+                        <div className="p-6 flex-1">
+                          <div className="flex items-start">
+                            <div className="w-10 h-10 bg-sage/10 rounded-full flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-sage/20 transition-colors duration-300">
+                              <IconComponent className="w-5 h-5 text-sage" />
+                            </div>
+                            <div>
+                              <h3 className="text-lg font-semibold text-earth mb-2">
+                                {value.title}
+                              </h3>
+                              <p className="text-foreground/80 leading-relaxed text-sm">
+                                {value.description}
+                              </p>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </CardContent>
@@ -99,9 +122,9 @@ const Values = () => {
             <Card className="shadow-hero border-0 bg-gradient-to-br from-sage/5 to-beige/10">
               <CardContent className="p-12 text-center">
                 <blockquote className="text-xl lg:text-2xl font-serif text-earth leading-relaxed mb-6">
-                  "Gramy w jednej drużynie - to nie tylko słowa, ale filozofia mojej pracy. 
-                  Każda relacja to spotkanie dwóch równych sobie osób, które razem szukają 
-                  drogi do lepszego zrozumienia siebie i świata."
+                  "Moja praca opiera się na fundamencie szacunku, profesjonalizmu i autentyczności. 
+                  Każda sesja terapeutyczna to przestrzeń współpracy, gdzie razem z klientem 
+                  odkrywamy ścieżki prowadzące do zdrowia psychicznego i lepszego funkcjonowania."
                 </blockquote>
                 <div className="flex items-center justify-center">
                   <div className="w-16 h-0.5 bg-sage mr-4"></div>

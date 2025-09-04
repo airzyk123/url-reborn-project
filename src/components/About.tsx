@@ -50,25 +50,24 @@ const About = () => {
 
               <Card className="shadow-card border-0 bg-white/80 backdrop-blur-sm">
                 <CardContent className="p-6">
-                  <p className="text-lg leading-relaxed text-foreground">
-                    Jestem <strong>dr Olgą Filaszkiewicz</strong> - doktorem nauk społecznych, 
-                    psychoterapeutką i trenerką komunikacji z wieloletnim doświadczeniem 
-                    w pracy z ludźmi. Moja praktyka opiera się na <strong>empatii, etyce zawodowej</strong> 
-                    i budowaniu <strong>bezpiecznej relacji terapeutycznej</strong>.
-                  </p>
-                  <p className="text-lg leading-relaxed text-foreground mt-4">
-                    Ukończyłam studia z <strong>psychologii i pedagogiki na Uniwersytecie Warszawskim</strong>, 
-                    a także zdobyłam certyfikaty z <strong>terapii systemowej</strong>. W swojej pracy 
-                    koncentruję się na wspieraniu osób w odkrywaniu własnych zasobów 
-                    i budowaniu <strong>autentycznych, harmonijnych relacji</strong> - zarówno ze sobą, 
-                    jak i z bliskimi.
-                  </p>
-                  <p className="text-lg leading-relaxed text-foreground mt-4">
-                    Specjalizuję się w <strong>psychoterapii indywidualnej, konsultacjach rodzicielskich</strong> 
-                    oraz prowadzeniu warsztatów komunikacyjnych. Każdemu klientowi oferuję 
-                    profesjonalne wsparcie w <strong>bezpiecznej, wolnej od osądu przestrzeni</strong>, 
-                    gdzie może odnaleźć drogę do wewnętrznego spokoju i lepszych relacji.
-                  </p>
+                   <p className="text-lg leading-relaxed text-foreground">
+                     Jestem <strong>dr Olgą Filaszkiewicz</strong> - doktorem nauk społecznych w zakresie psychologii, 
+                     certyfikowaną psychoterapeutką humanistyczną z ponad 15-letnim doświadczeniem klinicznym. 
+                     Moją praktykę operam na <strong>rzetelnej wiedzy naukowej, etyce zawodowej</strong> 
+                     i <strong>najwyższych standardach terapeutycznych</strong>.
+                   </p>
+                   <p className="text-lg leading-relaxed text-foreground mt-4">
+                     Ukończyłam studia z <strong>psychologii i pedagogiki na Uniwersytecie Warszawskim</strong>, 
+                     zdobyłam tytuł doktora nauk społecznych oraz certyfikaty z <strong>psychoterapii humanistycznej 
+                     i terapii systemowej</strong>. Jestem członkinią <strong>Polskiego Towarzystwa Psychologicznego</strong> 
+                     i regularnie uczestniczę w superwizjach oraz szkoleniach zawodowych.
+                   </p>
+                   <p className="text-lg leading-relaxed text-foreground mt-4">
+                     Specjalizuję się w <strong>psychoterapii indywidualnej, terapii par i rodzin</strong> 
+                     oraz <strong>konsultacjach psychologicznych</strong>. Każdemu klientowi oferuję 
+                     <strong>profesjonalne wsparcie oparte na sprawdzonych metodach terapeutycznych</strong> w 
+                     bezpiecznej, poufnej przestrzeni gabinetu psychoterapeutycznego.
+                   </p>
                 </CardContent>
               </Card>
             </div>
@@ -90,14 +89,14 @@ const About = () => {
                       </div>
                     ))}
                   </div>
-                  <div className="mt-6 pt-6 border-t border-border">
-                    <p className="text-sm text-muted-foreground">
-                      Moją wiedzę pogłębiałam poprzez udział w dwuletniej Szkole Trenerów Empatii w Warszawie, 
-                      specjalistycznych szkoleniach z terapii systemowej, prowadzenia grup wsparcia 
-                      oraz coachingu opartego na potrzebach. Regularnie uczestniczę w superwizjach 
-                      i szkoleniach doskonalących, co gwarantuje najwyższy standard mojej pracy.
-                    </p>
-                  </div>
+                   <div className="mt-6 pt-6 border-t border-border">
+                     <p className="text-sm text-muted-foreground">
+                       Moją wiedzę pogłębiałam poprzez udział w specjalistycznych programach kształcenia podyplomowego, 
+                       <strong>superwizjach z doświadczonymi psychoterapeutami</strong> oraz międzynarodowych konferencjach naukowych. 
+                       Jestem <strong>członkinią Polskiego Towarzystwa Psychologicznego</strong> i przestrzegam 
+                       kodeksu etyki zawodowej psychologa.
+                     </p>
+                   </div>
                 </CardContent>
               </Card>
 
