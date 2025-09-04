@@ -1,6 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, Shield, Users, Lightbulb, Compass, Star } from "lucide-react";
-import connectionsIllustration from "@/assets/connections-illustration.jpg";
 import empathyIllustration from "@/assets/empathy-illustration.jpg";
 import safetyIllustration from "@/assets/safety-illustration.jpg";
 import authenticRelationsIllustration from "@/assets/authentic-relations-illustration.jpg";
@@ -63,21 +62,9 @@ const Values = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Illustration */}
-            <div className="order-2 lg:order-1">
-              <div className="relative">
-                <img
-                  src={connectionsIllustration}
-                  alt="Ilustracja przedstawiająca połączenia między ludźmi"
-                  className="w-full h-auto rounded-3xl shadow-hero"
-                />
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-sage/10 to-transparent"></div>
-              </div>
-            </div>
-
+          <div className="max-w-4xl mx-auto">
             {/* Values */}
-            <div className="order-1 lg:order-2 space-y-6">
+            <div className="space-y-6">
               {values.map((value, index) => {
                 const IconComponent = value.icon;
                 return (
