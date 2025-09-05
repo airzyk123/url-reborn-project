@@ -192,9 +192,9 @@ const Services = () => {
                   <h3 className="text-lg font-semibold text-earth">Godziny przyjęć</h3>
                 </div>
                 <div className="space-y-2 text-foreground">
-                  <p><strong>Poniedziałek - Piątek:</strong> 9:00 - 18:00</p>
-                  <p><strong>Sobota:</strong> 10:00 - 14:00</p>
-                  <p><strong>Niedziela:</strong> Zamknięte</p>
+                  <p><strong>Poniedziałek - Piątek:</strong> 10:00 - 20:00</p>
+                  <p><strong>Sobota:</strong> do uzgodnienia</p>
+                  <p><strong>Niedziela:</strong> nieczynne</p>
                 </div>
               </CardContent>
             </Card>
