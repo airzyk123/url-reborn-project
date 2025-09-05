@@ -103,7 +103,7 @@ const Contact = () => {
     {
       icon: Clock,
       title: "Godziny przyjęć",
-      value: "Pn-Pt: 10:00-20:00, Sob: do uzgodnienia",
+      value: "Pn-Pt: 10:00-20:00, Sob: do uzgodnienia, Nd: nieczynne",
       link: "#"
     }
   ];
