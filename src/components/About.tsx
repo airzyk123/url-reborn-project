@@ -5,14 +5,13 @@ import profilePlaceholder from "@/assets/profile-placeholder.jpg";
 
 const About = () => {
   const qualifications = [
+    "Psychoterapeutka humanistyczno-doświadczeniowa (Szkoła Psychoterapii \"INTRA\" w Warszawie)",
+    "Magister psychologii (spec. psychologia kliniczna z psychoterapią)",
+    "Magister pedagogiki (spec. Psychopedagogika)",
+    "Wykładowca akademicki",
     "Doktor nauk społecznych",
-    "Magister psychologii - Uniwersytet Warszawski",
-    "Magister pedagogiki - Uniwersytet Warszawski", 
-    "Psychoterapeuta humanistyczno-doświadczeniowa",
-    "Certyfikowana terapeutka systemowa",
-    "Trenerka Family-lab Polska",
     "Trenerka komunikacji opartej na empatii (NVC)",
-    "Psychopedagog"
+    "Trenerka Family-lab Polska"
   ];
 
   const personalInfo = [
