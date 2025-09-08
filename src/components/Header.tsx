@@ -47,7 +47,7 @@ const Header = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <h1 className="text-xl lg:text-2xl font-serif font-semibold text-sage hover:opacity-80 transition-opacity">
-              Gabinet Psychoterapii Olga Filaszkiewicz
+              Gabinet Psychoterapii i Rozwoju Olga Filaszkiewicz
             </h1>
           </div>
 
