@@ -90,9 +90,9 @@ const About = () => {
                   </div>
                    <div className="mt-6 pt-6 border-t border-border">
                      <p className="text-sm text-muted-foreground">
-                       Moją wiedzę pogłębiałam poprzez udział w specjalistycznych programach kształcenia podyplomowego, 
-                       <strong>superwizjach z doświadczonymi psychoterapeutami</strong> oraz międzynarodowych konferencjach naukowych. 
-                       Jestem <strong>członkinią Polskiego Towarzystwa Psychologicznego</strong> i przestrzegam 
+                       Moją wiedzę pogłębiałam poprzez udział w specjalistycznych programach kształcenia podyplomowego,
+                       superwizjach z doświadczonymi psychoterapeutami oraz międzynarodowych konferencjach naukowych. 
+                       Jestem członkinią Polskiego Stowarzyszenia Humanistyczno-Doświadczeniowego i przestrzegam 
                        kodeksu etyki zawodowej psychologa.
                      </p>
                    </div>
