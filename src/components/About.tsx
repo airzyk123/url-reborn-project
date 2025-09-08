@@ -63,8 +63,10 @@ const About = () => {
                    </p>
                    <p className="text-lg leading-relaxed text-foreground mt-4">
                      Specjalizuję się w <strong>psychoterapii indywidualnej, terapii par i rodzin</strong> 
-                     oraz <strong>konsultacjach psychologicznych</strong>. Każdemu klientowi oferuję 
-                     <strong>profesjonalne wsparcie oparte na sprawdzonych metodach terapeutycznych</strong> w 
+                     oraz <strong>konsultacjach psychologicznych</strong>. 
+                   </p>
+                   <p className="text-lg leading-relaxed text-foreground mt-4">
+                     Każdemu klientowi oferuję <strong>profesjonalne wsparcie oparte na sprawdzonych metodach terapeutycznych</strong> w 
                      bezpiecznej, poufnej przestrzeni gabinetu psychoterapeutycznego.
                    </p>
                 </CardContent>
