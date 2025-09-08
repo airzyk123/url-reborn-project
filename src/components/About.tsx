@@ -15,9 +15,9 @@ const About = () => {
   ];
 
   const personalInfo = [
-    "Mama, żona, córka",
+    "Mama, żona, córka, przyjaciółka",
     "Pańcia dwóch mopsów",
-    "Nauczyciel akademicki",
+    "Uwielbiam podróżować, na przemian być w ruchu a później zwalniać, być z ludźmi a potem leżeć samej pod kocem z książką",
     "A przede wszystkim jestem sobą :)"
   ];
 
