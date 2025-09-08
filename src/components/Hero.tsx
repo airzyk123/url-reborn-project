@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Heart, Users, Star } from "lucide-react";
+import { ArrowRight, Heart, Users, Star, Brain, MessageSquare } from "lucide-react";
 import heroImage from "@/assets/hero-therapy.jpg";
 
 const Hero = () => {
@@ -35,12 +35,20 @@ const Hero = () => {
               Psychoterapia
             </span>
             <span className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30">
+              <Brain className="w-4 h-4 mr-2" />
+              Wsparcie psychologiczne
+            </span>
+            <span className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30">
               <Users className="w-4 h-4 mr-2" />
               Konsultacje rodzicielskie
             </span>
             <span className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30">
               <Star className="w-4 h-4 mr-2" />
               Warsztaty
+            </span>
+            <span className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30">
+              <MessageSquare className="w-4 h-4 mr-2" />
+              Grupy terapeutyczno-rozwojowe
             </span>
           </div>
 
