@@ -47,7 +47,7 @@ const Hero = () => {
           {/* Main Heading */}
           <div className="mb-8 animate-fade-in text-center" style={{ animationDelay: "0.2s" }}>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 drop-shadow-2xl leading-tight">
-              dr Olga Filaszkiewicz
+              Olga Filaszkiewicz
             </h1>
             <div className="text-xl sm:text-2xl lg:text-3xl text-white/90 font-medium mb-4 drop-shadow-lg">
               Psychoterapeuta • Psycholog, Trenerka
