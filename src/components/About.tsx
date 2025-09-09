@@ -18,8 +18,8 @@ const About = () => {
     "Mama, żona, córka, przyjaciółka",
     "Pańcia dwóch mopsów",
     "Uwielbiam podróżować",
-    "Na przemian być w ruchu a później zwalniać",
-    "Być z ludźmi a potem leżeć samej pod kocem z książką",
+    "Na przemian być w ruchu, a później zwalniać",
+    "Być z ludźmi, a potem leżeć samej pod kocem z książką",
     "A przede wszystkim jestem sobą :)"
   ];
 
