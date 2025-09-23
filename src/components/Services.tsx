@@ -35,16 +35,16 @@ const Services = () => {
     },
     {
       icon: Heart,
-      title: "Terapia systemowa",
-      subtitle: "Praca z relacjami i systemami rodzinnymi",
-      description: "Specjalizuję się w terapii systemowej, która pomaga zrozumieć i zmienić wzorce relacyjne. Jako certyfikowana terapeutka systemowa pomagam jednostkom i parom w budowaniu zdrowszych relacji, rozwiązywaniu konfliktów i tworzeniu wspierających systemów rodzinnych.",
+      title: "Konsultacje psychologiczne",
+      subtitle: "Profesjonalne wsparcie w trudnych sytuacjach",
+      description: "Oferuję konsultacje psychologiczne dla osób potrzebujących profesjonalnej oceny sytuacji, wsparcia w podejmowaniu trudnych decyzji lub pomocy w zrozumieniu swoich problemów. Konsultacje mogą być pierwszym krokiem przed terapią lub samodzielną formą pomocy w konkretnych sytuacjach życiowych.",
       features: [
-        "Certyfikat w terapii systemowej",
-        "Praca z parami i rodziną",
-        "Analiza wzorców relacyjnych",
-        "Długoterminowe rezultaty"
+        "Ocena i diagnoza psychologiczna",
+        "Wsparcie w trudnych decyzjach",
+        "Pomoc w rozumieniu problemów",
+        "Krótkoterminowe interwencje"
       ],
-      price: "200 zł",
+      price: "150 zł",
       gradient: "from-sage-dark/15 to-beige-cream/25"
     },
     {
