@@ -44,7 +44,7 @@ const Services = () => {
         "Pomoc w rozumieniu problemów",
         "Krótkoterminowe interwencje"
       ],
-      price: "150 zł",
+      price: "200 zł",
       gradient: "from-sage-dark/15 to-beige-cream/25"
     },
     {
