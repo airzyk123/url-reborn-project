@@ -25,7 +25,7 @@ const Services = () => {
       icon: User,
       title: "Psychoterapia indywidualna",
       subtitle: "Terapia humanistyczno-doświadczeniowa",
-      description: "Profesjonalna psychoterapia dla osób dorosłych zmagających się z trudnymi emocjami, lękami, stresem czy kryzysami życiowymi. Jako certyfikowana psychoterapeutka humanistyczna oferuję bezpieczną przestrzeń dla głębokiej pracy nad sobą. Wykorzystuję sprawdzone metody terapii doświadczeniowej i systemowej.",
+      description: "Profesjonalna psychoterapia dla osób dorosłych zmagających się z trudnymi emocjami, lękami, stresem czy kryzysami życiowymi. Oferuję bezpieczną przestrzeń dla głębokiej pracy nad sobą. Wykorzystuję sprawdzone metody terapii doświadczeniowej i systemowej.",
       features: [
         "Sesje indywidualne 50 min",
         "Podejście humanistyczno-doświadczeniowe",
