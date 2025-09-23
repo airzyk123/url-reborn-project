@@ -114,13 +114,9 @@ const Services = () => {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-serif font-bold text-earth mb-6">
-              Oferta terapeutyczna
+              Oferta
             </h2>
             <div className="w-24 h-1 bg-gradient-accent mx-auto mb-8"></div>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Profesjonalne wsparcie psychoterapeutyczne oparte na wieloletnim doświadczeniu klinicznym, 
-              certyfikowanych metodach terapeutycznych i rzetelnej wiedzy naukowej
-            </p>
           </div>
 
           {/* Services Grid */}
