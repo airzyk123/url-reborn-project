@@ -25,12 +25,10 @@ const Services = () => {
       icon: User,
       title: "Psychoterapia indywidualna",
       subtitle: "Terapia humanistyczno-doświadczeniowa",
-      description: "Profesjonalna psychoterapia dla osób dorosłych zmagających się z trudnymi emocjami, lękami, stresem czy kryzysami życiowymi. Oferuję bezpieczną przestrzeń dla głębokiej pracy nad sobą. Zapraszam zarówno osoby w kryzysie psychicznym, jak i chcące lepiej siebie zrozumieć, rozwinąć swoją samoświadomość, budować bardziej satysfakcjonujące relacje. Wykorzystuję sprawdzone metody terapii doświadczeniowej i systemowej.",
+      description: "Profesjonalna psychoterapia dla osób dorosłych zmagających się z trudnymi emocjami, lękami, stresem czy kryzysami życiowymi. Oferuję bezpieczną przestrzeń dla głębokiej pracy nad sobą. Zapraszam zarówno osoby w kryzysie psychicznym, jak i chcące lepiej siebie zrozumieć, rozwinąć swoją samoświadomość, budować bardziej satysfakcjonujące relacje.",
       features: [
         "Sesje indywidualne 50 min",
-        "Podejście humanistyczno-doświadczeniowe",
-        "Certyfikowana psychoterapeutka",
-        "Wieloletnie doświadczenie kliniczne"
+        "Stacjonarne (gabinet w centrum Gdyni) lub online"
       ],
       price: "200 zł",
       gradient: "from-sage-light/20 to-sage/10"
