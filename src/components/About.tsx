@@ -50,26 +50,23 @@ const About = () => {
               </div>
 
               <Card className="shadow-card border-0 bg-white/80 backdrop-blur-sm">
-                <CardContent className="p-6">
+                 <CardContent className="p-6">
                    <p className="text-lg leading-relaxed text-foreground">
-                     Jestem <strong>dr Olgą Filaszkiewicz</strong> - doktorem nauk społecznych w zakresie psychologii, 
-                     certyfikowaną psychoterapeutką humanistyczną z ponad 15-letnim doświadczeniem klinicznym. 
-                     Moją praktykę operam na <strong>rzetelnej wiedzy naukowej, etyce zawodowej</strong> 
-                     i <strong>najwyższych standardach terapeutycznych</strong>.
+                     Nazywam się <strong>Olga Filaszkiewicz</strong> i od wielu lat wspieram ludzi w ich rozwoju, 
+                     powrocie do równowagi i wyjściu z kryzysów. Jestem magistrem psychologii ze specjalnością 
+                     psychologia kliniczna z psychoterapią a także magistrem pedagogiki ze specjalnością psychopedagogika. 
+                     Posiadam również wieloletnie doświadczenie akademickie, jestem doktorem nauk społecznych.
                    </p>
                    <p className="text-lg leading-relaxed text-foreground mt-4">
-                     Ukończyłam studia z <strong>psychologii i pedagogiki na Uniwersytecie Warszawskim</strong>, 
-                     zdobyłam tytuł doktora nauk społecznych oraz certyfikaty z <strong>psychoterapii humanistycznej 
-                     i terapii systemowej</strong>. Jestem członkinią <strong>Polskiego Towarzystwa Psychologicznego</strong> 
-                     i regularnie uczestniczę w superwizjach oraz szkoleniach zawodowych.
+                     W zakresie psychoterapii kształcę się w rekomendowanej przez <strong>Polskie Towarzystwo Psychologiczne 
+                     Szkole Psychoterapii „INTRA" w Warszawie</strong>.
                    </p>
                    <p className="text-lg leading-relaxed text-foreground mt-4">
-                     Specjalizuję się w <strong>psychoterapii indywidualnej, terapii par i rodzin</strong> 
-                     oraz <strong>konsultacjach psychologicznych</strong>. 
+                     W mojej pracy psychoterapeutycznej korzystam z <strong>nurtu integratywnego</strong> ze szczególnym 
+                     skupieniem na <strong>psychoterapii humanistyczno-doświadczeniowej i egzystencjalnej</strong>.
                    </p>
                    <p className="text-lg leading-relaxed text-foreground mt-4">
-                     Każdemu klientowi oferuję <strong>profesjonalne wsparcie oparte na sprawdzonych metodach terapeutycznych</strong> w 
-                     bezpiecznej, poufnej przestrzeni gabinetu psychoterapeutycznego.
+                     Ważna jest dla mnie <strong>relacja terapeutyczna, wzajemne zaufanie, empatia i akceptacja</strong>.
                    </p>
                 </CardContent>
               </Card>
