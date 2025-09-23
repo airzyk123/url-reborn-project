@@ -127,21 +127,6 @@ const About = () => {
                 </CardContent>
               </Card>
 
-              {/* Certifications */}
-              <div className="flex flex-wrap gap-2">
-                <Badge variant="secondary" className="bg-sage/10 text-sage border-sage/20">
-                  Family-lab Polska
-                </Badge>
-                <Badge variant="secondary" className="bg-sage/10 text-sage border-sage/20">
-                  NVC
-                </Badge>
-                <Badge variant="secondary" className="bg-sage/10 text-sage border-sage/20">
-                  Psychoterapia Humanistyczna
-                </Badge>
-                <Badge variant="secondary" className="bg-sage/10 text-sage border-sage/20">
-                  Coaching
-                </Badge>
-              </div>
             </div>
           </div>
         </div>
