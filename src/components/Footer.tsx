@@ -70,10 +70,10 @@ const Footer = () => {
                 <div className="flex items-center">
                   <Phone className="w-4 h-4 mr-3 text-sage-light flex-shrink-0" />
                   <a 
-                    href="tel:+48505113807"
+                    href="tel:+48459115349"
                     className="hover:text-sage-light transition-colors"
                   >
-                    505 113 807
+                    459 115 349
                   </a>
                 </div>
                 <div className="flex items-center">
