@@ -93,8 +93,8 @@ const Hero = () => {
                 Gabinet Psychoterapeutyczny
               </p>
               <p className="text-white/80 text-base">
-                ul. Władysława IV 40/17, Plac Unii, II piętro<br/>
-                81-395 Gdynia
+                ul. Świętojańska 66/2<br/>
+                81-393 Gdynia
               </p>
             </div>
           </div>
