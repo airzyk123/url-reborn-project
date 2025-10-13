@@ -97,7 +97,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Lokalizacja",
-      value: "ul. Władysława IV 40/17, Plac Unii, II piętro, Gdynia",
+      value: "ul. Świętojańska 66/2, 81-393 Gdynia",
       link: "#"
     },
     {

@@ -78,7 +78,7 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-4 h-4 mr-3 text-sage-light flex-shrink-0" />
-                  <span>ul. Władysława IV 40/17, Plac Unii, II piętro, Gdynia</span>
+                  <span>ul. Świętojańska 66/2, 81-393 Gdynia</span>
                 </div>
               </div>
             </div>
