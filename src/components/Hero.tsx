@@ -61,8 +61,7 @@ const Hero = () => {
               Psychoterapeutka • Psycholog • Psychopedagog • Trenerka • Wykładowca Akademicki • Doktor nauk społecznych
             </div>
             <p className="text-lg sm:text-xl text-white/95 font-medium drop-shadow-lg max-w-3xl mx-auto leading-relaxed">
-              Wieloletnie doświadczenie w psychoterapii humanistycznej i terapii systemowej. 
-              Profesjonalne wsparcie w bezpiecznej, empatycznej przestrzeni.
+              Profesjonalne wsparcie w nurcie humanistycznym, w bezpiecznej, empatycznej przestrzeni
             </p>
           </div>
 
