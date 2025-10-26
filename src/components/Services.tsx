@@ -50,12 +50,11 @@ const Services = () => {
       icon: Users,
       title: "Konsultacje rodzicielskie",
       subtitle: "Profesjonalne wsparcie w rodzicielstwie",
-      description: "Jako certyfikowana trenerka Family-lab oferuję profesjonalne konsultacje rodzicielskie oparte na filozofii Jespera Juula. Pomogę Ci w budowaniu autentycznych relacji z dziećmi, rozwiązywaniu konfliktów rodzinnych i rozwijaniu umiejętności komunikacyjnych opartych na wzajemnym szacunku.",
+      description: "Zapraszam na profesjonalne konsultacje rodzicielskie, podczas których pomogę Ci w budowaniu autentycznych relacji z dziećmi, rozwiązywaniu konfliktów rodzinnych i rozwijaniu umiejętności komunikacyjnych opartych na wzajemnym szacunku.",
       features: [
-        "Certyfikat Family-lab Polska",
-        "Metoda Jespera Juula",
+        "Certyfikat Family-lab Polska (Jesper Juul)",
         "Komunikacja bez przemocy (NVC)",
-        "Praktyczne narzędzia wychowawcze"
+        "Rodzicielstwo oparte na wzajemnych szacunku"
       ],
       price: "200 zł",
       gradient: "from-beige/30 to-sage-light/20"
