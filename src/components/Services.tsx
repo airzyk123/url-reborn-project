@@ -52,16 +52,17 @@ const Services = () => {
       subtitle: "Profesjonalne wsparcie w rodzicielstwie",
       description: "Zapraszam na profesjonalne konsultacje rodzicielskie, podczas których pomogę Ci w budowaniu autentycznych relacji z dziećmi, rozwiązywaniu konfliktów rodzinnych i rozwijaniu umiejętności komunikacyjnych opartych na wzajemnym szacunku.",
       features: [
+        "Sesja do 75 minut",
         "Certyfikat Family-lab Polska (Jesper Juul)",
         "Komunikacja bez przemocy (NVC)",
         "Rodzicielstwo oparte na wzajemnych szacunku"
       ],
-      price: "200 zł",
+      price: "300 zł",
       gradient: "from-beige/30 to-sage-light/20"
     },
     {
       icon: MessageCircle,
-      title: "Grupy terapeutyczne",
+      title: "Grupy terapeutyczno-rozwojowe",
       subtitle: "Wsparcie w grupie pod kierunkiem terapeuty",
       description: "Prowadzę grupy terapeutyczne i wsparcia dla osób chcących pracować nad sobą w towarzystwie innych. Jako doświadczony psychoterapeuta zapewniam bezpieczną przestrzeń grupową, gdzie można dzielić się doświadczeniami, otrzymywać wsparcie i rozwijać umiejętności interpersonalne.",
       features: [
@@ -72,20 +73,6 @@ const Services = () => {
       ],
       price: "150 zł",
       gradient: "from-accent/20 to-beige/20"
-    },
-    {
-      icon: Target,
-      title: "Coaching psychologiczny",
-      subtitle: "Osiąganie celów z wsparciem psychologa",
-      description: "Jako doktor nauk społecznych i psycholog oferuję coaching oparty na rzetelnej wiedzy psychologicznej. Pomogę Ci określić cele życiowe, przezwyciężyć bariery psychologiczne i wypracować skuteczne strategie działania. Łączę coaching z elementami psychoterapii.",
-      features: [
-        "Coaching oparty na psychologii",
-        "Doktor nauk społecznych",
-        "Praca z barierami psychologicznymi",
-        "Holistyczne podejście"
-      ],
-      price: "250 zł",
-      gradient: "from-accent/25 to-sage-light/15"
     },
     {
       icon: BookOpen,
