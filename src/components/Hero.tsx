@@ -58,7 +58,7 @@ const Hero = () => {
               Olga Filaszkiewicz
             </h1>
             <div className="text-xl sm:text-2xl lg:text-3xl text-white/90 font-medium mb-4 drop-shadow-lg">
-              Psychoterapeutka • Psycholog • Psychopedagog • Trenerka • Wykładowca Akademicki • Doktor nauk społecznych
+              Psychoterapeutka • Psycholog • Psychopedagog
             </div>
             <p className="text-lg sm:text-xl text-white/95 font-medium drop-shadow-lg max-w-3xl mx-auto leading-relaxed">
               Profesjonalne wsparcie w nurcie humanistycznym, w bezpiecznej, empatycznej przestrzeni.
