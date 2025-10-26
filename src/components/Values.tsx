@@ -24,7 +24,7 @@ const Values = () => {
     {
       icon: Users,
       title: "Autentyczne relacje terapeutyczne",
-      description: "W oparciu o terapię systemową i humanistyczną, buduję autentyczne relacje terapeutyczne, które są fundamentem skutecznej zmiany i osobistego wzrostu.",
+      description: "W swojej pracy stawiam na zbudowanie bezpiecznej relacji terapeutycznej, która jest fundamentem skutecznej zmiany i osobistego wzrostu.",
       image: authenticRelationsIllustration
     },
     {
