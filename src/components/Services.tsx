@@ -54,6 +54,7 @@ const Services = () => {
       features: [
         "Sesja do 75 minut",
         "Certyfikat Family-lab Polska (Jesper Juul)",
+        "Certyfikat Rodzicielstwa Bliskości (A. Stein, M. Stańczyk)",
         "Komunikacja bez przemocy (NVC)",
         "Rodzicielstwo oparte na wzajemnych szacunku"
       ],
