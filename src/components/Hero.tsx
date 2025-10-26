@@ -95,6 +95,9 @@ const Hero = () => {
                 ul. Świętojańska 66/2<br/>
                 81-393 Gdynia
               </p>
+              <p className="text-white/90 font-medium text-base mt-3">
+                Konsultacje również on-line
+              </p>
             </div>
           </div>
         </div>
