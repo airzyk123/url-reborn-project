@@ -39,7 +39,6 @@ const Services = () => {
       subtitle: "Profesjonalne wsparcie w trudnych sytuacjach",
       description: "Oferuję konsultacje psychologiczne dla osób potrzebujących profesjonalnej oceny sytuacji, wsparcia w podejmowaniu trudnych decyzji lub pomocy w zrozumieniu swoich problemów. Konsultacje mogą być pierwszym krokiem przed terapią lub samodzielną formą pomocy w konkretnych sytuacjach życiowych.",
       features: [
-        "Ocena i diagnoza psychologiczna",
         "Wsparcie w trudnych decyzjach",
         "Pomoc w rozumieniu problemów",
         "Krótkoterminowe interwencje"
