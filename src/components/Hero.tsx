@@ -96,7 +96,7 @@ const Hero = () => {
                 81-393 Gdynia
               </p>
               <p className="text-white/90 font-medium text-base mt-3">
-                Konsultacje również on-line
+                oraz online
               </p>
             </div>
           </div>
