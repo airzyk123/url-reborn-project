@@ -76,6 +76,20 @@ const Services = () => {
       gradient: "from-accent/20 to-beige/20"
     },
     {
+      icon: Target,
+      title: "Trening asertywności",
+      subtitle: "Rozwijanie umiejętności asertywnej komunikacji",
+      description: "Trening asertywności to praktyczne warsztaty rozwijające umiejętności wyrażania swoich potrzeb, granic i opinii w sposób szanujący siebie i innych. Uczę, jak komunikować się pewnie i skutecznie w różnych sytuacjach życiowych, zarówno osobistych, jak i zawodowych.",
+      features: [
+        "Praktyczne ćwiczenia i scenki",
+        "Techniki asertywnej komunikacji",
+        "Praca z granicami osobistymi",
+        "Rozwój pewności siebie"
+      ],
+      price: "Na zapytanie",
+      gradient: "from-accent/25 to-sage-light/15"
+    },
+    {
       icon: BookOpen,
       title: "Warsztaty i wykłady",
       subtitle: "Edukacja psychologiczna dla organizacji",
