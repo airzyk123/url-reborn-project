@@ -65,7 +65,7 @@ const Services = () => {
       icon: MessageCircle,
       title: "Grupy terapeutyczno-rozwojowe",
       subtitle: "Wsparcie w grupie pod kierunkiem terapeuty",
-      description: "Prowadzę grupy terapeutyczne i wsparcia dla osób chcących pracować nad sobą w towarzystwie innych. Jako doświadczony psychoterapeuta zapewniam bezpieczną przestrzeń grupową, gdzie można dzielić się doświadczeniami, otrzymywać wsparcie i rozwijać umiejętności interpersonalne.",
+      description: "Prowadzę grupy terapeutyczne i wsparcia dla osób chcących pracować nad sobą w towarzystwie innych. Zapewniam bezpieczną przestrzeń grupową, gdzie można dzielić się doświadczeniami, otrzymywać wsparcie i rozwijać umiejętności interpersonalne.",
       features: [
         "Grupy pod kierunkiem psychoterapeuty",
         "Bezpieczna przestrzeń grupowa",
