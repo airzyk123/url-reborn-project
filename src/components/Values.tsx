@@ -12,7 +12,7 @@ const Values = () => {
     {
       icon: Heart,
       title: "Empatia i zrozumienie",
-      description: "Stosując podejście humanistyczne, tworzę atmosferę pełną akceptacji, gdzie każdy klient może doświadczyć bezwarunkowego pozytywnego traktowania zgodnie z najwyższymi standardami etycznymi.",
+      description: "Stosując podejście humanistyczne, tworzę atmosferę pełną akceptacji, gdzie każdy klient może doświadczyć empatycznego traktowania zgodnie z najwyższymi standardami etycznymi.",
       image: empathyIllustration
     },
     {
