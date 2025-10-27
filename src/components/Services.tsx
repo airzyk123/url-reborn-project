@@ -101,7 +101,7 @@ const Services = () => {
         "Indywidualnie dostosowane programy"
       ],
       price: "Na zapytanie",
-      gradient: "from-sage/15 to-sage-light/20"
+      gradient: "from-beige/15 to-sage-light/20"
     }
   ];
 
