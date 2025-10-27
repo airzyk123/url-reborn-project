@@ -57,9 +57,6 @@ const Values = () => {
               Moje wartości
             </h2>
             <div className="w-24 h-1 bg-gradient-accent mx-auto mb-8"></div>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Fundamenty, na których buduję swoją pracę i relacje z klientami
-            </p>
           </div>
 
           <div className="max-w-4xl mx-auto">
