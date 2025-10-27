@@ -44,7 +44,7 @@ const Services = () => {
         "Krótkoterminowe interwencje"
       ],
       price: "200 zł",
-      gradient: "from-sage-dark/15 to-beige-cream/25"
+      gradient: "from-sage-light/20 to-sage/10"
     },
     {
       icon: Users,
@@ -59,7 +59,7 @@ const Services = () => {
         "Rodzicielstwo oparte na wzajemnych szacunku"
       ],
       price: "300 zł",
-      gradient: "from-beige/30 to-sage-light/20"
+      gradient: "from-sage/15 to-beige/20"
     },
     {
       icon: MessageCircle,
@@ -73,7 +73,7 @@ const Services = () => {
         "Wzajemne wsparcie uczestników"
       ],
       price: "150 zł",
-      gradient: "from-accent/20 to-beige/20"
+      gradient: "from-beige/20 to-sage-light/15"
     },
     {
       icon: Target,
@@ -87,7 +87,7 @@ const Services = () => {
         "Rozwój pewności siebie"
       ],
       price: "Na zapytanie",
-      gradient: "from-accent/25 to-sage-light/15"
+      gradient: "from-sage-light/15 to-beige/20"
     },
     {
       icon: BookOpen,
@@ -98,10 +98,10 @@ const Services = () => {
         "Doświadczenie akademickie",
         "Komunikacja bez przemocy (NVC)",
         "Szkolenia dla organizacji",
-        "Certyfikowane programy"
+        "Indywidualnie dostosowane programy"
       ],
       price: "Na zapytanie",
-      gradient: "from-sage/20 to-accent/15"
+      gradient: "from-sage/15 to-sage-light/20"
     }
   ];
 
