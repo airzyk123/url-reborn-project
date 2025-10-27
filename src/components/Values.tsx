@@ -24,25 +24,25 @@ const Values = () => {
     {
       icon: Users,
       title: "Autentyczne relacje terapeutyczne",
-      description: "W swojej pracy stawiam na zbudowanie bezpiecznej relacji terapeutycznej, która jest fundamentem skutecznej zmiany i osobistego wzrostu.",
+      description: "W kontakcie z klientem stawiam na zbudowanie bezpiecznej relacji terapeutycznej, która jest fundamentem skutecznej zmiany i osobistego wzrostu.",
       image: authenticRelationsIllustration
     },
     {
       icon: Lightbulb,
-      title: "Rozwój i uświadomienie",
-      description: "Wykorzystując metody terapii gestalt i podejście systemowe, wspiera odkrywanie własnych zasobów i rozwijanie kompetencji emocjonalnych oraz społecznych.",
+      title: "Rozwój i samoświadomość",
+      description: "Wykorzystując różne metody terapii i rozwoju wspieram odkrywanie własnych zasobów i rozwijanie kompetencji emocjonalnych oraz społecznych.",
       image: growthIllustration
     },
     {
       icon: Compass,
       title: "Podejście integracyjne",
-      description: "Łącząc wiedzę z psychologii klinicznej, terapii rodzin i par oraz neuropsychologii, oferuję kompleksowe wsparcie uwzględniające wszystkie aspekty funkcjonowania człowieka.",
+      description: "Łącząc wiedzę z różnych podejść terapeutycznych oferuję kompleksowe wsparcie uwzględniające wszystkie aspekty funkcjonowania człowieka.",
       image: holisticIllustration
     },
     {
       icon: Star,
       title: "Najwyższe standardy jakości",
-      description: "Jako doktor nauk społecznych, regularnie uczestniczę w superwizjach, szkoleniach i konferencjach naukowych, aby zapewnić najwyższą jakość świadczonych usług psychologicznych.",
+      description: "Regularnie uczestniczę w superwizjach, szkoleniach i konferencjach naukowych, aby zapewnić najwyższą jakość świadczonych przeze mnie usług.",
       image: qualityIllustration
     }
   ];
