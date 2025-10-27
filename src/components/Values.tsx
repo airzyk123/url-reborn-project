@@ -18,7 +18,7 @@ const Values = () => {
     {
       icon: Shield,
       title: "Bezpieczeństwo i zaufanie",
-      description: "Jako psycholog z wieloletnim doświadczeniem klinicznym, zapewniam bezpieczną przestrzeń terapeutyczną opartą na zasadach poufności i profesjonalnej etyki zawodowej.",
+      description: "W swojej pracy zapewniam bezpieczną przestrzeń terapeutyczną opartą na zasadach poufności i profesjonalnej etyki zawodowej.",
       image: safetyIllustration
     },
     {
