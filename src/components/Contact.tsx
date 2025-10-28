@@ -128,7 +128,7 @@ const Contact = () => {
             </h2>
             <div className="w-24 h-1 bg-gradient-accent mx-auto mb-8"></div>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Gotowa na pierwszą rozmowę? Napisz lub zadzwoń - razem znajdziemy 
+              Gotowa/gotowy na pierwszą rozmowę? Napisz lub zadzwoń - razem znajdziemy 
               najlepszy sposób wsparcia dla Ciebie.
             </p>
           </div>
