@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Heart, Users, Star, Brain, MessageSquare } from "lucide-react";
+import { ArrowRight, Heart, Users, Star, Brain, MessageSquare, Target, BookOpen } from "lucide-react";
 import heroImage from "@/assets/hero-therapy.jpg";
 
 const Hero = () => {
@@ -31,45 +31,45 @@ const Hero = () => {
           {/* Service Tags */}
           <div className="flex flex-wrap justify-center gap-4 mb-8 animate-fade-in">
             <button 
-              onClick={scrollToServices}
+              onClick={() => scrollToSection('psychoterapia-indywidualna')}
               className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30 hover:bg-black/30 transition-all duration-300 cursor-pointer"
             >
               <Heart className="w-4 h-4 mr-2" />
               Psychoterapia indywidualna
             </button>
             <button 
-              onClick={scrollToServices}
+              onClick={() => scrollToSection('konsultacje-psychologiczne')}
               className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30 hover:bg-black/30 transition-all duration-300 cursor-pointer"
             >
               <Brain className="w-4 h-4 mr-2" />
               Konsultacje psychologiczne
             </button>
             <button 
-              onClick={scrollToServices}
+              onClick={() => scrollToSection('konsultacje-rodzicielskie')}
               className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30 hover:bg-black/30 transition-all duration-300 cursor-pointer"
             >
               <Users className="w-4 h-4 mr-2" />
               Konsultacje rodzicielskie
             </button>
             <button 
-              onClick={scrollToServices}
+              onClick={() => scrollToSection('grupy-terapeutyczne')}
               className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30 hover:bg-black/30 transition-all duration-300 cursor-pointer"
             >
               <MessageSquare className="w-4 h-4 mr-2" />
               Grupy terapeutyczno-rozwojowe
             </button>
             <button 
-              onClick={scrollToServices}
+              onClick={() => scrollToSection('trening-asertywnosci')}
               className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30 hover:bg-black/30 transition-all duration-300 cursor-pointer"
             >
-              <Star className="w-4 h-4 mr-2" />
+              <Target className="w-4 h-4 mr-2" />
               Trening asertywności
             </button>
             <button 
-              onClick={scrollToServices}
+              onClick={() => scrollToSection('warsztaty-wyklady')}
               className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30 hover:bg-black/30 transition-all duration-300 cursor-pointer"
             >
-              <Star className="w-4 h-4 mr-2" />
+              <BookOpen className="w-4 h-4 mr-2" />
               Warsztaty i wykłady
             </button>
           </div>
