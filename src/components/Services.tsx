@@ -22,6 +22,7 @@ const Services = () => {
 
   const services = [
     {
+      id: "psychoterapia-indywidualna",
       icon: User,
       title: "Psychoterapia indywidualna",
       subtitle: "Terapia humanistyczno-doświadczeniowa",
@@ -34,6 +35,7 @@ const Services = () => {
       gradient: "from-sage-light/20 to-sage/10"
     },
     {
+      id: "konsultacje-psychologiczne",
       icon: Heart,
       title: "Konsultacje psychologiczne",
       subtitle: "Profesjonalne wsparcie w trudnych sytuacjach",
@@ -47,6 +49,7 @@ const Services = () => {
       gradient: "from-sage-light/20 to-sage/10"
     },
     {
+      id: "konsultacje-rodzicielskie",
       icon: Users,
       title: "Konsultacje rodzicielskie",
       subtitle: "Profesjonalne wsparcie w rodzicielstwie",
@@ -62,6 +65,7 @@ const Services = () => {
       gradient: "from-sage/15 to-beige/20"
     },
     {
+      id: "grupy-terapeutyczne",
       icon: MessageCircle,
       title: "Grupy terapeutyczno-rozwojowe",
       subtitle: "Wsparcie w grupie pod kierunkiem terapeuty",
@@ -76,6 +80,7 @@ const Services = () => {
       gradient: "from-beige/20 to-sage-light/15"
     },
     {
+      id: "trening-asertywnosci",
       icon: Target,
       title: "Trening asertywności",
       subtitle: "Rozwijanie umiejętności asertywnej komunikacji",
@@ -90,6 +95,7 @@ const Services = () => {
       gradient: "from-sage-light/15 to-beige/20"
     },
     {
+      id: "warsztaty-wyklady",
       icon: BookOpen,
       title: "Warsztaty i wykłady",
       subtitle: "Edukacja psychologiczna dla organizacji",
@@ -124,6 +130,7 @@ const Services = () => {
               return (
                 <Card 
                   key={index}
+                  id={service.id}
                   className={`group shadow-card border-0 bg-gradient-to-br ${service.gradient} hover:shadow-hero transition-all duration-500 hover:scale-105 overflow-hidden relative`}
                 >
                   {/* Background decoration */}
