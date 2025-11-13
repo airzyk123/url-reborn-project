@@ -168,7 +168,7 @@ const Services = () => {
                       className="w-full group/btn border-sage/30 text-sage hover:bg-sage hover:text-white transition-all duration-300"
                       onClick={scrollToContact}
                     >
-                      Dowiedz się więcej
+                      Skontaktuj się ze mną
                       <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                     </Button>
                   </CardContent>
