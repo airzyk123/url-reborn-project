@@ -93,7 +93,7 @@ const Services = () => {
       icon: BookOpen,
       title: "Warsztaty i wykłady",
       subtitle: "Edukacja psychologiczna dla organizacji",
-      description: "Jako nauczyciel akademicki i doktor nauk społecznych prowadzę warsztaty i wykłady dla firm, szkół i organizacji. Specjalizuję się w komunikacji bez przemocy (NVC), budowaniu zespołów i rozwoju kompetencji emocjonalnych. Każde szkolenie dostosowuję do potrzeb organizacji.",
+      description: "Opierając się na bogatym doświadczeniu akademickim i terapeutyczno-rozwojowym prowadzę warsztaty dla firm, szkół i organizacji. Specjalizuję się w komunikacji bez przemocy (NVC), budowaniu zespołów i rozwoju kompetencji emocjonalnych. Każde szkolenie dostosowuję do potrzeb organizacji.",
       features: [
         "Doświadczenie akademickie",
         "Komunikacja bez przemocy (NVC)",
