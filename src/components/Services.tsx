@@ -202,7 +202,8 @@ const Services = () => {
                 <div className="space-y-2 text-foreground">
                   <p>✓ Spotkania stacjonarne w gabinecie</p>
                   <p>✓ Konsultacje online</p>
-                  <p>✓ Wyjazdy na warsztaty</p>
+                  <p>✓ W siedzibie klienta</p>
+                  <p>✓ Warsztaty wyjazdowe</p>
                 </div>
               </CardContent>
             </Card>
