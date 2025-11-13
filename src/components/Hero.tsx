@@ -30,26 +30,48 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Service Tags */}
           <div className="flex flex-wrap justify-center gap-4 mb-8 animate-fade-in">
-            <span className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30">
+            <button 
+              onClick={scrollToServices}
+              className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30 hover:bg-black/30 transition-all duration-300 cursor-pointer"
+            >
               <Heart className="w-4 h-4 mr-2" />
-              Psychoterapia
-            </span>
-            <span className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30">
+              Psychoterapia indywidualna
+            </button>
+            <button 
+              onClick={scrollToServices}
+              className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30 hover:bg-black/30 transition-all duration-300 cursor-pointer"
+            >
               <Brain className="w-4 h-4 mr-2" />
-              Wsparcie psychologiczne
-            </span>
-            <span className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30">
+              Konsultacje psychologiczne
+            </button>
+            <button 
+              onClick={scrollToServices}
+              className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30 hover:bg-black/30 transition-all duration-300 cursor-pointer"
+            >
               <Users className="w-4 h-4 mr-2" />
               Konsultacje rodzicielskie
-            </span>
-            <span className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30">
-              <Star className="w-4 h-4 mr-2" />
-              Warsztaty
-            </span>
-            <span className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30">
+            </button>
+            <button 
+              onClick={scrollToServices}
+              className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30 hover:bg-black/30 transition-all duration-300 cursor-pointer"
+            >
               <MessageSquare className="w-4 h-4 mr-2" />
               Grupy terapeutyczno-rozwojowe
-            </span>
+            </button>
+            <button 
+              onClick={scrollToServices}
+              className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30 hover:bg-black/30 transition-all duration-300 cursor-pointer"
+            >
+              <Star className="w-4 h-4 mr-2" />
+              Trening asertywności
+            </button>
+            <button 
+              onClick={scrollToServices}
+              className="inline-flex items-center px-4 py-2 bg-black/20 backdrop-blur-sm text-white font-medium rounded-full shadow-soft border border-white/30 hover:bg-black/30 transition-all duration-300 cursor-pointer"
+            >
+              <Star className="w-4 h-4 mr-2" />
+              Warsztaty i wykłady
+            </button>
           </div>
 
           {/* Main Heading */}
