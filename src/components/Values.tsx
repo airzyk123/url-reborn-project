@@ -106,9 +106,9 @@ const Values = () => {
             <Card className="shadow-hero border-0 bg-gradient-to-br from-sage/5 to-beige/10">
               <CardContent className="p-12 text-center">
                 <blockquote className="text-xl lg:text-2xl font-serif text-earth leading-relaxed mb-6">
-                  "Moja praca opiera się na szacunku, akceptacji i autentyczności. 
+                  Moja praca opiera się na szacunku, akceptacji i autentyczności. 
                   Relacja terapeutyczna to przestrzeń współpracy, gdzie razem z klientem 
-                  odkrywamy źródła życiowych problemów oraz ścieżki prowadzące do zdrowia psychicznego i lepszego funkcjonowania."
+                  odkrywamy źródła życiowych problemów oraz ścieżki prowadzące do zdrowia psychicznego i lepszego funkcjonowania.
                 </blockquote>
                 <div className="flex items-center justify-center">
                   <div className="w-16 h-0.5 bg-sage mr-4"></div>
