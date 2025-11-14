@@ -10,11 +10,9 @@ const Footer = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Brand */}
             <div className="lg:col-span-2">
-              <h3 className="text-2xl font-serif font-bold mb-4">Gabinet Psychoterapeutyczny</h3>
+              <h3 className="text-2xl font-serif font-bold mb-4">Gabinet Psychoterapii i Rozwoju Olga Filaszkiewicz</h3>
               <p className="text-white/80 mb-6 leading-relaxed">
-                Profesjonalne wsparcie psychologiczne i psychoterapeutyczne oparte na metodach 
-                humanistycznych i systemowych. Wieloletnie doświadczenie w pracy z osobami, 
-                parami i rodzinami.
+                Profesjonalne wsparcie psychologiczne i psychoterapeutyczne oparte na metodach humanistyczno-doświadczeniowych.
               </p>
               <div className="flex items-center text-white/60">
                 <Heart className="w-5 h-5 mr-2 text-sage-light" />
@@ -28,7 +26,12 @@ const Footer = () => {
               <ul className="space-y-3 text-white/80">
                 <li>
                   <a href="#services" className="hover:text-sage-light transition-colors">
-                    Psychoterapia
+                    Psychoterapia indywidualna
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="hover:text-sage-light transition-colors">
+                    Konsultacje psychologiczne
                   </a>
                 </li>
                 <li>
@@ -38,17 +41,17 @@ const Footer = () => {
                 </li>
                 <li>
                   <a href="#services" className="hover:text-sage-light transition-colors">
-                    Grupy wsparcia
+                    Grupy terapeutyczno-rozwojowe
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="hover:text-sage-light transition-colors">
+                    Trening asertywności
                   </a>
                 </li>
                 <li>
                   <a href="#services" className="hover:text-sage-light transition-colors">
                     Warsztaty i wykłady
-                  </a>
-                </li>
-                <li>
-                  <a href="#services" className="hover:text-sage-light transition-colors">
-                    Seminaria Family-lab
                   </a>
                 </li>
               </ul>
@@ -115,17 +118,13 @@ const Footer = () => {
               </nav>
               
               <div className="text-white/60 text-sm">
-                © {currentYear} Gabinet Psychoterapeutyczny - dr Olga Filaszkiewicz. Wszystkie prawa zastrzeżone.
+                © {currentYear} Gabinet Psychoterapii i Rozwoju Olga Filaszkiewicz. Wszystkie prawa zastrzeżone.
               </div>
             </div>
           </div>
 
-          {/* Certifications */}
+          {/* Privacy Notice */}
           <div className="border-t border-white/20 mt-8 pt-8 text-center">
-            <p className="text-white/60 text-sm mb-4">
-              Doktor nauk społecznych • Certyfikowana psychoterapeuta • 
-              Członek Polskiego Towarzystwa Psychologicznego • Superwizor w szkole "intra"
-            </p>
             <p className="text-white/50 text-xs">
               Wszelkie informacje podane na stronie są objęte tajemnicą zawodową 
               zgodnie z kodeksem etyki psychologa.
