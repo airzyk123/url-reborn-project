@@ -87,8 +87,7 @@ serve(async (req) => {
     console.error('Error details:', error.message)
     return new Response(
       JSON.stringify({ 
-        error: 'Wystąpił błąd podczas wysyłania wiadomości',
-        details: error.message 
+        error: 'Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie lub skontaktuj się bezpośrednio.'
       }),
       {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
