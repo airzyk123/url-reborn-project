@@ -276,29 +276,6 @@ const Contact = () => {
                 </CardContent>
               </Card>
 
-              {/* CTA Card */}
-              <Card className="shadow-card border-0 bg-gradient-to-br from-sage/5 to-beige/10">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-sage/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Calendar className="w-8 h-8 text-sage" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-earth mb-4">
-                    Umów pierwszą rozmowę
-                  </h3>
-                   <p className="text-foreground/80 mb-6">
-                    Pierwszy kontakt to ważny krok. W pracowni "Lepsze relacje" nie musisz się na nic zobowiązywać - 
-                    porozmawiajmy o tym, jak mogę Ci pomóc.
-                  </p>
-                  <Button 
-                    className="bg-gradient-accent text-white font-medium px-8 py-3 rounded-full shadow-soft hover:shadow-card transition-all duration-300 hover:scale-105"
-                    onClick={scrollToForm}
-                  >
-                    <Heart className="w-4 h-4 mr-2" />
-                    Rozpocznij rozmowę
-                  </Button>
-                </CardContent>
-              </Card>
-
               {/* Social Media */}
               <Card className="shadow-card border-0 bg-white/90">
                 <CardHeader>
