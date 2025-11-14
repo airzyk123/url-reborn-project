@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -17,17 +16,49 @@ import {
   Facebook,
   Linkedin
 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+// Validation schema
+const contactFormSchema = z.object({
+  name: z.string().trim().min(1, "Imię i nazwisko jest wymagane").max(100, "Imię i nazwisko musi mieć mniej niż 100 znaków"),
+  email: z.string().trim().email("Nieprawidłowy adres email").max(255, "Email musi mieć mniej niż 255 znaków"),
+  phone: z.string().trim().max(20, "Telefon musi mieć mniej niż 20 znaków").optional().or(z.literal("")),
+  message: z.string().trim().min(1, "Wiadomość jest wymagana").max(2000, "Wiadomość musi mieć mniej niż 2000 znaków"),
+  service: z.string().trim().max(100, "Usługa musi mieć mniej niż 100 znaków").optional().or(z.literal(""))
+});
+
+type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-    service: ""
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+      service: "",
+    },
+  });
 
   const scrollToForm = () => {
     const formElement = document.querySelector('#contact form');
@@ -40,13 +71,10 @@ const Contact = () => {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
+  const onSubmit = async (values: ContactFormValues) => {
     try {
       const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: formData
+        body: values
       });
 
       if (error) {
@@ -58,13 +86,7 @@ const Contact = () => {
         description: "Dziękuję za kontakt. Odpowiem w ciągu 24 godzin.",
       });
       
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-        service: ""
-      });
+      form.reset();
     } catch (error) {
       console.error('Błąd wysyłania:', error);
       toast({
@@ -72,13 +94,7 @@ const Contact = () => {
         description: "Przepraszam, wystąpił błąd. Spróbuj ponownie lub skontaktuj się bezpośrednio.",
         variant: "destructive"
       });
-    } finally {
-      setIsSubmitting(false);
     }
-  };
-
-  const handleChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
   };
 
   const contactInfo = [
@@ -135,187 +151,230 @@ const Contact = () => {
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <Card className="shadow-card border-0 bg-white/90">
+            <Card className="border-2 border-primary/10 shadow-lg">
               <CardHeader>
-                <CardTitle className="flex items-center text-earth">
-                  <MessageSquare className="w-6 h-6 text-sage mr-3" />
-                  Napisz do mnie
+                <CardTitle className="text-2xl font-serif text-earth flex items-center gap-2">
+                  <Send className="w-6 h-6 text-primary" />
+                  Formularz kontaktowy
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                        Imię i nazwisko *
-                      </label>
-                      <Input
-                        id="name"
-                        value={formData.name}
-                        onChange={(e) => handleChange("name", e.target.value)}
-                        className="border-sage/20 focus:border-sage focus:ring-sage"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                        Email *
-                      </label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => handleChange("email", e.target.value)}
-                        className="border-sage/20 focus:border-sage focus:ring-sage"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                        Telefon
-                      </label>
-                      <Input
-                        id="phone"
-                        value={formData.phone}
-                        onChange={(e) => handleChange("phone", e.target.value)}
-                        className="border-sage/20 focus:border-sage focus:ring-sage"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="service" className="block text-sm font-medium text-foreground mb-2">
-                        Interesująca usługa
-                      </label>
-                      <select
-                        id="service"
-                        value={formData.service}
-                        onChange={(e) => handleChange("service", e.target.value)}
-                        className="w-full border border-sage/20 rounded-md px-3 py-2 focus:border-sage focus:ring-sage focus:outline-none"
-                      >
-                        <option value="">Wybierz usługę</option>
-                        {services.map((service) => (
-                          <option key={service} value={service}>
-                            {service}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                      Wiadomość *
-                    </label>
-                    <Textarea
-                      id="message"
-                      value={formData.message}
-                      onChange={(e) => handleChange("message", e.target.value)}
-                      rows={6}
-                      className="border-sage/20 focus:border-sage focus:ring-sage"
-                      placeholder="Opowiedz o tym, w czym mogę Ci pomóc..."
-                      required
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <FormField
+                      control={form.control}
+                      name="name"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Imię i nazwisko *</FormLabel>
+                          <FormControl>
+                            <Input
+                              id="name"
+                              placeholder="Jan Kowalski"
+                              className="bg-white border-2 border-border/50 focus:border-primary transition-colors"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
                     />
-                  </div>
 
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-gradient-accent text-white font-medium py-3 rounded-full shadow-soft hover:shadow-card transition-all duration-300 hover:scale-105 group"
-                  >
-                    {isSubmitting ? (
-                      "Wysyłanie..."
-                    ) : (
-                      <>
-                        Wyślij wiadomość
-                        <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </>
-                    )}
-                  </Button>
-                </form>
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Email *</FormLabel>
+                          <FormControl>
+                            <Input
+                              type="email"
+                              placeholder="jan@example.com"
+                              className="bg-white border-2 border-border/50 focus:border-primary transition-colors"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="phone"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Telefon</FormLabel>
+                          <FormControl>
+                            <Input
+                              type="tel"
+                              placeholder="+48 123 456 789"
+                              className="bg-white border-2 border-border/50 focus:border-primary transition-colors"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="service"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Interesująca usługa</FormLabel>
+                          <Select onValueChange={field.onChange} value={field.value}>
+                            <FormControl>
+                              <SelectTrigger className="bg-white border-2 border-border/50 focus:border-primary transition-colors">
+                                <SelectValue placeholder="Wybierz usługę" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {services.map((service) => (
+                                <SelectItem key={service} value={service}>
+                                  {service}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="message"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Wiadomość *</FormLabel>
+                          <FormControl>
+                            <Textarea
+                              placeholder="W czym mogę Ci pomóc?"
+                              className="bg-white border-2 border-border/50 focus:border-primary transition-colors min-h-[150px]"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <Button 
+                      type="submit" 
+                      className="w-full bg-primary hover:bg-primary/90 text-white font-medium py-6 transition-all hover:scale-[1.02]"
+                      disabled={form.formState.isSubmitting}
+                    >
+                      {form.formState.isSubmitting ? "Wysyłanie..." : "Wyślij wiadomość"}
+                    </Button>
+
+                    <p className="text-xs text-muted-foreground text-center mt-4">
+                      * Pola wymagane. Twoje dane są bezpieczne i nie będą udostępniane osobom trzecim.
+                    </p>
+                  </form>
+                </Form>
               </CardContent>
             </Card>
 
-            {/* Contact Info */}
+            {/* Contact Information */}
             <div className="space-y-8">
               {/* Contact Details */}
-              <Card className="shadow-card border-0 bg-white/90">
+              <Card className="border-2 border-primary/10 shadow-lg">
                 <CardHeader>
-                  <CardTitle className="flex items-center text-earth">
-                    <Phone className="w-6 h-6 text-sage mr-3" />
+                  <CardTitle className="text-2xl font-serif text-earth flex items-center gap-2">
+                    <MessageSquare className="w-6 h-6 text-primary" />
                     Dane kontaktowe
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="space-y-6">
-                    {contactInfo.map((info, index) => {
-                      const IconComponent = info.icon;
-                      return (
-                        <div key={index} className="flex items-center">
-                          <div className="w-10 h-10 bg-sage/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                            <IconComponent className="w-5 h-5 text-sage" />
-                          </div>
-                          <div>
-                            <p className="text-sm font-medium text-earth">{info.title}</p>
-                            {info.link.startsWith('mailto:') || info.link.startsWith('tel:') ? (
-                              <a 
-                                href={info.link}
-                                className="text-foreground hover:text-sage transition-colors"
-                              >
-                                {info.value}
-                              </a>
-                            ) : (
-                              <p className="text-foreground">{info.value}</p>
-                            )}
-                          </div>
+                <CardContent className="space-y-6">
+                  {contactInfo.map((info, index) => {
+                    const Icon = info.icon;
+                    return (
+                      <a
+                        key={index}
+                        href={info.link}
+                        className="flex items-start gap-4 p-4 rounded-lg hover:bg-accent/50 transition-all group"
+                      >
+                        <div className="p-3 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                          <Icon className="w-5 h-5 text-primary" />
                         </div>
-                      );
-                    })}
-                  </div>
+                        <div>
+                          <h4 className="font-semibold text-earth mb-1">{info.title}</h4>
+                          <p className="text-muted-foreground text-sm">{info.value}</p>
+                        </div>
+                      </a>
+                    );
+                  })}
+                </CardContent>
+              </Card>
+
+              {/* Quick Actions */}
+              <Card className="border-2 border-primary/10 shadow-lg bg-gradient-to-br from-primary/5 to-transparent">
+                <CardHeader>
+                  <CardTitle className="text-xl font-serif text-earth flex items-center gap-2">
+                    <Heart className="w-5 h-5 text-primary" />
+                    Szybkie działania
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-start border-2 hover:bg-primary/10"
+                    onClick={scrollToForm}
+                  >
+                    <Calendar className="w-4 h-4 mr-2" />
+                    Wypełnij formularz
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-start border-2 hover:bg-primary/10"
+                    asChild
+                  >
+                    <a href="tel:+48459115349">
+                      <Phone className="w-4 h-4 mr-2" />
+                      Zadzwoń teraz
+                    </a>
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-start border-2 hover:bg-primary/10"
+                    asChild
+                  >
+                    <a href="mailto:info@olgafilaszkiewicz.pl">
+                      <Mail className="w-4 h-4 mr-2" />
+                      Wyślij email
+                    </a>
+                  </Button>
                 </CardContent>
               </Card>
 
               {/* Social Media */}
-              <Card className="shadow-card border-0 bg-white/90">
+              <Card className="border-2 border-primary/10 shadow-lg">
                 <CardHeader>
-                  <CardTitle className="flex items-center text-earth">
-                    <Heart className="w-6 h-6 text-sage mr-3" />
-                    Znajdź mnie także
+                  <CardTitle className="text-xl font-serif text-earth">
+                    Media społecznościowe
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex gap-4 justify-center">
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="flex items-center gap-2 border-sage/20 hover:border-sage hover:bg-sage/5 text-sage hover:text-sage"
-                      onClick={() => window.open('https://www.facebook.com/lepszerelacje', '_blank')}
+                  <div className="flex gap-4">
+                    <a
+                      href="https://www.facebook.com/profile.php?id=100063570006823"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-all hover:scale-110"
                     >
-                      <Facebook className="w-5 h-5" />
-                      Facebook
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="flex items-center gap-2 border-sage/20 hover:border-sage hover:bg-sage/5 text-sage hover:text-sage"
-                      onClick={() => window.open('https://pl.linkedin.com/in/olgafilaszkiewicz', '_blank')}
+                      <Facebook className="w-5 h-5 text-primary" />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/olga-filaszkiewicz-a34bb4114/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-all hover:scale-110"
                     >
-                      <Linkedin className="w-5 h-5" />
-                      LinkedIn
-                    </Button>
+                      <Linkedin className="w-5 h-5 text-primary" />
+                    </a>
                   </div>
-                </CardContent>
-              </Card>
-
-              {/* Privacy Note */}
-              <Card className="shadow-card border-0 bg-sage/5">
-                <CardContent className="p-6">
-                  <p className="text-sm text-foreground/70 text-center">
-                    <strong>Poufność gwarantowana.</strong> Wszystkie informacje podane 
-                    w formularzu są traktowane zgodnie z zasadami tajemnicy zawodowej 
-                    i nie będą udostępniane osobom trzecim.
-                  </p>
                 </CardContent>
               </Card>
             </div>

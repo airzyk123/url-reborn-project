@@ -1,9 +1,29 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2"
+import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts"
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+}
+
+// Input validation schema
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
+  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+  phone: z.string().trim().max(20, "Phone must be less than 20 characters").optional().or(z.literal("")),
+  message: z.string().trim().min(1, "Message is required").max(2000, "Message must be less than 2000 characters"),
+  service: z.string().trim().max(100, "Service must be less than 100 characters").optional().or(z.literal(""))
+})
+
+// HTML escape function to prevent injection
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
 }
 
 serve(async (req) => {
@@ -13,18 +33,28 @@ serve(async (req) => {
   }
 
   try {
-    const { name, email, phone, message, service } = await req.json()
+    const requestData = await req.json()
 
-    // Validate required fields
-    if (!name || !email || !message) {
-      return new Response(
-        JSON.stringify({ error: 'Brakuje wymaganych pól' }),
-        { 
-          status: 400, 
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-        }
-      )
+    // Validate and sanitize input
+    let validated
+    try {
+      validated = contactSchema.parse(requestData)
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const errorMessages = error.errors.map(e => `${e.path.join('.')}: ${e.message}`).join(', ')
+        console.error('Validation error:', errorMessages)
+        return new Response(
+          JSON.stringify({ error: `Nieprawidłowe dane: ${errorMessages}` }),
+          { 
+            status: 400, 
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+          }
+        )
+      }
+      throw error
     }
+
+    const { name, email, phone, message, service } = validated
 
     // Get Resend API key
     const resendApiKey = Deno.env.get('RESEND_API_KEY')
@@ -34,15 +64,15 @@ serve(async (req) => {
       throw new Error('Brak klucza API Resend')
     }
 
-    // Prepare email content
+    // Prepare email content with escaped HTML
     const emailHtml = `
       <h2>Nowa wiadomość z formularza kontaktowego</h2>
-      <p><strong>Imię i nazwisko:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      ${phone ? `<p><strong>Telefon:</strong> ${phone}</p>` : ''}
-      ${service ? `<p><strong>Interesująca usługa:</strong> ${service}</p>` : ''}
+      <p><strong>Imię i nazwisko:</strong> ${escapeHtml(name)}</p>
+      <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+      ${phone ? `<p><strong>Telefon:</strong> ${escapeHtml(phone)}</p>` : ''}
+      ${service ? `<p><strong>Interesująca usługa:</strong> ${escapeHtml(service)}</p>` : ''}
       <p><strong>Wiadomość:</strong></p>
-      <p>${message.replace(/\n/g, '<br>')}</p>
+      <p>${escapeHtml(message).replace(/\n/g, '<br>')}</p>
       
       <hr>
       <p><small>Wiadomość wysłana z formularza kontaktowego na stronie Pracowni "Lepsze relacje"</small></p>
