@@ -122,7 +122,6 @@ const Contact = () => {
     }
   };
 
-  // --- BRAKUJĄCY KOD (DANE KONTAKTOWE) ---
   const contactInfo = [
     {
       icon: Mail,
@@ -150,7 +149,6 @@ const Contact = () => {
     }
   ];
 
-  // --- BRAKUJĄCY KOD (USŁUGI) ---
   const services = [
     "Psychoterapia indywidualna",
     "Konsultacje psychologiczne",
@@ -164,7 +162,6 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          {/* --- BRAKUJĄCY KOD (NAGŁÓWEK SEKCJI) --- */}
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-serif font-bold text-earth mb-6">
               Skontaktuj się ze mną
@@ -188,7 +185,6 @@ const Contact = () => {
               <CardContent>
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                    {/* --- BRAKUJĄCY KOD (POLA FORMULARZA) --- */}
                     <FormField
                       control={form.control}
                       name="name"
@@ -288,9 +284,7 @@ const Contact = () => {
                         </FormItem>
                       )}
                     />
-                    {/* --- KONIEC PÓL FORMULARZA --- */}
-
-
+                    
                     {/* reCAPTCHA - POPRAWIONY BLOK */}
                     <FormField
                       control={form.control}
@@ -318,4 +312,120 @@ const Contact = () => {
                       {form.formState.isSubmitting ? "Wysyłanie..." : "Wyślij wiadomość"}
                     </Button>
 
-                    <p className="
+                    <p className="text-xs text-muted-foreground text-center mt-4">
+                      * Pola wymagane. Twoje dane są bezpieczne i nie będą udostępniane osobom trzecim.
+                    </p>
+                  </form>
+                </Form>
+              </CardContent>
+            </Card>
+
+            <div className="space-y-8">
+              {/* Contact Details */}
+              <Card className="border-2 border-primary/10 shadow-lg">
+                <CardHeader>
+                  <CardTitle className="text-2xl font-serif text-earth flex items-center gap-2">
+                    <MessageSquare className="w-6 h-6 text-primary" />
+                    Dane kontaktowe
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  {contactInfo.map((info, index) => {
+                    const Icon = info.icon;
+                    return (
+                      <a
+                        key={index}
+                        href={info.link}
+                        className="flex items-start gap-4 p-4 rounded-lg hover:bg-accent/50 transition-all group"
+                      >
+                        <div className="p-3 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                          <Icon className="w-5 h-5 text-primary" />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-earth mb-1">{info.title}</h4>
+                          <p className="text-muted-foreground text-sm">{info.value}</p>
+                        </div>
+                      </a>
+                    );
+                  })}
+                </CardContent>
+              </Card>
+
+              {/* Quick Actions */}
+              <Card className="border-2 border-primary/10 shadow-lg bg-gradient-to-br from-primary/5 to-transparent">
+                <CardHeader>
+                  <CardTitle className="text-xl font-serif text-earth flex items-center gap-2">
+                    <Heart className="w-5 h-5 text-primary" />
+                    Szybkie działania
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-start border-2 hover:bg-primary/10"
+                    onClick={scrollToForm}
+                  >
+                    <Calendar className="w-4 h-4 mr-2" />
+                    Wypełnij formularz
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-start border-2 hover:bg-primary/10"
+                    asChild
+                  >
+                    <a href="tel:+48459115349">
+                      <Phone className="w-4 h-4 mr-2" />
+                      Zadzwoń teraz
+                    </a>
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-start border-2 hover:bg-primary/10"
+                    asChild
+                  >
+                    <a href="mailto:info@olgafilaszkiewicz.pl">
+                      <Mail className="w-4 h-4 mr-2" />
+                      Wyślij email
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Social Media */}
+              <Card className="border-2 border-primary/10 shadow-lg">
+                <CardHeader>
+                  <CardTitle className="text-xl font-serif text-earth">
+                    Media społecznościowe
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex gap-4">
+                    <a
+                      href="https://www.facebook.com/profile.php?id=100063570006823"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-all hover:scale-110"
+                    >
+                      <Facebook className="w-5 h-5 text-primary" />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/olga-filaszkiewicz-a34bb4114/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-all hover:scale-110"
+                    >
+                      <Linkedin className="w-5 h-5 text-primary" />
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
