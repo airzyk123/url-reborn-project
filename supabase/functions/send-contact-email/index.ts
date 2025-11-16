@@ -13,7 +13,8 @@ const contactSchema = z.object({
   email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
   phone: z.string().trim().max(20, "Phone must be less than 20 characters").optional().or(z.literal("")),
   message: z.string().trim().min(1, "Message is required").max(2000, "Message must be less than 2000 characters"),
-  service: z.string().trim().max(100, "Service must be less than 100 characters").optional().or(z.literal(""))
+  service: z.string().trim().max(100, "Service must be less than 100 characters").optional().or(z.literal("")),
+  recaptchaToken: z.string().min(1, "reCAPTCHA verification required")
 })
 
 // HTML escape function to prevent injection
@@ -54,7 +55,36 @@ serve(async (req) => {
       throw error
     }
 
-    const { name, email, phone, message, service } = validated
+    const { name, email, phone, message, service, recaptchaToken } = validated
+
+    // Verify reCAPTCHA token
+    const recaptchaSecret = Deno.env.get('RECAPTCHA_SECRET_KEY')
+    if (!recaptchaSecret) {
+      console.error('Missing RECAPTCHA_SECRET_KEY environment variable')
+      throw new Error('Brak konfiguracji reCAPTCHA')
+    }
+
+    const recaptchaResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `secret=${recaptchaSecret}&response=${recaptchaToken}`,
+    })
+
+    const recaptchaResult = await recaptchaResponse.json()
+    console.log('reCAPTCHA verification:', recaptchaResult)
+
+    if (!recaptchaResult.success || recaptchaResult.score < 0.5) {
+      console.error('reCAPTCHA verification failed:', recaptchaResult)
+      return new Response(
+        JSON.stringify({ error: 'Weryfikacja reCAPTCHA nie powiodła się. Spróbuj ponownie.' }),
+        { 
+          status: 400, 
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+        }
+      )
+    }
 
     // Get Resend API key
     const resendApiKey = Deno.env.get('RESEND_API_KEY')

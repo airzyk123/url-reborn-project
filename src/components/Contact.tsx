@@ -41,7 +41,8 @@ const contactFormSchema = z.object({
   email: z.string().trim().email("Nieprawidłowy adres email").max(255, "Email musi mieć mniej niż 255 znaków"),
   phone: z.string().trim().max(20, "Telefon musi mieć mniej niż 20 znaków").optional().or(z.literal("")),
   message: z.string().trim().min(1, "Wiadomość jest wymagana").max(2000, "Wiadomość musi mieć mniej niż 2000 znaków"),
-  service: z.string().trim().max(100, "Usługa musi mieć mniej niż 100 znaków").optional().or(z.literal(""))
+  service: z.string().trim().max(100, "Usługa musi mieć mniej niż 100 znaków").optional().or(z.literal("")),
+  recaptchaToken: z.string().min(1, "Weryfikacja reCAPTCHA jest wymagana")
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -73,8 +74,20 @@ const Contact = () => {
 
   const onSubmit = async (values: ContactFormValues) => {
     try {
+      // Get reCAPTCHA token
+      const recaptchaToken = (window as any).grecaptcha?.getResponse();
+      
+      if (!recaptchaToken) {
+        toast({
+          title: "Weryfikacja wymagana",
+          description: "Proszę zaznaczyć pole reCAPTCHA.",
+          variant: "destructive"
+        });
+        return;
+      }
+
       const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: values
+        body: { ...values, recaptchaToken }
       });
 
       if (error) {
@@ -87,6 +100,8 @@ const Contact = () => {
       });
       
       form.reset();
+      // Reset reCAPTCHA
+      (window as any).grecaptcha?.reset();
     } catch (error) {
       console.error('Błąd wysyłania:', error);
       toast({
@@ -261,7 +276,15 @@ const Contact = () => {
                       )}
                     />
 
-                    <Button 
+                    {/* reCAPTCHA */}
+                    <div className="flex justify-center">
+                      <div 
+                        className="g-recaptcha" 
+                        data-sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                      ></div>
+                    </div>
+
+                    <Button
                       type="submit" 
                       className="w-full bg-primary hover:bg-primary/90 text-white font-medium py-6 transition-all hover:scale-[1.02]"
                       disabled={form.formState.isSubmitting}
