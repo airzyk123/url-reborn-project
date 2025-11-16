@@ -1,4 +1,3 @@
-// Proszę skopiować i wkleić cały ten kod jako plik Contact
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -35,7 +34,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-// NOWOŚĆ: Importujemy useEffect
+// Importujemy useEffect
 import React, { useEffect } from "react";
 
 // Validation schema
@@ -65,43 +64,41 @@ const Contact = () => {
     },
   });
 
-  // --- NOWY BLOK KODU ---
-  // Upubliczniamy funkcje callback dla reCAPTCHA
+  // --- BLOK POPRAWKI reCAPTCHA ---
   useEffect(() => {
     const callbackName = "onRecaptchaSuccess";
     const expiredCallbackName = "onRecaptchaExpired";
 
-    // Ta funkcja będzie wywołana przez Google po zaznaczeniu checkboxa
     (window as any)[callbackName] = (token: string) => {
-      // Ustawiamy token w react-hook-form i odpalamy walidację
       form.setValue('recaptchaToken', token, { shouldValidate: true });
     };
 
-    // Ta funkcja będzie wywołana, gdy token wygaśnie
     (window as any)[expiredCallbackName] = () => {
-      // Czyścimy token w react-hook-form i odpalamy walidację
       form.setValue('recaptchaToken', '', { shouldValidate: true });
     };
 
-    // Sprzątamy po sobie, gdy komponent jest odmontowywany
     return () => {
       delete (window as any)[callbackName];
       delete (window as any)[expiredCallbackName];
     };
-  }, [form]); // Zależność od 'form', aby mieć dostęp do 'setValue'
-  // --- KONIEC NOWEGO BLOKU ---
-
+  }, [form]);
+  // --- KONIEC BLOKU POPRAWKI ---
 
   const scrollToForm = () => {
-    // ... (bez zmian)
+    const formElement = document.querySelector('#contact form');
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      const nameInput = document.getElementById('name') as HTMLInputElement;
+      if (nameInput) {
+        setTimeout(() => nameInput.focus(), 500);
+      }
+    }
   };
 
-  // ZMIANA: Funkcja onSubmit jest teraz czystsza
   const onSubmit = async (values: ContactFormValues) => {
-    // 'values' zawiera już 'recaptchaToken' dzięki callbackowi
     try {
       const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: values // Przekazujemy 'values' bezpośrednio
+        body: values 
       });
 
       if (error) {
@@ -114,7 +111,6 @@ const Contact = () => {
       });
       
       form.reset();
-      // Resetujemy też reCAPTCHA
       (window as any).grecaptcha?.reset();
     } catch (error) {
       console.error('Błąd wysyłania:', error);
@@ -126,32 +122,176 @@ const Contact = () => {
     }
   };
 
+  // --- BRAKUJĄCY KOD (DANE KONTAKTOWE) ---
   const contactInfo = [
-    // ... (bez zmian)
+    {
+      icon: Mail,
+      title: "Email",
+      value: "info@olgafilaszkiewicz.pl",
+      link: "mailto:info@olgafilaszkiewicz.pl"
+    },
+    {
+      icon: Phone,
+      title: "Telefon",
+      value: "459 115 349",
+      link: "tel:+48459115349"
+    },
+    {
+      icon: MapPin,
+      title: "Lokalizacja",
+      value: "ul. Świętojańska 66/2, 81-393 Gdynia",
+      link: "#"
+    },
+    {
+      icon: Clock,
+      title: "Godziny przyjęć",
+      value: "Pn-Pt: 10:00-20:00, Sob: do uzgodnienia, Nd: nieczynne",
+      link: "#"
+    }
   ];
 
+  // --- BRAKUJĄCY KOD (USŁUGI) ---
   const services = [
-    // ... (bez zmian)
+    "Psychoterapia indywidualna",
+    "Konsultacje psychologiczne",
+    "Konsultacje rodzicielskie",
+    "Grupy terapeutyczno-rozwojowe",
+    "Trening asertywności",
+    "Inne"
   ];
 
   return (
     <section id="contact" className="py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          {/* ... (Section Header bez zmian) ... */}
+          {/* --- BRAKUJĄCY KOD (NAGŁÓWEK SEKCJI) --- */}
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-serif font-bold text-earth mb-6">
+              Skontaktuj się ze mną
+            </h2>
+            <div className="w-24 h-1 bg-gradient-accent mx-auto mb-8"></div>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Gotowa/gotowy na pierwszą rozmowę? Napisz lub zadzwoń - razem znajdziemy 
+              najlepszy sposób wsparcia dla Ciebie.
+            </p>
+          </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <Card className="border-2 border-primary/10 shadow-lg">
               <CardHeader>
-                {/* ... (CardTitle bez zmian) ... */}
+                <CardTitle className="text-2xl font-serif text-earth flex items-center gap-2">
+                  <Send className="w-6 h-6 text-primary" />
+                  Formularz kontaktowy
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                    {/* ... (Wszystkie FormFields dla name, email, phone, service, message bez zmian) ... */}
-                    
-                    {/* --- ZMIENIONY BLOK reCAPTCHA --- */}
+                    {/* --- BRAKUJĄCY KOD (POLA FORMULARZA) --- */}
+                    <FormField
+                      control={form.control}
+                      name="name"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Imię i nazwisko *</FormLabel>
+                          <FormControl>
+                            <Input
+                              id="name"
+                              placeholder="Jan Kowalski"
+                              className="bg-white border-2 border-border/50 focus:border-primary transition-colors"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Email *</FormLabel>
+                          <FormControl>
+                            <Input
+                              type="email"
+                              placeholder="jan@example.com"
+                              className="bg-white border-2 border-border/50 focus:border-primary transition-colors"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="phone"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Telefon</FormLabel>
+                          <FormControl>
+                            <Input
+                              type="tel"
+                              placeholder="+48 123 456 789"
+                              className="bg-white border-2 border-border/50 focus:border-primary transition-colors"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="service"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Interesująca usługa</FormLabel>
+                          <Select onValueChange={field.onChange} value={field.value}>
+                            <FormControl>
+                              <SelectTrigger className="bg-white border-2 border-border/50 focus:border-primary transition-colors">
+                                <SelectValue placeholder="Wybierz usługę" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              {services.map((service) => (
+                                <SelectItem key={service} value={service}>
+                                  {service}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="message"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Wiadomość *</FormLabel>
+                          <FormControl>
+                            <Textarea
+                              placeholder="W czym mogę Ci pomóc?"
+                              className="bg-white border-2 border-border/50 focus:border-primary transition-colors min-h-[150px]"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    {/* --- KONIEC PÓL FORMULARZA --- */}
+
+
+                    {/* reCAPTCHA - POPRAWIONY BLOK */}
                     <FormField
                       control={form.control}
                       name="recaptchaToken"
@@ -161,18 +301,15 @@ const Contact = () => {
                             <div
                               className="g-recaptcha"
                               data-sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-                              // Teraz przekazujemy NAZWY funkcji jako stringi
                               data-callback="onRecaptchaSuccess"
                               data-expired-callback="onRecaptchaExpired"
                             ></div>
                           </FormControl>
-                          {/* To pokaże błąd, jeśli walidacja zawiedzie */}
                           <FormMessage />
                         </FormItem>
                       )}
                     />
-                    {/* --- KONIEC ZMIENIONEGO BLOKU --- */}
-
+                    
                     <Button
                       type="submit" 
                       className="w-full bg-primary hover:bg-primary/90 text-white font-medium py-6 transition-all hover:scale-[1.02]"
@@ -181,21 +318,4 @@ const Contact = () => {
                       {form.formState.isSubmitting ? "Wysyłanie..." : "Wyślij wiadomość"}
                     </Button>
 
-                    <p className="text-xs text-muted-foreground text-center mt-4">
-                      * Pola wymagane. Twoje dane są bezpieczne i nie będą udostępniane osobom trzecim.
-                    </p>
-                  </form>
-                </Form>
-              </CardContent>
-            </Card>
-
-            {/* ... (Reszta sekcji: Contact Information, Quick Actions, Social Media bez zmian) ... */}
-            
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Contact;
+                    <p className="
