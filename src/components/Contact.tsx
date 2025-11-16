@@ -141,10 +141,10 @@ const Contact = () => {
 
   const services = [
     "Psychoterapia indywidualna",
+    "Konsultacje psychologiczne",
     "Konsultacje rodzicielskie",
-    "Grupy wsparcia",
-    "Warsztaty i wykłady",
-    "Seminaria Family-lab",
+    "Grupy terapeutyczno-rozwojowe",
+    "Trening asertywności",
     "Inne"
   ];
 
