@@ -58,6 +58,7 @@ const Contact = () => {
       phone: "",
       message: "",
       service: "",
+      recaptchaToken: "", // <-- DODAJ TĘ LINIĘ
     },
   });
 
@@ -75,7 +76,7 @@ const Contact = () => {
   const onSubmit = async (values: ContactFormValues) => {
     try {
       // Get reCAPTCHA token
-      const recaptchaToken = (window as any).grecaptcha?.getResponse();
+      /*const recaptchaToken = (window as any).grecaptcha?.getResponse();
       
       if (!recaptchaToken) {
         toast({
@@ -85,9 +86,9 @@ const Contact = () => {
         });
         return;
       }
-
+*/
       const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: { ...values, recaptchaToken }
+        body: values
       });
 
       if (error) {
@@ -276,13 +277,31 @@ const Contact = () => {
                       )}
                     />
 
-                    {/* reCAPTCHA */}
-                    <div className="flex justify-center">
-                      <div 
-                        className="g-recaptcha" 
-                        data-sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-                      ></div>
-                    </div>
+                 {/* reCAPTCHA */}
+                  <FormField
+                    control={form.control}
+                    name="recaptchaToken"
+                    render={({ field }) => (
+                      <FormItem className="flex flex-col items-center">
+                        <FormControl>
+                          <div
+                            className="g-recaptcha"
+                            data-sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                            data-callback={(token: string) => {
+                              // Ustawia wartość reCAPTCHA w react-hook-form
+                              form.setValue('recaptchaToken', token);
+                            }}
+                            data-expired-callback={() => {
+                              // Czyści wartość, jeśli token wygaśnie
+                              form.setValue('recaptchaToken', '');
+                            }}
+                          ></div>
+                        </FormControl>
+                        {/* Ten komponent pokaże teraz błąd walidacji */}
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
                     <Button
                       type="submit" 
