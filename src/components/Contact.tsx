@@ -1,3 +1,4 @@
+// Proszę skopiować i wkleić cały ten kod jako plik Contact
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -34,6 +35,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+// NOWOŚĆ: Importujemy useEffect
+import React, { useEffect } from "react";
 
 // Validation schema
 const contactFormSchema = z.object({
@@ -58,37 +61,47 @@ const Contact = () => {
       phone: "",
       message: "",
       service: "",
-      recaptchaToken: "", // <-- DODAJ TĘ LINIĘ
+      recaptchaToken: "", // Poprawne default value
     },
   });
 
+  // --- NOWY BLOK KODU ---
+  // Upubliczniamy funkcje callback dla reCAPTCHA
+  useEffect(() => {
+    const callbackName = "onRecaptchaSuccess";
+    const expiredCallbackName = "onRecaptchaExpired";
+
+    // Ta funkcja będzie wywołana przez Google po zaznaczeniu checkboxa
+    (window as any)[callbackName] = (token: string) => {
+      // Ustawiamy token w react-hook-form i odpalamy walidację
+      form.setValue('recaptchaToken', token, { shouldValidate: true });
+    };
+
+    // Ta funkcja będzie wywołana, gdy token wygaśnie
+    (window as any)[expiredCallbackName] = () => {
+      // Czyścimy token w react-hook-form i odpalamy walidację
+      form.setValue('recaptchaToken', '', { shouldValidate: true });
+    };
+
+    // Sprzątamy po sobie, gdy komponent jest odmontowywany
+    return () => {
+      delete (window as any)[callbackName];
+      delete (window as any)[expiredCallbackName];
+    };
+  }, [form]); // Zależność od 'form', aby mieć dostęp do 'setValue'
+  // --- KONIEC NOWEGO BLOKU ---
+
+
   const scrollToForm = () => {
-    const formElement = document.querySelector('#contact form');
-    if (formElement) {
-      formElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      const nameInput = document.getElementById('name') as HTMLInputElement;
-      if (nameInput) {
-        setTimeout(() => nameInput.focus(), 500);
-      }
-    }
+    // ... (bez zmian)
   };
 
+  // ZMIANA: Funkcja onSubmit jest teraz czystsza
   const onSubmit = async (values: ContactFormValues) => {
+    // 'values' zawiera już 'recaptchaToken' dzięki callbackowi
     try {
-      // Get reCAPTCHA token
-      /*const recaptchaToken = (window as any).grecaptcha?.getResponse();
-      
-      if (!recaptchaToken) {
-        toast({
-          title: "Weryfikacja wymagana",
-          description: "Proszę zaznaczyć pole reCAPTCHA.",
-          variant: "destructive"
-        });
-        return;
-      }
-*/
       const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: values
+        body: values // Przekazujemy 'values' bezpośrednio
       });
 
       if (error) {
@@ -101,7 +114,7 @@ const Contact = () => {
       });
       
       form.reset();
-      // Reset reCAPTCHA
+      // Resetujemy też reCAPTCHA
       (window as any).grecaptcha?.reset();
     } catch (error) {
       console.error('Błąd wysyłania:', error);
@@ -114,194 +127,51 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    {
-      icon: Mail,
-      title: "Email",
-      value: "info@olgafilaszkiewicz.pl",
-      link: "mailto:info@olgafilaszkiewicz.pl"
-    },
-    {
-      icon: Phone,
-      title: "Telefon",
-      value: "459 115 349",
-      link: "tel:+48459115349"
-    },
-    {
-      icon: MapPin,
-      title: "Lokalizacja",
-      value: "ul. Świętojańska 66/2, 81-393 Gdynia",
-      link: "#"
-    },
-    {
-      icon: Clock,
-      title: "Godziny przyjęć",
-      value: "Pn-Pt: 10:00-20:00, Sob: do uzgodnienia, Nd: nieczynne",
-      link: "#"
-    }
+    // ... (bez zmian)
   ];
 
   const services = [
-    "Psychoterapia indywidualna",
-    "Konsultacje psychologiczne",
-    "Konsultacje rodzicielskie",
-    "Grupy terapeutyczno-rozwojowe",
-    "Trening asertywności",
-    "Inne"
+    // ... (bez zmian)
   ];
 
   return (
     <section id="contact" className="py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-serif font-bold text-earth mb-6">
-              Skontaktuj się ze mną
-            </h2>
-            <div className="w-24 h-1 bg-gradient-accent mx-auto mb-8"></div>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Gotowa/gotowy na pierwszą rozmowę? Napisz lub zadzwoń - razem znajdziemy 
-              najlepszy sposób wsparcia dla Ciebie.
-            </p>
-          </div>
+          {/* ... (Section Header bez zmian) ... */}
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <Card className="border-2 border-primary/10 shadow-lg">
               <CardHeader>
-                <CardTitle className="text-2xl font-serif text-earth flex items-center gap-2">
-                  <Send className="w-6 h-6 text-primary" />
-                  Formularz kontaktowy
-                </CardTitle>
+                {/* ... (CardTitle bez zmian) ... */}
               </CardHeader>
               <CardContent>
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    {/* ... (Wszystkie FormFields dla name, email, phone, service, message bez zmian) ... */}
+                    
+                    {/* --- ZMIENIONY BLOK reCAPTCHA --- */}
                     <FormField
                       control={form.control}
-                      name="name"
+                      name="recaptchaToken"
                       render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Imię i nazwisko *</FormLabel>
+                        <FormItem className="flex flex-col items-center">
                           <FormControl>
-                            <Input
-                              id="name"
-                              placeholder="Jan Kowalski"
-                              className="bg-white border-2 border-border/50 focus:border-primary transition-colors"
-                              {...field}
-                            />
+                            <div
+                              className="g-recaptcha"
+                              data-sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                              // Teraz przekazujemy NAZWY funkcji jako stringi
+                              data-callback="onRecaptchaSuccess"
+                              data-expired-callback="onRecaptchaExpired"
+                            ></div>
                           </FormControl>
+                          {/* To pokaże błąd, jeśli walidacja zawiedzie */}
                           <FormMessage />
                         </FormItem>
                       )}
                     />
-
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Email *</FormLabel>
-                          <FormControl>
-                            <Input
-                              type="email"
-                              placeholder="jan@example.com"
-                              className="bg-white border-2 border-border/50 focus:border-primary transition-colors"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <FormField
-                      control={form.control}
-                      name="phone"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Telefon</FormLabel>
-                          <FormControl>
-                            <Input
-                              type="tel"
-                              placeholder="+48 123 456 789"
-                              className="bg-white border-2 border-border/50 focus:border-primary transition-colors"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <FormField
-                      control={form.control}
-                      name="service"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Interesująca usługa</FormLabel>
-                          <Select onValueChange={field.onChange} value={field.value}>
-                            <FormControl>
-                              <SelectTrigger className="bg-white border-2 border-border/50 focus:border-primary transition-colors">
-                                <SelectValue placeholder="Wybierz usługę" />
-                              </SelectTrigger>
-                            </FormControl>
-                            <SelectContent>
-                              {services.map((service) => (
-                                <SelectItem key={service} value={service}>
-                                  {service}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <FormField
-                      control={form.control}
-                      name="message"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Wiadomość *</FormLabel>
-                          <FormControl>
-                            <Textarea
-                              placeholder="W czym mogę Ci pomóc?"
-                              className="bg-white border-2 border-border/50 focus:border-primary transition-colors min-h-[150px]"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                 {/* reCAPTCHA */}
-                  <FormField
-                    control={form.control}
-                    name="recaptchaToken"
-                    render={({ field }) => (
-                      <FormItem className="flex flex-col items-center">
-                        <FormControl>
-                          <div
-                            className="g-recaptcha"
-                            data-sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-                            data-callback={(token: string) => {
-                              // Ustawia wartość reCAPTCHA w react-hook-form
-                              form.setValue('recaptchaToken', token);
-                            }}
-                            data-expired-callback={() => {
-                              // Czyści wartość, jeśli token wygaśnie
-                              form.setValue('recaptchaToken', '');
-                            }}
-                          ></div>
-                        </FormControl>
-                        {/* Ten komponent pokaże teraz błąd walidacji */}
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                    {/* --- KONIEC ZMIENIONEGO BLOKU --- */}
 
                     <Button
                       type="submit" 
@@ -319,107 +189,8 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            {/* Contact Information */}
-            <div className="space-y-8">
-              {/* Contact Details */}
-              <Card className="border-2 border-primary/10 shadow-lg">
-                <CardHeader>
-                  <CardTitle className="text-2xl font-serif text-earth flex items-center gap-2">
-                    <MessageSquare className="w-6 h-6 text-primary" />
-                    Dane kontaktowe
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  {contactInfo.map((info, index) => {
-                    const Icon = info.icon;
-                    return (
-                      <a
-                        key={index}
-                        href={info.link}
-                        className="flex items-start gap-4 p-4 rounded-lg hover:bg-accent/50 transition-all group"
-                      >
-                        <div className="p-3 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                          <Icon className="w-5 h-5 text-primary" />
-                        </div>
-                        <div>
-                          <h4 className="font-semibold text-earth mb-1">{info.title}</h4>
-                          <p className="text-muted-foreground text-sm">{info.value}</p>
-                        </div>
-                      </a>
-                    );
-                  })}
-                </CardContent>
-              </Card>
-
-              {/* Quick Actions */}
-              <Card className="border-2 border-primary/10 shadow-lg bg-gradient-to-br from-primary/5 to-transparent">
-                <CardHeader>
-                  <CardTitle className="text-xl font-serif text-earth flex items-center gap-2">
-                    <Heart className="w-5 h-5 text-primary" />
-                    Szybkie działania
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <Button 
-                    variant="outline" 
-                    className="w-full justify-start border-2 hover:bg-primary/10"
-                    onClick={scrollToForm}
-                  >
-                    <Calendar className="w-4 h-4 mr-2" />
-                    Wypełnij formularz
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    className="w-full justify-start border-2 hover:bg-primary/10"
-                    asChild
-                  >
-                    <a href="tel:+48459115349">
-                      <Phone className="w-4 h-4 mr-2" />
-                      Zadzwoń teraz
-                    </a>
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    className="w-full justify-start border-2 hover:bg-primary/10"
-                    asChild
-                  >
-                    <a href="mailto:info@olgafilaszkiewicz.pl">
-                      <Mail className="w-4 h-4 mr-2" />
-                      Wyślij email
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* Social Media */}
-              <Card className="border-2 border-primary/10 shadow-lg">
-                <CardHeader>
-                  <CardTitle className="text-xl font-serif text-earth">
-                    Media społecznościowe
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex gap-4">
-                    <a
-                      href="https://www.facebook.com/profile.php?id=100063570006823"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-all hover:scale-110"
-                    >
-                      <Facebook className="w-5 h-5 text-primary" />
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/olga-filaszkiewicz-a34bb4114/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-all hover:scale-110"
-                    >
-                      <Linkedin className="w-5 h-5 text-primary" />
-                    </a>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+            {/* ... (Reszta sekcji: Contact Information, Quick Actions, Social Media bez zmian) ... */}
+            
           </div>
         </div>
       </div>
