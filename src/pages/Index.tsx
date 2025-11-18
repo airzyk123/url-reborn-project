@@ -5,6 +5,7 @@ import Services from "@/components/Services";
 import Values from "@/components/Values";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import CookieBanner from "@/components/CookieBanner";
 
 const Index = () => {
   return (
@@ -26,6 +27,7 @@ const Index = () => {
         </section>
       </main>
       <Footer />
+      <CookieBanner />
     </div>
   );
 };
