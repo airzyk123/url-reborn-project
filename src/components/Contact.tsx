@@ -34,8 +34,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-// Importujemy useEffect
-import React, { useEffect } from "react";
+// Importujemy useEffect i useRef
+import React, { useEffect, useRef } from "react";
 
 // Validation schema
 const contactFormSchema = z.object({
@@ -51,6 +51,8 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 const Contact = () => {
   const { toast } = useToast();
+  const recaptchaRef = useRef<HTMLDivElement>(null);
+  const recaptchaWidgetId = useRef<number | null>(null);
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -60,29 +62,41 @@ const Contact = () => {
       phone: "",
       message: "",
       service: "",
-      recaptchaToken: "", // Poprawne default value
+      recaptchaToken: "",
     },
   });
 
-  // --- BLOK POPRAWKI reCAPTCHA ---
+  // reCAPTCHA explicit render
   useEffect(() => {
-    const callbackName = "onRecaptchaSuccess";
-    const expiredCallbackName = "onRecaptchaExpired";
-
-    (window as any)[callbackName] = (token: string) => {
-      form.setValue('recaptchaToken', token, { shouldValidate: true });
+    const loadRecaptcha = () => {
+      if (recaptchaRef.current && (window as any).grecaptcha && (window as any).grecaptcha.render) {
+        try {
+          if (recaptchaWidgetId.current === null) {
+            recaptchaWidgetId.current = (window as any).grecaptcha.render(recaptchaRef.current, {
+              sitekey: import.meta.env.VITE_RECAPTCHA_SITE_KEY,
+              callback: (token: string) => {
+                form.setValue('recaptchaToken', token, { shouldValidate: true });
+              },
+              'expired-callback': () => {
+                form.setValue('recaptchaToken', '', { shouldValidate: true });
+              }
+            });
+          }
+        } catch (error) {
+          console.error('reCAPTCHA render error:', error);
+        }
+      }
     };
 
-    (window as any)[expiredCallbackName] = () => {
-      form.setValue('recaptchaToken', '', { shouldValidate: true });
-    };
-
-    return () => {
-      delete (window as any)[callbackName];
-      delete (window as any)[expiredCallbackName];
-    };
+    // Wait for grecaptcha to be ready
+    if ((window as any).grecaptcha?.ready) {
+      (window as any).grecaptcha.ready(loadRecaptcha);
+    } else {
+      // Fallback: try loading after a delay
+      const timer = setTimeout(loadRecaptcha, 1000);
+      return () => clearTimeout(timer);
+    }
   }, [form]);
-  // --- KONIEC BLOKU POPRAWKI ---
 
   const scrollToForm = () => {
     const formElement = document.querySelector('#contact form');
@@ -111,7 +125,9 @@ const Contact = () => {
       });
       
       form.reset();
-      (window as any).grecaptcha?.reset();
+      if (recaptchaWidgetId.current !== null) {
+        (window as any).grecaptcha?.reset(recaptchaWidgetId.current);
+      }
     } catch (error) {
       console.error('Błąd wysyłania:', error);
       toast({
@@ -285,19 +301,14 @@ const Contact = () => {
                       )}
                     />
                     
-                    {/* reCAPTCHA - POPRAWIONY BLOK */}
+                    {/* reCAPTCHA */}
                     <FormField
                       control={form.control}
                       name="recaptchaToken"
                       render={({ field }) => (
                         <FormItem className="flex flex-col items-center">
                           <FormControl>
-                            <div
-                              className="g-recaptcha"
-                              data-sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-                              data-callback="onRecaptchaSuccess"
-                              data-expired-callback="onRecaptchaExpired"
-                            ></div>
+                            <div ref={recaptchaRef}></div>
                           </FormControl>
                           <FormMessage />
                         </FormItem>
