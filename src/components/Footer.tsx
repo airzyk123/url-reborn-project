@@ -132,7 +132,7 @@ const Footer = () => {
           {/* Privacy Notice */}
           <div className="border-t border-white/20 mt-8 pt-8 text-center">
             <p className="text-white/50 text-xs">
-              Wszelkie informacje podane na stronie są objęte tajemnicą zawodową 
+              Wszelkie informacje podawane w formularzu kontaktowym są objęte tajemnicą zawodową 
               zgodnie z kodeksem etyki psychologa.
             </p>
           </div>
