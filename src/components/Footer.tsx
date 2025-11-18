@@ -115,6 +115,12 @@ const Footer = () => {
                 >
                   Kontakt
                 </a>
+                <a 
+                  href="/polityka-prywatnosci" 
+                  className="text-white/80 hover:text-sage-light transition-colors"
+                >
+                  Polityka prywatności
+                </a>
               </nav>
               
               <div className="text-white/60 text-sm">
