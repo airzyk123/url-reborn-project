@@ -324,7 +324,7 @@ const Contact = () => {
                     </Button>
 
                     <p className="text-xs text-muted-foreground text-center mt-4">
-                      * Pola wymagane. Twoje dane są bezpieczne i nie będą udostępniane osobom trzecim.
+                      * Pola wymagane. Twoje dane są bezpieczne i nie będą udostępniane osobom trzecim. Wysyłając formularz kontaktowy potwierdzam, że zapoznałem/am się z Polityką Prywatności i wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zgłoszenie.
                     </p>
                   </form>
                 </Form>
