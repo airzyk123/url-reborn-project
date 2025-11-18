@@ -1,194 +1,173 @@
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const PrivacyPolicy = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <Header />
-      <main className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <Link 
-              to="/" 
-              className="inline-flex items-center text-primary hover:text-primary/80 mb-8 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Powrót do strony głównej
-            </Link>
+      <main className="container mx-auto px-4 py-16 max-w-4xl">
+        <Link to="/" className="inline-flex items-center text-sage hover:text-sage-dark mb-8">
+          ← Powrót do strony głównej
+        </Link>
+        
+        <h1 className="text-4xl font-bold mb-8 text-foreground">Polityka Prywatności</h1>
+        
+        <div className="prose prose-slate max-w-none space-y-6 text-foreground/90">
+          <section>
+            <h2 className="text-2xl font-semibold mb-4 text-foreground">1. Informacje ogólne</h2>
+            <p>
+              Niniejsza Polityka Prywatności określa zasady przetwarzania i ochrony danych osobowych przekazanych przez użytkowników w związku z korzystaniem ze strony internetowej www.olgafilaszkiewicz.pl, prowadzonej przez Gabinet Psychoterapii i Rozwoju Olga Filaszkiewicz.
+            </p>
+            <p>
+              Dokładamy wszelkich starań, aby zapewnić poszanowanie Państwa prywatności i ochronę udzielonych informacji osobowych podczas korzystania z Witryny i dokonywania w niej wszelkich działań, zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 (RODO).
+            </p>
+          </section>
 
-            <h1 className="text-4xl md:text-5xl font-serif font-bold mb-8">
-              Polityka Prywatności
-            </h1>
+          <section>
+            <h2 className="text-2xl font-semibold mb-4 text-foreground">2. Administrator danych</h2>
+            <p>Administratorem danych osobowych jest:</p>
+            <p className="font-medium">
+              Gabinet Psychoterapii i Rozwoju Olga Filaszkiewicz<br />
+              ul. Świętojańska 66/2<br />
+              81-393 Gdynia<br />
+              E-mail: info@lepszerelacje.pl<br />
+              Telefon: 459 115 349
+            </p>
+          </section>
 
-            <div className="prose prose-lg max-w-none space-y-8">
-              <section>
-                <h2 className="text-2xl font-semibold mb-4">1. Informacje ogólne</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  Niniejsza Polityka Prywatności określa zasady przetwarzania i ochrony danych 
-                  osobowych przekazanych przez użytkowników w związku z korzystaniem ze strony 
-                  internetowej www.olgafilaszkiewicz.pl prowadzonej przez Gabinet Psychoterapii 
-                  i Rozwoju Olga Filaszkiewicz.
-                </p>
-              </section>
+          <section>
+            <h2 className="text-2xl font-semibold mb-4 text-foreground">3. Rodzaj przetwarzanych danych</h2>
+            <p>W ramach świadczonych usług oraz funkcjonowania strony przetwarzamy następujące kategorie danych:</p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>
+                <strong>Dane zwykłe:</strong> Imię i nazwisko, adres e-mail, numer telefonu.
+              </li>
+              <li>
+                <strong>Dane przekazane dobrowolnie:</strong> Informacje wpisane w treści wiadomości formularza kontaktowego.
+              </li>
+              <li>
+                <strong>Dane techniczne:</strong> Adres IP, informacje o przeglądarce (zbierane automatycznie ze względów bezpieczeństwa i statystycznych).
+              </li>
+              <li>
+                <strong>Dane szczególnej kategorii (dane o zdrowiu):</strong> W przypadku nawiązania współpracy terapeutycznej, przetwarzane mogą być również dane dotyczące zdrowia, niezbędne do prowadzenia procesu diagnostycznego, terapeutycznego i dokumentacji medycznej.
+              </li>
+            </ul>
+          </section>
 
-              <section>
-                <h2 className="text-2xl font-semibold mb-4">2. Administrator danych</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  Administratorem danych osobowych jest:
-                </p>
-                <div className="bg-muted/50 p-6 rounded-lg mt-4">
-                  <p className="font-semibold">Gabinet Psychoterapii i Rozwoju Olga Filaszkiewicz</p>
-                  <p className="text-muted-foreground mt-2">ul. Świętojańska 66/2</p>
-                  <p className="text-muted-foreground">81-393 Gdynia</p>
-                  <p className="text-muted-foreground mt-2">E-mail: info@lepszerelacje.pl</p>
-                  <p className="text-muted-foreground">Telefon: 459 115 349</p>
-                </div>
-              </section>
+          <section>
+            <h2 className="text-2xl font-semibold mb-4 text-foreground">4. Cel i podstawa przetwarzania danych</h2>
+            <p>Państwa dane osobowe są przetwarzane w następujących celach:</p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>
+                <strong>Udzielenie odpowiedzi na zapytania (np. przez formularz kontaktowy)</strong> – podstawa prawna: zgoda użytkownika wynikająca z inicjatywy kontaktu (art. 6 ust. 1 lit. a RODO).
+              </li>
+              <li>
+                <strong>Rezerwacja terminu i świadczenie usług psychoterapeutycznych</strong> – podstawa prawna: wykonanie umowy lub podjęcie działań na żądanie osoby, której dane dotyczą (art. 6 ust. 1 lit. b RODO).
+              </li>
+              <li>
+                <strong>Prowadzenie procesu terapeutycznego i diagnozy (dane o zdrowiu)</strong> – podstawa prawna: art. 9 ust. 2 lit. h RODO (przetwarzanie niezbędne do celów profilaktyki zdrowotnej lub diagnozy medycznej, zapewnienia opieki zdrowotnej).
+              </li>
+              <li>
+                <strong>Prowadzenie i przechowywanie dokumentacji medycznej</strong> – podstawa prawna: obowiązek prawny ciążący na administratorze (art. 6 ust. 1 lit. c RODO w zw. z ustawą o prawach pacjenta i Rzeczniku Praw Pacjenta).
+              </li>
+              <li>
+                <strong>Marketing usług własnych</strong> – podstawa prawna: prawnie uzasadniony interes administratora (art. 6 ust. 1 lit. f RODO).
+              </li>
+            </ul>
+          </section>
 
-              <section>
-                <h2 className="text-2xl font-semibold mb-4">3. Rodzaj przetwarzanych danych</h2>
-                <p className="text-muted-foreground leading-relaxed mb-4">
-                  W ramach świadczonych usług przetwarzamy następujące dane osobowe:
-                </p>
-                <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-                  <li>Imię i nazwisko</li>
-                  <li>Adres e-mail</li>
-                  <li>Numer telefonu</li>
-                  <li>Dane podane w formularzu kontaktowym</li>
-                  <li>Adres IP (dane techniczne)</li>
-                </ul>
-              </section>
+          <section>
+            <h2 className="text-2xl font-semibold mb-4 text-foreground">5. Okres przechowywania danych</h2>
+            <p>Dane osobowe będą przechowywane przez okres niezbędny do realizacji celów, dla których zostały zebrane:</p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>
+                <strong>Dane kontaktowe:</strong> do momentu zakończenia korespondencji lub wycofania zgody.
+              </li>
+              <li>
+                <strong>Dokumentacja medyczna:</strong> przez okres co najmniej 20 lat od końca roku kalendarzowego, w którym dokonano ostatniego wpisu, zgodnie z art. 29 ustawy o prawach pacjenta i Rzeczniku Praw Pacjenta.
+              </li>
+              <li>
+                <strong>Dane marketingowe:</strong> do momentu wniesienia sprzeciwu.
+              </li>
+            </ul>
+          </section>
 
-              <section>
-                <h2 className="text-2xl font-semibold mb-4">4. Cel i podstawa przetwarzania danych</h2>
-                <p className="text-muted-foreground leading-relaxed mb-4">
-                  Dane osobowe są przetwarzane w następujących celach:
-                </p>
-                <ul className="list-disc pl-6 space-y-3 text-muted-foreground">
-                  <li>
-                    <strong>Udzielenie odpowiedzi na zapytania</strong> - podstawa prawna: 
-                    zgoda użytkownika (art. 6 ust. 1 lit. a RODO)
-                  </li>
-                  <li>
-                    <strong>Umówienie konsultacji lub spotkania</strong> - podstawa prawna: 
-                    podjęcie działań na żądanie osoby, której dane dotyczą (art. 6 ust. 1 lit. b RODO)
-                  </li>
-                  <li>
-                    <strong>Świadczenie usług terapeutycznych i konsultacyjnych</strong> - podstawa prawna: 
-                    wykonanie umowy (art. 6 ust. 1 lit. b RODO)
-                  </li>
-                  <li>
-                    <strong>Prowadzenie dokumentacji medycznej</strong> - podstawa prawna: 
-                    obowiązek prawny (art. 6 ust. 1 lit. c RODO oraz ustawa o prawach pacjenta)
-                  </li>
-                  <li>
-                    <strong>Marketing</strong> - podstawa prawna: prawnie uzasadniony interes 
-                    administratora (art. 6 ust. 1 lit. f RODO) lub zgoda (art. 6 ust. 1 lit. a RODO)
-                  </li>
-                </ul>
-              </section>
+          <section>
+            <h2 className="text-2xl font-semibold mb-4 text-foreground">6. Odbiorcy danych</h2>
+            <p>
+              Dane osobowe mogą być powierzane lub udostępniane następującym podmiotom współpracującym z Administratorem, wyłącznie w zakresie niezbędnym do realizacji celu przetwarzania:
+            </p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>Dostawcom usług IT i hostingu (strona jest hostowana na platformie Netlify, która zapewnia infrastrukturę techniczną).</li>
+              <li>Dostawcom usług księgowych.</li>
+              <li>Dostawcy usługi Google (w zakresie ochrony strony przed spamem – Google reCAPTCHA).</li>
+              <li>Uprawnionym organom państwowym, jeśli wymaga tego obowiązujące prawo.</li>
+            </ul>
+          </section>
 
-              <section>
-                <h2 className="text-2xl font-semibold mb-4">5. Okres przechowywania danych</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  Dane osobowe będą przechowywane przez okres niezbędny do realizacji celów, 
-                  dla których zostały zebrane, w tym:
-                </p>
-                <ul className="list-disc pl-6 space-y-2 text-muted-foreground mt-4">
-                  <li>Dane kontaktowe: do momentu wycofania zgody lub spełnienia celu</li>
-                  <li>Dokumentacja medyczna: 20 lat od ostatniego wpisu zgodnie z przepisami prawa</li>
-                  <li>Dane do celów marketingowych: do momentu wycofania zgody</li>
-                </ul>
-              </section>
+          <section>
+            <h2 className="text-2xl font-semibold mb-4 text-foreground">7. Prawa osób, których dane dotyczą</h2>
+            <p>Każda osoba, której dane są przetwarzane, ma prawo do:</p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>Dostępu do treści swoich danych.</li>
+              <li>Sprostowania danych (poprawiania).</li>
+              <li>Usunięcia danych (prawo do bycia zapomnianym) – o ile nie stoi to w sprzeczności z obowiązkiem prowadzenia dokumentacji medycznej.</li>
+              <li>Ograniczenia przetwarzania.</li>
+              <li>Przenoszenia danych.</li>
+              <li>Wniesienia sprzeciwu wobec przetwarzania.</li>
+              <li>Cofnięcia zgody w dowolnym momencie (bez wpływu na zgodność z prawem przetwarzania dokonanego przed jej cofnięciem).</li>
+              <li>Wniesienia skargi do organu nadzorczego (Prezes Urzędu Ochrony Danych Osobowych), gdy uzna, że przetwarzanie narusza przepisy RODO.</li>
+            </ul>
+          </section>
 
-              <section>
-                <h2 className="text-2xl font-semibold mb-4">6. Udostępnianie danych</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  Dane osobowe mogą być udostępniane następującym kategoriom odbiorców:
-                </p>
-                <ul className="list-disc pl-6 space-y-2 text-muted-foreground mt-4">
-                  <li>Dostawcom usług IT i hostingu</li>
-                  <li>Dostawcom usług księgowych i prawnych</li>
-                  <li>Organom państwowym, jeśli wymaga tego prawo</li>
-                </ul>
-              </section>
+          <section>
+            <h2 className="text-2xl font-semibold mb-4 text-foreground">8. Pliki cookies i zabezpieczenia (Google reCAPTCHA)</h2>
+            <p>
+              Strona internetowa wykorzystuje pliki cookies (ciasteczka), które są niewielkimi plikami tekstowymi zapisywanymi na urządzeniu użytkownika.
+            </p>
+            <p>
+              <strong>Bezpieczeństwo (reCAPTCHA):</strong> Na tej stronie używamy funkcji reCAPTCHA dostarczanej przez Google Ireland Limited („Google"). Funkcja ta służy do sprawdzania, czy dane wprowadzane na stronie (np. w formularzu kontaktowym) pochodzą od człowieka, czy od zautomatyzowanego programu. Usługa analizuje zachowanie użytkownika (np. adres IP, czas spędzony na stronie, ruchy myszką). Korzystanie z Google reCAPTCHA podlega Polityce Prywatności Google oraz Warunkom Korzystania z Usług Google.
+            </p>
+            <p>
+              <strong>Cookies funkcjonalne:</strong> Niezbędne do prawidłowego wyświetlania strony.
+            </p>
+            <p>
+              Użytkownik może w każdej chwili zmienić ustawienia dotyczące plików cookies w swojej przeglądarce internetowej. Ograniczenie stosowania plików cookies może jednak wpłynąć na niektóre funkcjonalności dostępne na stronie internetowej.
+            </p>
+          </section>
 
-              <section>
-                <h2 className="text-2xl font-semibold mb-4">7. Prawa osób, których dane dotyczą</h2>
-                <p className="text-muted-foreground leading-relaxed mb-4">
-                  Każda osoba, której dane są przetwarzane, ma prawo do:
-                </p>
-                <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-                  <li>Dostępu do swoich danych osobowych</li>
-                  <li>Sprostowania danych</li>
-                  <li>Usunięcia danych</li>
-                  <li>Ograniczenia przetwarzania</li>
-                  <li>Przenoszenia danych</li>
-                  <li>Wniesienia sprzeciwu wobec przetwarzania</li>
-                  <li>Cofnięcia zgody w dowolnym momencie</li>
-                  <li>Wniesienia skargi do organu nadzorczego (Prezes UODO)</li>
-                </ul>
-              </section>
+          <section>
+            <h2 className="text-2xl font-semibold mb-4 text-foreground">9. Bezpieczeństwo danych</h2>
+            <p>
+              Administrator stosuje odpowiednie środki techniczne i organizacyjne zapewniające ochronę przetwarzanych danych osobowych odpowiednią do zagrożeń oraz kategorii danych objętych ochroną. W szczególności zabezpiecza dane przed ich udostępnieniem osobom nieupoważnionym, zabraniem przez osobę nieuprawnioną, przetwarzaniem z naruszeniem obowiązujących przepisów oraz zmianą, utratą, uszkodzeniem lub zniszczeniem. Komunikacja ze stroną jest szyfrowana przy użyciu protokołu SSL.
+            </p>
+          </section>
 
-              <section>
-                <h2 className="text-2xl font-semibold mb-4">8. Pliki cookies</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  Strona internetowa wykorzystuje pliki cookies (ciasteczka), które są niewielkimi 
-                  plikami tekstowymi zapisywanymi na urządzeniu użytkownika. Cookies służą do 
-                  zapewnienia prawidłowego funkcjonowania strony oraz zbierania anonimowych 
-                  statystyk odwiedzin. Użytkownik może w każdej chwili zmienić ustawienia cookies 
-                  w swojej przeglądarce internetowej.
-                </p>
-              </section>
+          <section>
+            <h2 className="text-2xl font-semibold mb-4 text-foreground">10. Tajemnica zawodowa</h2>
+            <p>
+              Psychoterapeuta podlega obowiązkowi zachowania tajemnicy zawodowej zgodnie z Kodeksem Etyki Zawodowej Psychoterapeuty. Wszelkie informacje uzyskane w trakcie procesu diagnostycznego i psychoterapii są ściśle poufne i nie będą ujawniane osobom trzecim bez wyraźnej zgody pacjenta, z wyjątkiem sytuacji przewidzianych prawem (np. zagrożenie życia lub zdrowia).
+            </p>
+          </section>
 
-              <section>
-                <h2 className="text-2xl font-semibold mb-4">9. Bezpieczeństwo danych</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  Administrator stosuje odpowiednie środki techniczne i organizacyjne zapewniające 
-                  ochronę przetwarzanych danych osobowych odpowiednią do zagrożeń oraz kategorii 
-                  danych objętych ochroną, w szczególności zabezpiecza dane przed ich udostępnieniem 
-                  osobom nieupoważnionym, utratą, uszkodzeniem lub zniszczeniem.
-                </p>
-              </section>
+          <section>
+            <h2 className="text-2xl font-semibold mb-4 text-foreground">11. Zmiany w Polityce Prywatności</h2>
+            <p>
+              Administrator zastrzega sobie prawo do wprowadzania zmian w niniejszej Polityce Prywatności. O wszelkich zmianach użytkownicy będą informowani poprzez aktualizację treści na stronie internetowej.
+            </p>
+          </section>
 
-              <section>
-                <h2 className="text-2xl font-semibold mb-4">10. Tajemnica zawodowa</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  Psychoterapeuta podlega obowiązkowi zachowania tajemnicy zawodowej zgodnie z 
-                  Kodeksem Etyki Zawodowej Psychoterapeuty. Informacje uzyskane w trakcie 
-                  psychoterapii są poufne i nie będą ujawniane osobom trzecim bez zgody pacjenta, 
-                  z wyjątkiem sytuacji przewidzianych prawem.
-                </p>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-semibold mb-4">11. Zmiany w Polityce Prywatności</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  Administrator zastrzega sobie prawo do wprowadzania zmian w niniejszej Polityce 
-                  Prywatności. O wszelkich zmianach użytkownicy będą informowani poprzez 
-                  umieszczenie odpowiedniego komunikatu na stronie internetowej.
-                </p>
-              </section>
-
-              <section className="bg-sage/5 p-6 rounded-lg">
-                <h2 className="text-2xl font-semibold mb-4">12. Kontakt</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  W sprawach dotyczących przetwarzania danych osobowych oraz realizacji 
-                  przysługujących praw prosimy o kontakt:
-                </p>
-                <div className="mt-4">
-                  <p className="text-muted-foreground">E-mail: info@lepszerelacje.pl</p>
-                  <p className="text-muted-foreground">Telefon: 459 115 349</p>
-                </div>
-              </section>
-
-              <div className="text-sm text-muted-foreground mt-12 pt-8 border-t border-border">
-                <p>Data ostatniej aktualizacji: {new Date().toLocaleDateString('pl-PL')}</p>
-              </div>
-            </div>
-          </div>
+          <section>
+            <h2 className="text-2xl font-semibold mb-4 text-foreground">12. Kontakt</h2>
+            <p>
+              W sprawach dotyczących przetwarzania danych osobowych oraz realizacji przysługujących praw prosimy o kontakt:
+            </p>
+            <p className="font-medium">
+              E-mail: info@lepszerelacje.pl<br />
+              Telefon: 459 115 349
+            </p>
+          </section>
         </div>
       </main>
       <Footer />
