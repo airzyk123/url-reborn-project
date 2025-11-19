@@ -6,10 +6,12 @@ import Values from "@/components/Values";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
+import StructuredData from "@/components/StructuredData";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <StructuredData />
       <Header />
       <main>
         <Hero />
