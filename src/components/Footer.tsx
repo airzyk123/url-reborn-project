@@ -1,4 +1,5 @@
 import { Heart, Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -115,12 +116,12 @@ const Footer = () => {
                 >
                   Kontakt
                 </a>
-                <a 
-                  href="/polityka-prywatnosci" 
+                <Link 
+                  to="/polityka-prywatnosci" 
                   className="text-white/80 hover:text-sage-light transition-colors"
                 >
                   Polityka prywatności
-                </a>
+                </Link>
               </nav>
               
               <div className="text-white/60 text-sm">
