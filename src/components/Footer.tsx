@@ -1,8 +1,22 @@
 import { Heart, Mail, Phone, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const scrollToSection = (sectionId: string) => {
+    // If we're not on the home page, navigate there first
+    if (location.pathname !== '/') {
+      navigate('/' + sectionId);
+    } else {
+      const element = document.getElementById(sectionId.replace('#', ''));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <footer className="bg-earth text-white py-16">
@@ -26,34 +40,34 @@ const Footer = () => {
               <h4 className="text-lg font-semibold mb-4">Usługi</h4>
               <ul className="space-y-3 text-white/80">
                 <li>
-                  <a href="#services" className="hover:text-sage-light transition-colors">
+                  <button onClick={() => scrollToSection('#services')} className="hover:text-sage-light transition-colors">
                     Psychoterapia indywidualna
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a href="#services" className="hover:text-sage-light transition-colors">
+                  <button onClick={() => scrollToSection('#services')} className="hover:text-sage-light transition-colors">
                     Konsultacje psychologiczne
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a href="#services" className="hover:text-sage-light transition-colors">
+                  <button onClick={() => scrollToSection('#services')} className="hover:text-sage-light transition-colors">
                     Konsultacje rodzicielskie
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a href="#services" className="hover:text-sage-light transition-colors">
+                  <button onClick={() => scrollToSection('#services')} className="hover:text-sage-light transition-colors">
                     Grupy terapeutyczno-rozwojowe
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a href="#services" className="hover:text-sage-light transition-colors">
+                  <button onClick={() => scrollToSection('#services')} className="hover:text-sage-light transition-colors">
                     Trening asertywności
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a href="#services" className="hover:text-sage-light transition-colors">
+                  <button onClick={() => scrollToSection('#services')} className="hover:text-sage-light transition-colors">
                     Warsztaty i wykłady
-                  </a>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -92,30 +106,30 @@ const Footer = () => {
           <div className="border-t border-white/20 mt-12 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <nav className="flex flex-wrap gap-6 mb-4 md:mb-0">
-                <a 
-                  href="#about" 
+                <button 
+                  onClick={() => scrollToSection('#about')}
                   className="text-white/80 hover:text-sage-light transition-colors"
                 >
                   O mnie
-                </a>
-                <a 
-                  href="#services" 
+                </button>
+                <button 
+                  onClick={() => scrollToSection('#services')}
                   className="text-white/80 hover:text-sage-light transition-colors"
                 >
                   Oferta
-                </a>
-                <a 
-                  href="#values" 
+                </button>
+                <button 
+                  onClick={() => scrollToSection('#values')}
                   className="text-white/80 hover:text-sage-light transition-colors"
                 >
                   Wartości
-                </a>
-                <a 
-                  href="#contact" 
+                </button>
+                <button 
+                  onClick={() => scrollToSection('#contact')}
                   className="text-white/80 hover:text-sage-light transition-colors"
                 >
                   Kontakt
-                </a>
+                </button>
                 <Link 
                   to="/polityka-prywatnosci" 
                   className="text-white/80 hover:text-sage-light transition-colors"

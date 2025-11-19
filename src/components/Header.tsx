@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,13 +19,26 @@ const Header = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    // If we're not on the home page, navigate there first
+    if (location.pathname !== '/') {
+      navigate('/' + sectionId);
+    } else {
+      const element = document.getElementById(sectionId.replace('#', ''));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
-  const scrollToContact = () => scrollToSection('contact');
+  const scrollToContact = () => scrollToSection('#contact');
+
+  const handleLogoClick = () => {
+    if (location.pathname !== '/') {
+      navigate('/');
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   const navItems = [
     { label: "O mnie", href: "#about" },
@@ -44,7 +60,7 @@ const Header = () => {
           {/* Logo */}
           <div 
             className="flex items-center cursor-pointer"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={handleLogoClick}
           >
             <h1 className="text-xl lg:text-2xl font-serif font-semibold text-sage hover:opacity-80 transition-opacity">
               Gabinet Psychoterapii i Rozwoju Olga Filaszkiewicz
@@ -54,14 +70,14 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item.label}
-                href={item.href}
+                onClick={() => scrollToSection(item.href)}
                 className="text-sm font-medium text-foreground hover:text-sage transition-colors duration-200 relative group"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-sage transition-all duration-300 group-hover:w-full"></span>
-              </a>
+              </button>
             ))}
             <Button 
               variant="default" 
@@ -88,18 +104,20 @@ const Header = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
+          {isMobileMenuOpen && (
           <div className="lg:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-background/95 backdrop-blur-md rounded-lg mt-2 shadow-card">
               {navItems.map((item) => (
-                <a
+                <button
                   key={item.label}
-                  href={item.href}
-                  className="block px-3 py-2 text-base font-medium text-foreground hover:text-sage hover:bg-sage/5 rounded-md transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={() => {
+                    scrollToSection(item.href);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="block w-full text-left px-3 py-2 text-base font-medium text-foreground hover:text-sage hover:bg-sage/5 rounded-md transition-colors"
                 >
                   {item.label}
-                </a>
+                </button>
               ))}
               <div className="px-3 py-2">
                 <Button 
