@@ -25,7 +25,7 @@ const NotFound = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-hero">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-hero animate-fade-in">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto text-center animate-fade-in">
           <div className="bg-background/80 backdrop-blur-md rounded-2xl shadow-hero p-12 border border-sage/10">

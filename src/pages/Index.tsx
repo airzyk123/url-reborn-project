@@ -10,7 +10,7 @@ import StructuredData from "@/components/StructuredData";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen animate-fade-in">
       <StructuredData />
       <Header />
       <main>
