@@ -15,13 +15,7 @@ const NotFound = () => {
   }, [location.pathname]);
 
   const scrollToContact = () => {
-    navigate('/');
-    setTimeout(() => {
-      const element = document.getElementById('contact');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
+    navigate('/kontakt');
   };
 
   return (

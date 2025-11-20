@@ -7,20 +7,24 @@ const Footer = () => {
   const navigate = useNavigate();
 
   const scrollToSection = (sectionId: string) => {
-    // If we're not on the home page, navigate there first
-    if (location.pathname !== '/') {
-      navigate('/');
-      // Wait for navigation to complete, then scroll
-      setTimeout(() => {
+    if (sectionId === 'contact') {
+      navigate('/kontakt');
+    } else {
+      // If we're not on the home page, navigate there first
+      if (location.pathname !== '/') {
+        navigate('/');
+        // Wait for navigation to complete, then scroll
+        setTimeout(() => {
+          const element = document.getElementById(sectionId.replace('#', ''));
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
         const element = document.getElementById(sectionId.replace('#', ''));
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 100);
-    } else {
-      const element = document.getElementById(sectionId.replace('#', ''));
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
       }
     }
   };

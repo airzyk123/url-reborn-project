@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Services from "@/components/Services";
 import Values from "@/components/Values";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import StructuredData from "@/components/StructuredData";
@@ -23,9 +22,6 @@ const Index = () => {
         </section>
         <section id="values">
           <Values />
-        </section>
-        <section id="contact">
-          <Contact />
         </section>
       </main>
       <Footer />
