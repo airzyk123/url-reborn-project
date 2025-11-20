@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 
 const PrivacyPolicy = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background animate-fade-in">
       <Header />
       <main className="container mx-auto px-4 py-16 max-w-4xl">
         <Link to="/" className="inline-flex items-center text-sage hover:text-sage-dark mb-8">
