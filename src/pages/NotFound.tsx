@@ -1,10 +1,11 @@
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { Home, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const NotFound = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.error(
@@ -12,6 +13,16 @@ const NotFound = () => {
       location.pathname
     );
   }, [location.pathname]);
+
+  const scrollToContact = () => {
+    navigate('/');
+    setTimeout(() => {
+      const element = document.getElementById('contact');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-hero">
@@ -46,13 +57,11 @@ const NotFound = () => {
               
               <Button 
                 variant="outline"
-                asChild
+                onClick={scrollToContact}
                 className="border-sage text-sage hover:bg-sage/5 font-medium px-8 py-6 rounded-full transition-all duration-300"
               >
-                <Link to="/#contact">
-                  <ArrowLeft className="w-5 h-5 mr-2" />
-                  Skontaktuj się
-                </Link>
+                <ArrowLeft className="w-5 h-5 mr-2" />
+                Skontaktuj się
               </Button>
             </div>
           </div>
