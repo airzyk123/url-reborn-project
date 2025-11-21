@@ -86,10 +86,10 @@ const Footer = () => {
                 <div className="flex items-center">
                   <Mail className="w-4 h-4 mr-3 text-sage-light flex-shrink-0" />
                   <a 
-                    href="mailto:info@lepszerelacje.pl"
+                    href="mailto:info@olgafilaszkiewicz.pl"
                     className="hover:text-sage-light transition-colors"
                   >
-                    info@lepszerelacje.pl
+                    info@olgafilaszkiewicz.pl
                   </a>
                 </div>
                 <div className="flex items-center">
