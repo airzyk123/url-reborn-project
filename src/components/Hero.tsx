@@ -19,7 +19,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
-          alt="Spokojne wnętrze gabinetu terapeutycznego"
+          alt="Gabinet psychoterapii Olgi Filaszkiewicz w Gdyni - przytulne wnętrze gabinetu psychoterapeutycznego przy ul. Świętojańskiej, miejsce profesjonalnej psychoterapii humanistyczno-doświadczeniowej"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-hero"></div>

@@ -13,37 +13,43 @@ const Values = () => {
       icon: Heart,
       title: "Empatia i zrozumienie",
       description: "Stosując podejście humanistyczne, tworzę atmosferę pełną akceptacji, gdzie każdy klient może doświadczyć empatycznego traktowania zgodnie z najwyższymi standardami etycznymi.",
-      image: empathyIllustration
+      image: empathyIllustration,
+      imageAlt: "Empatia w psychoterapii - dłonie w geście wsparcia symbolizujące empatyczne podejście terapeutyczne"
     },
     {
       icon: Shield,
       title: "Bezpieczeństwo i zaufanie",
       description: "W swojej pracy zapewniam bezpieczną przestrzeń terapeutyczną opartą na zasadach poufności i profesjonalnej etyki zawodowej.",
-      image: safetyIllustration
+      image: safetyIllustration,
+      imageAlt: "Bezpieczeństwo w terapii - spokojne otoczenie symbolizujące bezpieczną przestrzeń gabinetu psychoterapeutycznego w Gdyni"
     },
     {
       icon: Users,
       title: "Autentyczne relacje terapeutyczne",
       description: "W kontakcie z klientem stawiam na zbudowanie bezpiecznej relacji terapeutycznej, która jest fundamentem skutecznej zmiany i osobistego wzrostu.",
-      image: authenticRelationsIllustration
+      image: authenticRelationsIllustration,
+      imageAlt: "Relacja terapeutyczna - ilustracja autentycznego kontaktu między terapeutą a klientem"
     },
     {
       icon: Lightbulb,
       title: "Rozwój i samoświadomość",
       description: "Wykorzystując różne metody terapii i rozwoju wspieram odkrywanie własnych zasobów i rozwijanie kompetencji emocjonalnych oraz społecznych.",
-      image: growthIllustration
+      image: growthIllustration,
+      imageAlt: "Rozwój osobisty - roślina symbolizująca wzrost i samoświadomość w procesie psychoterapii"
     },
     {
       icon: Compass,
       title: "Podejście integracyjne",
       description: "Łącząc wiedzę z różnych podejść terapeutycznych oferuję kompleksowe wsparcie uwzględniające wszystkie aspekty funkcjonowania człowieka.",
-      image: holisticIllustration
+      image: holisticIllustration,
+      imageAlt: "Podejście holistyczne - ilustracja integracyjnego podejścia w psychoterapii humanistyczno-doświadczeniowej"
     },
     {
       icon: Star,
       title: "Najwyższe standardy jakości",
       description: "Regularnie uczestniczę w superwizjach, szkoleniach i konferencjach naukowych, aby zapewnić najwyższą jakość świadczonych przeze mnie usług.",
-      image: qualityIllustration
+      image: qualityIllustration,
+      imageAlt: "Wysokie standardy - symbol profesjonalizmu i ciągłego rozwoju zawodowego psychoterapeuty"
     }
   ];
 
@@ -74,7 +80,7 @@ const Values = () => {
                         <div className="w-24 h-24 flex-shrink-0 overflow-hidden">
                           <img
                             src={value.image}
-                            alt={`Ilustracja przedstawiająca ${value.title.toLowerCase()}`}
+                            alt={value.imageAlt}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                           />
                         </div>
@@ -112,7 +118,7 @@ const Values = () => {
                 </blockquote>
                 <div className="flex items-center justify-center">
                   <div className="w-16 h-0.5 bg-sage mr-4"></div>
-                  <cite className="text-sage font-medium">dr Olga Filaszkiewicz</cite>
+                  <cite className="text-sage font-medium">Olga Filaszkiewicz</cite>
                   <div className="w-16 h-0.5 bg-sage ml-4"></div>
                 </div>
               </CardContent>
