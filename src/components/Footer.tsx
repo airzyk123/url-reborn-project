@@ -32,13 +32,15 @@ const Footer = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Brand */}
             <div className="lg:col-span-2">
-              <h3 className="text-2xl font-serif font-bold mb-4">Gabinet Psychoterapii i Rozwoju Olga Filaszkiewicz</h3>
+              <Link to="/" className="block">
+                <h3 className="text-2xl font-serif font-bold mb-4 hover:opacity-80 transition-opacity">Gabinet Psychoterapii i Rozwoju Olga Filaszkiewicz</h3>
+              </Link>
               <p className="text-white/80 mb-6 leading-relaxed">
                 Profesjonalne wsparcie psychologiczne i psychoterapeutyczne oparte na metodach humanistyczno-doświadczeniowych.
               </p>
               <div className="flex items-center text-white/60">
                 <Heart className="w-5 h-5 mr-2 text-sage-light" />
-                <span>dr Olga Filaszkiewicz • Psycholog • Psychoterapeuta</span>
+                <span>Olga Filaszkiewicz • Psychoterapeutka • Psycholog • Psychopedagog</span>
               </div>
             </div>
 
