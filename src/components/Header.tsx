@@ -83,22 +83,29 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
-              <button
+              <a
                 key={item.label}
-                onClick={() => scrollToSection(item.href)}
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item.href);
+                }}
                 className="text-sm font-medium text-foreground hover:text-sage transition-colors duration-200 relative group"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-sage transition-all duration-300 group-hover:w-full"></span>
-              </button>
+              </a>
             ))}
-            <Button 
-              variant="default" 
-              className="bg-gradient-accent text-white font-medium px-6 py-2 rounded-full shadow-soft hover:shadow-card transition-all duration-300 hover:scale-105"
-              onClick={scrollToContact}
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToContact();
+              }}
+              className="bg-gradient-accent text-white font-medium px-6 py-2 rounded-full shadow-soft hover:shadow-card transition-all duration-300 hover:scale-105 inline-block"
             >
               Umów wizytę
-            </Button>
+            </a>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -121,25 +128,31 @@ const Header = () => {
           <div className="lg:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-background/95 backdrop-blur-md rounded-lg mt-2 shadow-card">
               {navItems.map((item) => (
-                <button
+                <a
                   key={item.label}
-                  onClick={() => {
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
                     scrollToSection(item.href);
                     setIsMobileMenuOpen(false);
                   }}
                   className="block w-full text-left px-3 py-2 text-base font-medium text-foreground hover:text-sage hover:bg-sage/5 rounded-md transition-colors"
                 >
                   {item.label}
-                </button>
+                </a>
               ))}
               <div className="px-3 py-2">
-                <Button 
-                  variant="default" 
-                  className="w-full bg-gradient-accent text-white font-medium rounded-full"
-                  onClick={scrollToContact}
+                <a
+                  href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToContact();
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="block w-full text-center bg-gradient-accent text-white font-medium rounded-full py-2"
                 >
                   Umów wizytę
-                </Button>
+                </a>
               </div>
             </div>
           </div>
