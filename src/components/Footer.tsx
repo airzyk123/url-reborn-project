@@ -32,9 +32,9 @@ const Footer = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Brand */}
             <div className="lg:col-span-2">
-              <Link to="/" className="block">
+              <a href="https://www.olgafilaszkiewicz.pl/" onClick={(e) => { e.preventDefault(); if (location.pathname !== '/') { navigate('/'); } else { window.scrollTo({ top: 0, behavior: 'smooth' }); } }} className="block">
                 <h3 className="text-2xl font-serif font-bold mb-4 hover:opacity-80 transition-opacity">Gabinet Psychoterapii i Rozwoju Olga Filaszkiewicz</h3>
-              </Link>
+              </a>
               <p className="text-white/80 mb-6 leading-relaxed">
                 Profesjonalne wsparcie psychologiczne i psychoterapeutyczne oparte na metodach humanistyczno-doświadczeniowych.
               </p>

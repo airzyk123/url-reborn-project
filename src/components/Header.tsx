@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { useLocation, useNavigate, Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -64,21 +64,23 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <Link 
-            to="/"
+          {/* Logo - using absolute canonical URL for SEO */}
+          <a 
+            href="https://www.olgafilaszkiewicz.pl/"
             className="flex items-center"
             onClick={(e) => {
+              e.preventDefault();
               if (location.pathname === '/') {
-                e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+              } else {
+                navigate('/');
               }
             }}
           >
             <h1 className="text-xl lg:text-2xl font-serif font-semibold text-sage hover:opacity-80 transition-opacity">
               Gabinet Psychoterapii i Rozwoju Olga Filaszkiewicz
             </h1>
-          </Link>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
