@@ -43,7 +43,7 @@ const About = () => {
                    <img
                      src="/lovable-uploads/olga-filaszkiewicz-profile.jpg"
                      alt="Olga Filaszkiewicz - psychoterapeutka, psycholog i psychopedagog z Gdyni. Specjalistka psychoterapii humanistyczno-doświadczeniowej, certyfikowana trenerka Family-lab Polska"
-                     className="w-full h-full object-cover object-top rounded-3xl shadow-hero"
+                     className="w-full h-full object-contain rounded-3xl shadow-hero"
                    />
                   <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-sage/20 to-transparent"></div>
                 </div>
