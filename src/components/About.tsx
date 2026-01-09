@@ -41,7 +41,7 @@ const About = () => {
               <div className="relative">
                 <div className="relative w-80 h-80 mx-auto lg:w-96 lg:h-96">
                    <img
-                     src="/lovable-uploads/c07a34d9-9019-4c99-b2e2-3bb51a6ea9e8.png"
+                     src="/lovable-uploads/olga-filaszkiewicz-profile.jpg"
                      alt="Olga Filaszkiewicz - psychoterapeutka, psycholog i psychopedagog z Gdyni. Specjalistka psychoterapii humanistyczno-doświadczeniowej, certyfikowana trenerka Family-lab Polska"
                      className="w-full h-full object-cover rounded-3xl shadow-hero"
                    />
