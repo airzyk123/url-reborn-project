@@ -189,6 +189,15 @@ const Contact = () => {
             </p>
           </div>
 
+          {/* Photo Banner */}
+          <div className="mb-12 rounded-2xl overflow-hidden shadow-hero max-w-2xl mx-auto">
+            <img
+              src="/lovable-uploads/olga-contact.jpg"
+              alt="Olga Filaszkiewicz z książkami o psychoterapii - profesjonalne podejście oparte na wiedzy"
+              className="w-full h-64 object-cover object-top"
+            />
+          </div>
+
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <Card className="border-2 border-primary/10 shadow-lg">

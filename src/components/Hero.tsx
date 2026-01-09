@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Heart, Users, Star, Brain, MessageSquare, Target, BookOpen } from "lucide-react";
-import heroImage from "@/assets/hero-therapy.jpg";
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -18,9 +17,9 @@ const Hero = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src={heroImage}
-          alt="Gabinet psychoterapii Olgi Filaszkiewicz w Gdyni - przytulne wnętrze gabinetu psychoterapeutycznego przy ul. Świętojańskiej, miejsce profesjonalnej psychoterapii humanistyczno-doświadczeniowej"
-          className="w-full h-full object-cover"
+          src="/lovable-uploads/hero-olga.jpg"
+          alt="Olga Filaszkiewicz - psychoterapeutka i psycholog z Gdyni. Gabinet psychoterapii humanistyczno-doświadczeniowej przy ul. Świętojańskiej"
+          className="w-full h-full object-cover object-top"
         />
         <div className="absolute inset-0 bg-gradient-hero"></div>
       </div>
