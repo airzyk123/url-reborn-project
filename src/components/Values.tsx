@@ -107,42 +107,19 @@ const Values = () => {
             </div>
           </div>
 
-          {/* Quote Section with Photos */}
+          {/* Quote Section */}
           <div className="mt-20">
-            <Card className="shadow-hero border-0 bg-gradient-to-br from-sage/5 to-beige/10 overflow-hidden">
-              <CardContent className="p-0">
-                <div className="grid lg:grid-cols-3 gap-0">
-                  {/* Left Photo */}
-                  <div className="hidden lg:block h-80">
-                    <img
-                      src="/lovable-uploads/olga-quote-1.jpg"
-                      alt="Olga Filaszkiewicz - psychoterapeutka w przytulnym otoczeniu gabinetu"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  
-                  {/* Quote */}
-                  <div className="p-12 text-center flex flex-col justify-center">
-                    <blockquote className="text-xl lg:text-2xl font-serif text-earth leading-relaxed mb-6">
-                      Moja praca opiera się na szacunku, akceptacji i autentyczności. 
-                      Relacja terapeutyczna to przestrzeń współpracy, gdzie razem z klientem 
-                      odkrywamy źródła życiowych problemów oraz ścieżki prowadzące do zdrowia psychicznego i lepszego funkcjonowania.
-                    </blockquote>
-                    <div className="flex items-center justify-center">
-                      <div className="w-16 h-0.5 bg-sage mr-4"></div>
-                      <cite className="text-sage font-medium">Olga Filaszkiewicz</cite>
-                      <div className="w-16 h-0.5 bg-sage ml-4"></div>
-                    </div>
-                  </div>
-                  
-                  {/* Right Photo */}
-                  <div className="hidden lg:block h-80">
-                    <img
-                      src="/lovable-uploads/olga-quote-2.jpg"
-                      alt="Olga Filaszkiewicz - chwila relaksu z książką"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+            <Card className="shadow-hero border-0 bg-gradient-to-br from-sage/5 to-beige/10">
+              <CardContent className="p-12 text-center">
+                <blockquote className="text-xl lg:text-2xl font-serif text-earth leading-relaxed mb-6">
+                  Moja praca opiera się na szacunku, akceptacji i autentyczności. 
+                  Relacja terapeutyczna to przestrzeń współpracy, gdzie razem z klientem 
+                  odkrywamy źródła życiowych problemów oraz ścieżki prowadzące do zdrowia psychicznego i lepszego funkcjonowania.
+                </blockquote>
+                <div className="flex items-center justify-center">
+                  <div className="w-16 h-0.5 bg-sage mr-4"></div>
+                  <cite className="text-sage font-medium">Olga Filaszkiewicz</cite>
+                  <div className="w-16 h-0.5 bg-sage ml-4"></div>
                 </div>
               </CardContent>
             </Card>
