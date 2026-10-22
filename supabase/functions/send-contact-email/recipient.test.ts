@@ -15,7 +15,8 @@ test('contact messages are sent to Olga’s current Gmail inbox', async () => {
     recipients = payload.to;
     return Response.json({ id: 'test-email' });
   };
-  new Function('serve', 'z', 'Deno', 'fetch', source)(
+  const javascript = new Bun.Transpiler({ loader: 'ts' }).transformSync(source);
+  new Function('serve', 'z', 'Deno', 'fetch', javascript)(
     (callback: typeof handler) => { handler = callback; },
     z,
     { env: { get: () => 'mock-test-only' } },
