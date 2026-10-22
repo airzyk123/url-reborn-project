@@ -36,12 +36,14 @@ const CookieBanner = () => {
                 Ta strona używa plików cookies w celu zapewnienia prawidłowego działania oraz 
                 zapewnienia najlepszej jakości usług. Korzystając ze strony, zgadzasz się na 
                 wykorzystywanie plików cookies zgodnie z naszą{" "}
-                <Link 
-                  to="/polityka-prywatnosci" 
+                <a 
+                  href="/polityka-prywatnosci" 
+                  target="_blank"
+                  rel="noopener"
                   className="text-primary hover:underline"
                 >
                   polityką prywatności
-                </Link>.
+                </a>.
               </p>
             </div>
             <div className="flex items-center gap-3">
