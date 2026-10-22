@@ -142,8 +142,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      value: "info@olgafilaszkiewicz.pl",
-      link: "mailto:info@olgafilaszkiewicz.pl"
+      value: "olgafilaszkiewicz@gmail.com",
+      link: "mailto:olgafilaszkiewicz@gmail.com"
     },
     {
       icon: Phone,
@@ -394,7 +394,7 @@ const Contact = () => {
                     className="w-full justify-start border-2 hover:bg-primary/10"
                     asChild
                   >
-                    <a href="mailto:info@olgafilaszkiewicz.pl">
+                    <a href="mailto:olgafilaszkiewicz@gmail.com">
                       <Mail className="w-4 h-4 mr-2" />
                       Wyślij email
                     </a>
