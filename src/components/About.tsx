@@ -58,8 +58,8 @@ const About = () => {
                      Posiadam również wieloletnie doświadczenie akademickie, jestem doktorem nauk społecznych.
                    </p>
                    <p className="text-lg leading-relaxed text-foreground mt-4">
-                     W zakresie psychoterapii kształcę się w rekomendowanej przez <strong>Polskie Towarzystwo Psychologiczne 
-                     Szkole Psychoterapii „INTRA" w Warszawie</strong>.
+                     Jestem dyplomowaną psychoterapeutką. Ukończyłam rekomendowaną przez <strong>Polskie Towarzystwo Psychologiczne 
+                     Szkołę Psychoterapii „INTRA" w Warszawie</strong>.
                    </p>
                    <p className="text-lg leading-relaxed text-foreground mt-4">
                      W mojej pracy psychoterapeutycznej korzystam z <strong>nurtu integratywnego</strong> ze szczególnym 
