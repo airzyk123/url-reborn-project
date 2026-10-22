@@ -5,7 +5,7 @@ import profilePlaceholder from "@/assets/profile-placeholder.jpg";
 
 const About = () => {
   const qualifications = [
-    "Psychoterapeutka humanistyczno-doświadczeniowa (Szkoła Psychoterapii \"INTRA\" w Warszawie)",
+    "Dyplomowana psychoterapeutka humanistyczno-doświadczeniowa (Szkoła Psychoterapii \"INTRA\" w Warszawie)",
     "Magister psychologii (spec. psychologia kliniczna z psychoterapią)",
     "Magister pedagogiki (spec. Psychopedagogika)",
     "Wykładowca akademicki",
@@ -58,8 +58,8 @@ const About = () => {
                      Posiadam również wieloletnie doświadczenie akademickie, jestem doktorem nauk społecznych.
                    </p>
                    <p className="text-lg leading-relaxed text-foreground mt-4">
-                     W zakresie psychoterapii kształcę się w rekomendowanej przez <strong>Polskie Towarzystwo Psychologiczne 
-                     Szkole Psychoterapii „INTRA" w Warszawie</strong>.
+                     Jestem dyplomowaną psychoterapeutką. Ukończyłam rekomendowaną przez <strong>Polskie Towarzystwo Psychologiczne 
+                     Szkołę Psychoterapii „INTRA" w Warszawie</strong>.
                    </p>
                    <p className="text-lg leading-relaxed text-foreground mt-4">
                      W mojej pracy psychoterapeutycznej korzystam z <strong>nurtu integratywnego</strong> ze szczególnym 
