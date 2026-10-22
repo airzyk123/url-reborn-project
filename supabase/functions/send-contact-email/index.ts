@@ -117,7 +117,7 @@ serve(async (req) => {
       },
       body: JSON.stringify({
         from: 'Formularz kontaktowy <noreply@olgafilaszkiewicz.pl>',
-        to: ['info@olgafilaszkiewicz.pl'],
+        to: ['olgafilaszkiewicz@gmail.com'],
         reply_to: email,
         subject: `Nowa wiadomość od ${name}`,
         html: emailHtml,

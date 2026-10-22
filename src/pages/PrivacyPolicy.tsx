@@ -31,7 +31,7 @@ const PrivacyPolicy = () => {
               Gabinet Psychoterapii i Rozwoju Olga Filaszkiewicz<br />
               ul. Świętojańska 66/2<br />
               81-393 Gdynia<br />
-              E-mail: info@olgafilaszkiewicz.pl<br />
+              E-mail: olgafilaszkiewicz@gmail.com<br />
               Telefon: 459 115 349
             </p>
           </section>
@@ -164,7 +164,7 @@ const PrivacyPolicy = () => {
               W sprawach dotyczących przetwarzania danych osobowych oraz realizacji przysługujących praw prosimy o kontakt:
             </p>
             <p className="font-medium">
-              E-mail: info@olgafilaszkiewicz.pl<br />
+              E-mail: olgafilaszkiewicz@gmail.com<br />
               Telefon: 459 115 349
             </p>
           </section>

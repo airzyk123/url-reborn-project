@@ -10,7 +10,7 @@ const StructuredData = () => {
     "description": "Profesjonalne wsparcie psychologiczne i psychoterapeutyczne w nurcie humanistycznym. Konsultacje psychologiczne, psychoterapia indywidualna, konsultacje rodzicielskie oraz grupy terapeutyczno-rozwojowe.",
     "priceRange": "$$",
     "telephone": "+48459115349",
-    "email": "info@lepszerelacje.pl",
+    "email": "olgafilaszkiewicz@gmail.com",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "ul. Świętojańska 66/2",
@@ -44,7 +44,7 @@ const StructuredData = () => {
       "@type": "ContactPoint",
       "telephone": "+48459115349",
       "contactType": "customer service",
-      "email": "info@lepszerelacje.pl",
+      "email": "olgafilaszkiewicz@gmail.com",
       "availableLanguage": ["Polish"]
     },
     "founder": {
