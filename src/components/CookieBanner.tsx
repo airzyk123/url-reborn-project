@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const CookieBanner = () => {
   const [showBanner, setShowBanner] = useState(false);

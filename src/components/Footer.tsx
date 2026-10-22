@@ -1,5 +1,5 @@
 import { Heart, Mail, Phone, MapPin, ExternalLink } from "lucide-react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
